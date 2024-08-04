@@ -1,0 +1,18 @@
+/* src/pages/Login.module.css */
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+}
+
+.dev-skip {
+  margin-top: 20px;
+}
