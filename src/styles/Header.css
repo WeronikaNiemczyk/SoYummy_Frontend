@@ -1,0 +1,671 @@
+:root {
+  --cream: #fafafa;
+  --light-green: #ebf3d4;
+  --green: #8baa36;
+  --dark-blue: #22252a;
+  --light-grey: #d9d9d9;
+  --dark-grey: #c4c4c4;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.HeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 18px 16px;
+  background-color: transparent;
+  width: 100vw;
+}
+
+.HeaderRightContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.HeaderNavigation {
+  display: none;
+}
+
+.HeaderHamburger {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.HeaderHamburger:focus {
+  outline: none;
+}
+
+.HeaderHamburger svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: var(--dark-blue);
+}
+
+.HeaderMobileMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-green);
+  background-image: url("../images/leavesMobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1000;
+}
+
+.HeaderMobileMenuTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 18px 32px 32px 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.HeaderMobileMenuBottom {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 32px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.HeaderStyledLogo {
+  height: 40px;
+  width: 40px;
+  background: var(--green);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.HeaderStyledLogo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.HeaderStyledLogo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.HeaderStyledLogo svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: var(--cream);
+}
+
+.HeaderNav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.HeaderStyledLink {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+
+.HeaderStyledLink.active,
+.HeaderStyledLink.active .HeaderIconSearch {
+  font-weight: bold;
+  color: var(--green);
+  stroke: var(--green);
+}
+
+.HeaderUserLogoContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.HeaderUserPhotoSmall {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.HeaderUserIconSmall {
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: var(--light-grey);
+  margin-right: 10px;
+  stroke: var(--dark-grey);
+}
+
+.HeaderUserName {
+  font-size: 16px;
+  color: var(--dark-blue);
+  font-weight: bold;
+}
+
+.HeaderModalStyle {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.HeaderModalColor {
+  background-color: var(--cream);
+}
+
+.HeaderModalContainer {
+  position: absolute;
+  top: 75px;
+  right: 150px;
+  padding: 20px;
+  z-index: 1000;
+  width: 177px;
+  height: 134px;
+}
+
+.HeaderButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-blue);
+}
+
+.HeaderLogoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 24px 44px;
+}
+
+.HeaderLogoutButton:hover {
+  background-color: var(--dark-blue);
+}
+
+.HeaderLogoutModal {
+  width: 300px;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 44px 24px;
+  z-index: 1001;
+  width: 330px;
+  font-size: 18px;
+}
+
+.HeaderLogoutModalQuest {
+  font-size: 18px;
+}
+
+.HeaderLogoutModalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.HeaderLogoutModalButtons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+  width: 100%;
+}
+
+.HeaderCancelButton {
+  background-color: var(--light-grey);
+  color: var(--dark-blue);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 49px;
+  width: calc(50% - 5px);
+  font-size: 18px;
+}
+
+.HeaderCancelButton:hover {
+  background-color: var(--cream);
+  border: 2px solid var(--dark-blue);
+}
+
+.HeaderLogoutModalButton {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 49px;
+  width: calc(50% - 5px);
+}
+
+.HeaderLogoutModalButton:hover {
+  background-color: var(--dark-blue);
+}
+
+.HeaderLogoutModalButton:focus {
+  outline: none;
+}
+
+.HeaderIconSearch {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+  fill: transparent;
+  margin-right: 8px;
+}
+
+.HeaderSearchText {
+  display: inline;
+}
+
+.HeaderIcon {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+}
+
+.HeaderIconsec {
+  width: 24px;
+  height: 24px;
+  stroke: var(--cream);
+}
+
+.HeaderUserInfoModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 32px 24px;
+  z-index: 1001;
+  width: 330px;
+}
+
+.HeaderUserInfoModalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.HeaderUserPhotoContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+
+.HeaderPlusIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background-color: var(--green);
+  border-radius: 50%;
+  stroke: var(--cream);
+  z-index: 1005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
+.HeaderUserIconBig {
+  padding: 20px;
+  background-color: var(--light-grey);
+  stroke: var(--dark-grey);
+  border-radius: 50%;
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+}
+
+.HeaderUserPhotoBig {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.HeaderUserPhotoInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.HeaderUserNameContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.HeaderUserIconForm {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  fill: var(--dark-grey);
+  stroke: var(--dark-blue);
+}
+
+.HeaderUserIconForm {
+  left: 35px;
+}
+
+.HeaderEditIconForm {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 35px;
+}
+
+.HeaderEditIconForm:focus {
+  outline: none;
+}
+
+.HeaderEditIconForm svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+}
+
+.HeaderHamburger:hover svg,
+.HeaderIconColor:hover svg,
+.HeaderEditIconForm:hover svg {
+  stroke: var(--green);
+}
+
+.HeaderUserNameInput {
+  width: 100%;
+  height: 49px;
+  border: 1px solid var(--dark-grey);
+  border-radius: 5px;
+  margin: 24px 0;
+  background-color: var(--cream);
+  padding-left: 80px;
+  font-size: 16px;
+  color: var(--dark-blue);
+}
+
+.HeaderSaveButton {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 49px;
+  font-size: 18px;
+}
+
+.HeaderSaveButton:hover {
+  background-color: var(--dark-blue);
+}
+
+.HeaderSwitch {
+  width: 51px;
+  min-width: 51px;
+  height: 17px;
+  background: var(--cream);
+  border-radius: 15px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.HeaderSwitchOn {
+  background: var(--green);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.HeaderKnob {
+  width: 20px;
+  height: 20px;
+  background: var(--cream);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform: translateX(0);
+}
+
+.HeaderKnobOn {
+  transform: translateX(30px);
+}
+
+.HeaderCloseButton {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.HeaderCloseButton:focus,
+.HeaderSaveButton:focus {
+  outline: none;
+}
+
+.HeaderIconColor svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--dark-blue);
+}
+
+@media (min-width: 768px) {
+  .HeaderContainer {
+    padding: 18px 32px;
+    justify-content: space-between;
+  }
+
+  .HeaderRightContainer {
+    gap: 50px;
+  }
+
+  .HeaderStyledLogo {
+    height: 44px;
+    width: 44px;
+  }
+
+  .HeaderStyledLogo svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .HeaderUserInfoModal {
+    padding: 50px 40px;
+    width: 480px;
+  }
+
+  .HeaderLogoutModal {
+    padding: 50px 40px;
+    width: 480px;
+  }
+
+  .HeaderLogoutModalQuest {
+    font-size: 24px;
+  }
+
+  .HeaderSaveButton,
+  .HeaderUserNameInput,
+  .HeaderLogoutModalButton,
+  .HeaderCancelButton {
+    height: 59px;
+  }
+
+  .HeaderStyledLink {
+    font-size: 24px;
+  }
+
+  .HeaderUserNameInput {
+    font-size: 18px;
+  }
+
+  .HeaderMobileMenu {
+    background-image: url("../images/leavesTablet.png");
+  }
+
+  .HeaderIconColor svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .HeaderContainer {
+    padding: 18px 100px;
+  }
+
+  .HeaderNavigation {
+    display: flex;
+  }
+
+  .HeaderHamburger {
+    display: none;
+  }
+
+  .HeaderMobileMenu {
+    display: none;
+  }
+
+  .HeaderNav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .HeaderUserInfoModal {
+    padding: 60px 50px;
+    width: 500px;
+  }
+
+  .HeaderLogoutModal {
+    padding: 50px 50px;
+    width: 500px;
+  }
+
+  .HeaderStyledLink {
+    font-size: 14px;
+    margin: 0 10px;
+  }
+
+  .HeaderSearchText {
+    display: none;
+  }
+}
+
+body.dark-mode {
+  background-color: var(--dark-blue);
+  color: var(--cream);
+}
+
+body.dark-mode .HeaderHamburger svg,
+body.dark-mode .HeaderIconSearch,
+body.dark-mode .HeaderIcon,
+body.dark-mode .HeaderUserIconForm,
+body.dark-mode .HeaderEditIconForm svg,
+body.dark-mode .HeaderIconColor svg {
+  stroke: var(--cream);
+}
+
+body.dark-mode .HeaderMobileMenu {
+  background-color: var(--dark-blue);
+}
+
+body.dark-mode .HeaderStyledLink,
+body.dark-mode .HeaderUserName,
+body.dark-mode .HeaderButton {
+  color: var(--cream);
+}
+
+body.dark-mode .HeaderStyledLink.active,
+body.dark-mode .HeaderStyledLink.active .HeaderIconSearch {
+  color: var(--green);
+  stroke: var(--green);
+}
+
+body.dark-mode .HeaderModalColor {
+  background-color: var(--dark-blue);
+}
+
+body.dark-mode .HeaderHamburger:hover svg,
+body.dark-mode .HeaderIconColor:hover svg,
+body.dark-mode .HeaderEditIconForm:hover svg {
+  stroke: var(--green);
+}
+
+body.dark-mode .HeaderUserNameInput {
+  border: 1px solid var(--dark-grey);
+  background-color: var(--dark-blue);
+  color: var(--cream);
+}
