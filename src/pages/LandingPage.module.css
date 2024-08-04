@@ -1,0 +1,19 @@
+/* src/pages/LandingPage.module.css */
+
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.landingPage button {
+  margin: 10px;
+}
+
+.devSkip {
+  background-color: red;
+  color: white;
+}
