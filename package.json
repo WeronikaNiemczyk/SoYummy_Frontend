@@ -12,6 +12,16 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarekLempart/SoYummy_FrontEnd_groupNo_1.git"
+  },
+  "keywords": [],
+  "author": "Marek Lempart <kama.zakupy@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarekLempart/SoYummy_FrontEnd_groupNo_1/issues"
+  },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
