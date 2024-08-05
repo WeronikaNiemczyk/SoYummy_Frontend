@@ -1,6 +1,8 @@
 // src/App.jsx
 
 import { Header } from "./components/Header/Header";
+import RegisterPage from "./pages/RegisterPage";
+import SigninPage from "./pages/SigninPage";
 import WelcomePage from "./pages/WelcomePage";
 
 const App = () => {
@@ -8,6 +10,8 @@ const App = () => {
     <div>
       <Header />
       <WelcomePage />
+      <RegisterPage />
+      <SigninPage />
       {/* < Inne komponenty> */}
     </div>
   );
