@@ -30,15 +30,6 @@
   background-color: var(--green);
   color: var(--cream);
   border: none;
-  justify-content: space-between;
-  margin: 10px;
 }
 
-.navLink {
-  color: blue;
-  text-decoration: none;
-}
 
-.navLink:hover {
-  text-decoration: underline;
-}
