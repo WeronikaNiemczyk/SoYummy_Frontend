@@ -1,6 +1,6 @@
 /* src/styles/WelcomePage.module.css */
 
-.welcomeContainer {
+.welcomePageContainer {
   background: url("../images/welcomePage.png");
   min-height: 100vh;
   background-repeat: no-repeat;
@@ -8,14 +8,20 @@
   text-align: center;
   padding: 2rem;
   position: relative;
+  justify-content: center;
+}
+
+.welcomeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .logoTextContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .welcomeLogo {
