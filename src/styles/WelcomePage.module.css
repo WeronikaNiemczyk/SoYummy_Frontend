@@ -1,12 +1,33 @@
 /* src/styles/WelcomePage.module.css */
 
-/* .welcomeContainer {
-  background: url("../images/welcomePage.png") no-repeat center center/cover;
+.welcomeContainer {
+  background: url("../images/welcomePage.png");
   min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
   text-align: center;
   padding: 2rem;
   position: relative;
-} */
+}
+
+.logoTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.welcomeLogo {
+  height: 40px;
+  width: 40px;
+  background: var(--green);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 42px;
+}
 
 .logoIcon {
   position: absolute;
@@ -15,14 +36,36 @@
   transform: translateX(-50%);
   width: 50px;
   height: auto;
+  color: #fafafa;
+}
+
+.welcomeText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcomeTitle {
-  font-size: 2rem;
-  color: #fff;
+  color: #fafafa;
+  max-width: 305px;
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.28px;
+  margin-bottom: 14px;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .welcomeSubtitle {
   color: #fff;
   font-size: 1.2rem;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  width: 544px;
 }
