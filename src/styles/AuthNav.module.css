@@ -2,6 +2,35 @@
 
 .authNav {
   display: flex;
+
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.navLink {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-color: var(--cream);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: 2px solid var(--cream);
+  cursor: pointer;
+
+  border-radius: 24px 44px;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--cream);
+  padding: 22px 44px;
+}
+
+.navLink:hover {
+  text-decoration: none;
+  background-color: var(--green);
+  color: var(--cream);
+  border: none;
+=======
   justify-content: space-between;
   margin: 10px;
 }
