@@ -1,0 +1,16 @@
+/* src/components/AuthNav/AuthNav.module.css */
+
+.authNav {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.navLink {
+  color: blue;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}

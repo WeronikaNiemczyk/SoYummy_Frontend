@@ -1,12 +1,14 @@
 // src/App.jsx
 
 import { Header } from "./components/Header/Header";
+import WelcomePage from "./pages/WelcomePage";
 
 const App = () => {
   return (
     <div>
       <Header />
-      {/* Inne komponenty */}
+      <WelcomePage />
+      {/* < Inne komponenty> */}
     </div>
   );
 };
