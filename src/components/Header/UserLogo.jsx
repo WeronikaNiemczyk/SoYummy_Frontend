@@ -11,7 +11,7 @@ export const UserLogo = ({ user }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    fetch(`${import.meta.env.REACT_APP_API_BASE_URL}/users/current`, {
+    fetch(`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/users/current`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
