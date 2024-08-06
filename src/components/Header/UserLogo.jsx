@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
 import { UserLogoModal } from "./UserLogoModal";
+import Cookies from '../../features/cookies'
 
 export const UserLogo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userData, setUserData] = useState(user);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = Cookies.readCookie()
 
     // dodałem tego if'a
     if (!token) {

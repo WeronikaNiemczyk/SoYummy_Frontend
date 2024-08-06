@@ -42,7 +42,7 @@ export const Navigation = () => {
         {/* <NavLink className="HeaderStyledLink" to="/shopping-list"> */}
         Shopping List
       </NavLink>
-      <NavLink className="HeaderStyledLink" to="/search">
+      <NavLink className="HeaderStyledLink" to="../SoYummy_FrontEnd_groupNo_1/search">
         <svg className="HeaderIconSearch">
           <use xlinkHref={`${symbolDefs}#icon-search`} />
         </svg>
