@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.welcomeLogo {
+.welcomeLogoBackground {
   height: 40px;
   width: 40px;
   background: var(--green);
@@ -33,6 +33,13 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 42px;
+}
+
+.welcomeLogoSVG {
+  fill: none;
+  stroke: var(--cream);
+  width: 30px;
+  height: 30px;
 }
 
 .logoIcon {
