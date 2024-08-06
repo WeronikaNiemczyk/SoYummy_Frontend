@@ -1,0 +1,9 @@
+.categoriesContainer {
+  padding: 0 16px;
+  padding-bottom: 149px;
+  max-width: 767px;
+}
+
+.categoriesText {
+  color: black;
+}

@@ -1,0 +1,47 @@
+/* CategoriesPage.module.css */
+
+.categoriesPage {
+  padding: 20px;
+}
+
+.categoryMenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.categoryButton {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.categoryButton:hover {
+  background-color: #8baa36;
+  color: white;
+}
+
+.active {
+  background-color: #8baa36;
+  color: white;
+}
+
+.categoryRecipesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.categoryRecipeCard {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.categoryErrorMessage {
+  color: red;
+}
