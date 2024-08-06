@@ -1,12 +1,13 @@
 // src/pages/Categories.jsx
 
-// import React from 'react';
+import { CategoryList } from "components/CategoryList.jsx";
+import css from "../styles/Categories.module.css";
 
 const Categories = () => {
   return (
-    <div>
+    <div className={css.categoriesContainer}>
       <h1>Categories</h1>
-      <p>mu zrób swojego page</p>
+      <CategoryList />
     </div>
   );
 };
