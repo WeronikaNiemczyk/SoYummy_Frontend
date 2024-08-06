@@ -5,9 +5,9 @@ import controler from "../features/auth";
 // import { Link } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 
-// const LoginUser = ({ loginUserData = { email: '', password: '' } }) => {
-// const LoginUser = ({ loginUserData }) => {
-const LoginUser = (loginUserData) => {
+const LoginUser = ({ loginUserData = { email: "", password: "" } }) => {
+  // const LoginUser = ({ loginUserData }) => {
+  // const LoginUser = (loginUserData) => {
   const { email, password } = loginUserData;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);

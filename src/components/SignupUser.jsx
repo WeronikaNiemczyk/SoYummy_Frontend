@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import controler from "../features/auth";
 
-const Signup = ({ signupData }) => {
+// const Signup = ( {signupData} ) => {
+const Signup = (signupData) => {
   const { name, email, password } = signupData;
   const [registerData] = useState({ name, email, password });
   const [loading, setLoading] = useState(false);

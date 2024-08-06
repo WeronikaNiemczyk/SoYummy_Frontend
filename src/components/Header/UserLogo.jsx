@@ -1,9 +1,9 @@
 // src\components\Header\UserLogo.jsx
-import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { UserLogoModal } from "./UserLogoModal";
+import { useEffect, useState } from "react";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
+import { UserLogoModal } from "./UserLogoModal";
 
 export const UserLogo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +11,13 @@ export const UserLogo = ({ user }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
+
+    // dodałem tego if'a
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
+
     fetch(`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/users/current`, {
       method: "GET",
       headers: {
@@ -58,9 +65,16 @@ export const UserLogo = ({ user }) => {
   );
 };
 
+// UserLogo.propTypes = {
+//   user: PropTypes.shape({
+//     avatar: PropTypes.string,
+//     name: PropTypes.string.isRequired,
+//   }),
+// };
+
 UserLogo.propTypes = {
   user: PropTypes.shape({
     avatar: PropTypes.string,
     name: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
 };
