@@ -1,13 +1,13 @@
 // src/pages/Categories.jsx
 
-import { CategoryList } from "components/CategoryList.jsx";
+import { CategoryPage } from "components/CategoryPage.jsx";
 import css from "../styles/Categories.module.css";
 
 const Categories = () => {
   return (
     <div className={css.categoriesContainer}>
       <h1>Categories</h1>
-      <CategoryList />
+      <CategoryPage />
     </div>
   );
 };
