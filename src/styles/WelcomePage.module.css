@@ -24,15 +24,22 @@
   align-items: center;
 }
 
-.welcomeLogo {
-  height: 40px;
-  width: 40px;
+.welcomeLogoBackground {
+  height: 68px;
+  width: 68px;
   background: var(--green);
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 42px;
+}
+
+.welcomeLogoSVG {
+  fill: none;
+  stroke: var(--cream);
+  width: 44px;
+  height: 44px;
 }
 
 .logoIcon {
