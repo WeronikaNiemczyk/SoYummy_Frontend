@@ -67,7 +67,7 @@ const Register = () => {
           <button type="submit">Register</button>
         </div>
       </form>
-      {submitted && <Signup singupData={{ name, email, password }} />}
+      {submitted && <Signup signupData={{ name, email, password }} />}
       <Link to="../SoYummy_FrontEnd_groupNo_1/home">
         <button className={styles.devSkip}>Dev - Pomiń i przejdź dalej</button>
       </Link>
