@@ -1,13 +1,8 @@
-// src/components/LoginUser.jsx
-
 import { useEffect, useState } from "react";
 import controler from "../features/auth";
-// import { Link } from 'react-router-dom';
 import { Navigate } from "react-router-dom";
 
-const LoginUser = ({ loginUserData = { email: "", password: "" } }) => {
-  // const LoginUser = ({ loginUserData }) => {
-  // const LoginUser = (loginUserData) => {
+const LoginUser = ({ loginUserData }) => {
   const { email, password } = loginUserData;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -16,8 +11,8 @@ const LoginUser = ({ loginUserData = { email: "", password: "" } }) => {
   const handleSubmit = async () => {
     setLoading(true);
     setError(null);
-
     try {
+      console.log(loginUserData);
       await controler.login({ email, password });
       setSuccess(true);
     } catch (err) {
@@ -28,18 +23,20 @@ const LoginUser = ({ loginUserData = { email: "", password: "" } }) => {
     }
   };
 
-  // Ensure handleSubmit is called only when the submit button is clicked
   useEffect(() => {
     if (email && password) {
       handleSubmit();
     }
   }, [email, password]);
 
+  if (success) {
+    return <Navigate to="../SoYummy_FrontEnd_groupNo_1/home" replace />;
+  }
+
   return (
     <div>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
-      {success && <Navigate to="../SoYummy_FrontEnd_groupNo_1/home" replace />}
     </div>
   );
 };

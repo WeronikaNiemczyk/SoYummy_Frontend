@@ -24,6 +24,7 @@ const register = async (data) => {
 };
 
 const login = async (loginData) => {
+  console.log('login')
   const { email } = loginData;
   try {
     const res = await axios.post("/users/login", loginData, {
@@ -32,7 +33,7 @@ const login = async (loginData) => {
       },
     });
     const token = res.data.data.token;
-    Cookies.setCookie(email, token, 30);
+    Cookies.setCookie(token, 30);
     return res.data;
   } catch (error) {
     console.error(
