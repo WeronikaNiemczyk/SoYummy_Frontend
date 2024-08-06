@@ -41,7 +41,7 @@ const Login = () => {
 
     // Możesz tutaj dodać nawigację po udanym logowaniu, np.:
     if (email && password) {
-      navigate("/path-to-navigate");
+      navigate("../SoYummy_FrontEnd_groupNo_1/home");
     }
   };
 
