@@ -1,25 +1,47 @@
 // src/App.jsx
 
-import { Header } from "./components/Header/Header";
-
-import RegisterPage from "./pages/RegisterPage";
-import SigninPage from "./pages/SigninPage";
+// import { Header } from "./components/Header/Header";
+// import RegisterPage from "./pages/RegisterPage";
+// import SigninPage from "./pages/SigninPage";
 
 import WelcomePage from "./pages/WelcomePage";
 
+import { Route, Routes } from "react-router-dom";
+import AddRecipes from "./pages/AddRecipes";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+
 const App = () => {
   return (
-    <div>
-      <Header />
-      <WelcomePage />
-      <RegisterPage />
-      <SigninPage />
-      {/* < Inne komponenty> */}
-    </div>
+    <Routes>
+      <Route path="SoYummy_FrontEnd_groupNo_1/" element={<WelcomePage />} />
+      <Route path="SoYummy_FrontEnd_groupNo_1/home" element={<Home />} />
+      <Route path="SoYummy_FrontEnd_groupNo_1/add" element={<AddRecipes />} />
+      <Route
+        path="SoYummy_FrontEnd_groupNo_1/register"
+        element={<Register />}
+      />
+      <Route path="SoYummy_FrontEnd_groupNo_1/signin" element={<Login />} />
+    </Routes>
   );
 };
 
 export default App;
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Header />
+//       <WelcomePage />
+//       <RegisterPage />
+//       <SigninPage />
+//       {/* < Inne komponenty> */}
+//     </div>
+//   );
+// };
+
+// export default App;
 
 // import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 // import AddRecipes from "./pages/AddRecipes";
