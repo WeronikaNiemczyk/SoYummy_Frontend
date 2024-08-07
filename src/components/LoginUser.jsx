@@ -12,7 +12,6 @@ const LoginUser = ({ loginUserData }) => {
     setLoading(true);
     setError(null);
     try {
-      console.log(loginUserData);
       await controler.login({ email, password });
       setSuccess(true);
     } catch (err) {
