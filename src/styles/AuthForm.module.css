@@ -1,1 +1,82 @@
 /* src/components/AuthNav/AuthForm.module.css */
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #2a2c36;
+  padding: 44px 50px;
+  border-radius: 30px;
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  color: #fafafa;
+}
+
+.authForm h2 {
+  margin-bottom: 20px;
+}
+
+.authForm label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.authForm input {
+  font-style: normal;
+  width: 100%;
+  height: 41px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  background-color: transparent;
+  border-radius: 6px;
+  padding-left: 42px;
+  padding-right: 38px;
+  border: 1px solid #ccc;
+  outline: transparent;
+  transition: border 0.3s;
+  margin-bottom: 12px;
+}
+
+.authForm input::placeholder {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  opacity: 0.8;
+}
+
+.authForm input:focus,
+.authForm input:hover {
+  border: 1px solid #8baa36;
+}
+
+.authForm button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 21px;
+  gap: 8px;
+  margin-top: 26px;
+  width: 100%;
+  background: #8baa36;
+  border-radius: 6px;
+  color: #fafafa;
+  transition: color 0.3s;
+}
+
+.authForm button:hover {
+  color: black;
+}
+
+.authForm p {
+  text-align: center;
+  color: #fafafa;
+}
+
+.authForm .error {
+  color: red;
+}
