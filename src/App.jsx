@@ -7,6 +7,7 @@
 import WelcomePage from "./pages/WelcomePage";
 
 import { Route, Routes } from "react-router-dom";
+import SharedLayout from './components/sharedLayuot'
 import AddRecipes from "./pages/AddRecipes";
 import Categories from "./pages/Categories";
 import MyRecipes from "./pages/MyRecipes";
@@ -21,23 +22,15 @@ import CheckRoute from "./features/routes";
 const App = () => {
   return (
      <Routes>
-      <Route path="SoYummy_FrontEnd_groupNo_1/" element={<WelcomePage />} />
-      <Route path="SoYummy_FrontEnd_groupNo_1/home" element={<Home />} />
-      <Route
-        path="SoYummy_FrontEnd_groupNo_1/categories/:category"
-        element={<Categories />}
-      />
-      <Route path="SoYummy_FrontEnd_groupNo_1/add" element={<AddRecipes />} />
-      <Route path="SoYummy_FrontEnd_groupNo_1/my" element={<MyRecipes />} />
-      <Route
-        path="SoYummy_FrontEnd_groupNo_1/favorite"
-        element={<Favorites />}
-      />
-      <Route
-        path="SoYummy_FrontEnd_groupNo_1/shopping-list"
-        element={<ShoppingList />}
-      />
-      <Route path="SoYummy_FrontEnd_groupNo_1/search" element={<Search />} />
+      <Route path="SoYummy_FrontEnd_groupNo_1/" element={<SharedLayout />} >
+        <Route index  element={<Home />} />
+        <Route path="categories/:category" element={<Categories />}/>
+        <Route path="add" element={<AddRecipes />} />
+        <Route path="my" element={<MyRecipes />} />
+        <Route path="favorite" element={<Favorites />}/>
+        <Route path="shopping-list" element={<ShoppingList />}/>
+        <Route path="search" element={<Search />} />
+      </Route>
       <Route
         path="SoYummy_FrontEnd_groupNo_1/register"
         element={<Register />}
