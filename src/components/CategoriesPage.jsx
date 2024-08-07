@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   getCategoryListAPI,
-  getRecipesByCategoryAPI,
-} from "service/API/CategoriesAPI";
+  getAllRecipesByCategoryAPI,
+} from "../service/Api/CategoriesApi";
 import css from "../styles/CategoriesPage.module.css";
 
-const CategoriesPage = () => {
+export const CategoriesPage = () => {
   const { categoryName } = useParams();
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
@@ -20,9 +20,14 @@ const CategoriesPage = () => {
     const fetchCategories = async () => {
       try {
         const data = await getCategoryListAPI();
-        setCategories(data);
-        if (!categoryName) {
-          setSelectedCategory("Beef");
+        // Sprawdź, czy dane są tablicą
+        if (Array.isArray(data)) {
+          setCategories(data);
+          if (!categoryName) {
+            setSelectedCategory("Beef");
+          }
+        } else {
+          throw new Error("Fetched categories is not an array");
         }
       } catch (error) {
         setError("Failed to fetch categories.");
@@ -34,9 +39,15 @@ const CategoriesPage = () => {
 
   useEffect(() => {
     const fetchRecipes = async () => {
+      if (!selectedCategory) return;
       try {
-        const data = await getRecipesByCategoryAPI(selectedCategory);
-        setRecipes(data);
+        const data = await getAllRecipesByCategoryAPI(selectedCategory);
+        // Sprawdź, czy dane są tablicą
+        if (Array.isArray(data)) {
+          setRecipes(data);
+        } else {
+          throw new Error("Fetched recipes is not an array");
+        }
       } catch (error) {
         setError("Failed to fetch recipes.");
       }
@@ -80,5 +91,3 @@ const CategoriesPage = () => {
     </div>
   );
 };
-
-export default CategoriesPage;

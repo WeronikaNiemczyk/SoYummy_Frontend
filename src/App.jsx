@@ -8,12 +8,12 @@ import WelcomePage from "./pages/WelcomePage";
 
 import { Route, Routes } from "react-router-dom";
 import AddRecipes from "./pages/AddRecipes";
-//import Categories from './pages/Categories'
-import MyRecipes from './pages/MyRecipes'
+import Categories from "./pages/Categories";
+import MyRecipes from "./pages/MyRecipes";
 import Home from "./pages/Home";
-import Favorites from './pages/Favorites'
-import ShoppingList from './pages/ShoppingList'
-import Search from './pages/Search'
+import Favorites from "./pages/Favorites";
+import ShoppingList from "./pages/ShoppingList";
+import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
@@ -22,11 +22,20 @@ const App = () => {
     <Routes>
       <Route path="SoYummy_FrontEnd_groupNo_1/" element={<WelcomePage />} />
       <Route path="SoYummy_FrontEnd_groupNo_1/home" element={<Home />} />
-      {/*<Route path="SoYummy_FrontEnd_groupNo_1/categories/:categoryName" element={<Categories />} />*/}
+      <Route
+        path="SoYummy_FrontEnd_groupNo_1/categories/:categoryName"
+        element={<Categories />}
+      />
       <Route path="SoYummy_FrontEnd_groupNo_1/add" element={<AddRecipes />} />
       <Route path="SoYummy_FrontEnd_groupNo_1/my" element={<MyRecipes />} />
-      <Route path="SoYummy_FrontEnd_groupNo_1/favorite" element={<Favorites />} />
-      <Route path="SoYummy_FrontEnd_groupNo_1/shopping-list" element={<ShoppingList />} />
+      <Route
+        path="SoYummy_FrontEnd_groupNo_1/favorite"
+        element={<Favorites />}
+      />
+      <Route
+        path="SoYummy_FrontEnd_groupNo_1/shopping-list"
+        element={<ShoppingList />}
+      />
       <Route path="SoYummy_FrontEnd_groupNo_1/search" element={<Search />} />
       <Route
         path="SoYummy_FrontEnd_groupNo_1/register"
