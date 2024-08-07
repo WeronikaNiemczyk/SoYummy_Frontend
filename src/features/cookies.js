@@ -18,7 +18,13 @@ const readCookie = () => {
       return token;
     }
   }
-  return null; // Zwrot null jeśli ciastko nie zostało znalezione
+  return null
 };
 
-export default { setCookie, readCookie };
+const delCookie = () => {
+  let expires = "expires=Thu, 01 Jan 1970 00:00:01 GMT";
+  const cookieData = `token=;${expires}`;
+  document.cookie = cookieData;
+};
+
+export default { setCookie, readCookie, delCookie };

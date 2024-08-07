@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import symbolDefs from "../../images/symbol-defs.svg";
+import cookies from "../../features/cookies";
 import "../../styles/Header.css";
 
 export const LogoutBtn = ({ onLogout, onClose }) => {
@@ -10,14 +11,15 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    const token = localStorage.getItem("token");
-    fetch(`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/users/logout`, {
+    const token = cookies.readCookie();
+    console.log(token)
+    fetch(`https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/logout`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      credentials: "include",
+      
     })
       .then((response) => {
         if (!response.ok) {
@@ -25,8 +27,8 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
         }
         onLogout();
         onClose();
-        localStorage.removeItem("authToken");
-        navigate("/");
+        cookies.delCookie();
+        navigate("../SoYummy_FrontEnd_groupNo_1/");
       })
       .catch((error) => {
         console.error("Error logging out:", error);
