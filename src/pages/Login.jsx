@@ -1,16 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginUser from "../components/LoginUser";
+import cookies from "../features/cookies";
 import styles from "./Login.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const submit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+  };
+
+  const onClick = (e) => {
+    e.preventDefault();
+    cookies.setCookie("devToken");
+    navigate("../SoYummy_FrontEnd_groupNo_1/home");
   };
 
   return (
@@ -38,7 +46,9 @@ const Login = () => {
       </form>
       {submitted && <LoginUser loginUserData={{ email, password }} />}
       <Link to="../SoYummy_FrontEnd_groupNo_1/home">
-        <button className={styles.devSkip}>Dev - Pomiń i przejdź dalej</button>
+        <button className={styles.devSkip} onClick={onClick}>
+          Dev - Skip ahead
+        </button>
       </Link>
     </div>
   );

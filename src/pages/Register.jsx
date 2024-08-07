@@ -69,7 +69,7 @@ const Register = () => {
       </form>
       {submitted && <Signup signupData={{ name, email, password }} />}
       <Link to="../SoYummy_FrontEnd_groupNo_1/home">
-        <button className={styles.devSkip}>Dev - Pomiń i przejdź dalej</button>
+        <button className={styles.devSkip}>Dev - Skip ahead</button>
       </Link>
     </div>
   );

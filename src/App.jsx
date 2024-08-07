@@ -16,10 +16,11 @@ import ShoppingList from "./pages/ShoppingList";
 import Search from "./pages/Search";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CheckRoute from "./features/routes";
 
 const App = () => {
   return (
-    <Routes>
+     <Routes>
       <Route path="SoYummy_FrontEnd_groupNo_1/" element={<WelcomePage />} />
       <Route path="SoYummy_FrontEnd_groupNo_1/home" element={<Home />} />
       <Route
