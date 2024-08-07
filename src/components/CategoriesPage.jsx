@@ -20,7 +20,7 @@ export const CategoriesPage = () => {
     const fetchCategories = async () => {
       try {
         const data = await getCategoryListAPI();
-        // Sprawdź, czy dane są tablicą
+
         if (Array.isArray(data)) {
           setCategories(data);
           if (!categoryName) {
@@ -42,7 +42,7 @@ export const CategoriesPage = () => {
       if (!selectedCategory) return;
       try {
         const data = await getAllRecipesByCategoryAPI(selectedCategory);
-        // Sprawdź, czy dane są tablicą
+
         if (Array.isArray(data)) {
           setRecipes(data);
         } else {

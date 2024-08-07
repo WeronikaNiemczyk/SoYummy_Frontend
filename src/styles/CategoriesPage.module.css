@@ -14,7 +14,6 @@
 .categoryButton {
   background-color: transparent;
   padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: none;
@@ -27,6 +26,7 @@
 
 .categoryButton:hover {
   color: #8baa36;
+  border-bottom: 2px solid #8baa36;
 }
 
 .active {
