@@ -13,16 +13,20 @@
 
 .categoryButton {
   background-color: transparent;
-  border: 1px solid #ccc;
   padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  border: none;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  color: #bdbdbd;
+  font-family: Poppins;
 }
 
 .categoryButton:hover {
-  background-color: #8baa36;
-  color: white;
+  color: #8baa36;
+  border-bottom: 2px solid #8baa36;
 }
 
 .active {
@@ -40,6 +44,11 @@
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #23262a;
 }
 
 .categoryErrorMessage {

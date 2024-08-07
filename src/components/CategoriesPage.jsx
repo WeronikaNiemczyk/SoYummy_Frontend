@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   getCategoryListAPI,
-  getRecipesByCategoryAPI,
-} from "service/API/CategoriesAPI";
+  getAllRecipesByCategoryAPI,
+} from "../service/Api/CategoriesApi";
 import css from "../styles/CategoriesPage.module.css";
 
 const CategoriesPage = () => {
@@ -25,6 +25,7 @@ const CategoriesPage = () => {
           setSelectedCategory("Beef");
         }
       } catch (error) {
+        console.error("Error fetching categories:", error);
         setError("Failed to fetch categories.");
       }
     };
@@ -35,9 +36,12 @@ const CategoriesPage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const data = await getRecipesByCategoryAPI(selectedCategory);
+        console.log(`Fetching recipes for category: ${selectedCategory}`);
+        const data = await getAllRecipesByCategoryAPI(selectedCategory);
+        console.log("Fetched recipes:", data);
         setRecipes(data);
       } catch (error) {
+        console.error("Error fetching recipes:", error);
         setError("Failed to fetch recipes.");
       }
     };

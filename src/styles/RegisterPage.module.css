@@ -1,10 +1,17 @@
 /* src/styles/RegisterPage.module.css */
 
 .registerPageContainer {
+  padding: 87px 20px 118px 20px;
+  width: 100%;
+  min-height: 812px;
+  height: 100vh;
+  background-color: #fafafa;
+  background-image: url(../images/Rectangle.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  justify-content: center;
 }
 
 .link {
