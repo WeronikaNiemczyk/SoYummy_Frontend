@@ -23,7 +23,7 @@ const App = () => {
       <Route path="SoYummy_FrontEnd_groupNo_1/" element={<WelcomePage />} />
       <Route path="SoYummy_FrontEnd_groupNo_1/home" element={<Home />} />
       <Route
-        path="SoYummy_FrontEnd_groupNo_1/categories/:categoryName"
+        path="SoYummy_FrontEnd_groupNo_1/categories/:category"
         element={<Categories />}
       />
       <Route path="SoYummy_FrontEnd_groupNo_1/add" element={<AddRecipes />} />

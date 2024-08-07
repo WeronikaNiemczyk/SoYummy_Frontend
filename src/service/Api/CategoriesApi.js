@@ -1,30 +1,13 @@
-import { axiosInstance } from "./axios";
+import axios from "axios";
+
+const BASE_URL = "https://deploy-marek-b05855e6af89.herokuapp.com/recipes";
 
 export const getCategoryListAPI = async () => {
-  try {
-    const response = await axiosInstance.get("/recipes/category-list");
-
-    return response.data.categories;
-  } catch (error) {
-    console.error(
-      "Error fetching categories:",
-      error.response ? error.response.data : error.message
-    );
-    throw error;
-  }
+  const response = await axios.get(`${BASE_URL}/category-list`);
+  return response.data.categories;
 };
 export const getAllRecipesByCategoryAPI = async (category) => {
-  try {
-    const encodedCategory = encodeURIComponent(category);
-    const response = await axiosInstance.get(
-      `/recipes/category/${encodedCategory}`
-    );
-    return response.data;
-  } catch (error) {
-    console.error(
-      "Error fetching recipes by category:",
-      error.response ? error.response.data : error.message
-    );
-    throw error;
-  }
+  const response = await axios.get(`${BASE_URL}/${category}?limit=8`);
+
+  return response.data;
 };

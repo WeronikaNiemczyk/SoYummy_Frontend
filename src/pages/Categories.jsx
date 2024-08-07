@@ -1,6 +1,6 @@
 // src/pages/Categories.jsx
 
-import { CategoriesPage } from "../components/CategoriesPage";
+import CategoriesPage from "../components/CategoriesPage";
 import css from "../styles/Categories.module.css";
 
 const Categories = () => {

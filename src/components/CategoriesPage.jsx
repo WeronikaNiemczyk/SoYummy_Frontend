@@ -6,7 +6,7 @@ import {
 } from "../service/Api/CategoriesApi";
 import css from "../styles/CategoriesPage.module.css";
 
-export const CategoriesPage = () => {
+const CategoriesPage = () => {
   const { categoryName } = useParams();
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
@@ -20,16 +20,12 @@ export const CategoriesPage = () => {
     const fetchCategories = async () => {
       try {
         const data = await getCategoryListAPI();
-
-        if (Array.isArray(data)) {
-          setCategories(data);
-          if (!categoryName) {
-            setSelectedCategory("Beef");
-          }
-        } else {
-          throw new Error("Fetched categories is not an array");
+        setCategories(data);
+        if (!categoryName) {
+          setSelectedCategory("Beef");
         }
       } catch (error) {
+        console.error("Error fetching categories:", error);
         setError("Failed to fetch categories.");
       }
     };
@@ -39,16 +35,13 @@ export const CategoriesPage = () => {
 
   useEffect(() => {
     const fetchRecipes = async () => {
-      if (!selectedCategory) return;
       try {
+        console.log(`Fetching recipes for category: ${selectedCategory}`);
         const data = await getAllRecipesByCategoryAPI(selectedCategory);
-
-        if (Array.isArray(data)) {
-          setRecipes(data);
-        } else {
-          throw new Error("Fetched recipes is not an array");
-        }
+        console.log("Fetched recipes:", data);
+        setRecipes(data);
       } catch (error) {
+        console.error("Error fetching recipes:", error);
         setError("Failed to fetch recipes.");
       }
     };
@@ -91,3 +84,5 @@ export const CategoriesPage = () => {
     </div>
   );
 };
+
+export default CategoriesPage;

@@ -44,6 +44,11 @@
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: #23262a;
 }
 
 .categoryErrorMessage {
