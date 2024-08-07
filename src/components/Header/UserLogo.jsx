@@ -1,42 +1,31 @@
 // src\components\Header\UserLogo.jsx
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { UserLogoModal } from "./UserLogoModal";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
-import { UserLogoModal } from "./UserLogoModal";
-import Cookies from '../../features/cookies'
+import { fetchUserData } from "../../utils/fetchUserData";
 
 export const UserLogo = ({ user }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [userData, setUserData] = useState(user);
 
   useEffect(() => {
-    const token = Cookies.readCookie()
-
-    // dodałem tego if'a
-    if (!token) {
-      console.error("No token found");
-      return;
-    }
-
-    fetch(`https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/current`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch user data");
-        }
-        return response.json();
-      })
-      .then((data) => setUserData(data))
-      .catch((error) => {
-        console.error("Error:", error);
+    const getUserData = async () => {
+      try {
+        const response = await fetchUserData();
+        console.log("Fetched user data in UserInfoModal:", response);
+        setUserData({
+          ...response.data,
+          avatarURL: `https://deploy-marek-b05855e6af89.herokuapp.com${response.data.avatarURL}`,
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
         alert("An error occurred while fetching user data. Please try again.");
-      });
+      }
+    };
+
+    getUserData();
   }, []);
 
   const handleLogoClick = () => {
@@ -46,10 +35,10 @@ export const UserLogo = ({ user }) => {
   return (
     <div>
       <div className="HeaderUserLogoContainer" onClick={handleLogoClick}>
-        {userData.avatar ? (
+        {userData && userData.avatarURL ? (
           <img
             className="HeaderUserPhotoSmall"
-            src={userData.avatar}
+            src={userData.avatarURL}
             alt="User"
           />
         ) : (
@@ -57,7 +46,9 @@ export const UserLogo = ({ user }) => {
             <use xlinkHref={`${symbolDefs}#icon-user`} />
           </svg>
         )}
-        <span className="HeaderUserName">{user.name}</span>
+        <span className="HeaderUserName">
+          {userData && userData.name ? userData.name : "User Name"}
+        </span>
       </div>
       {isModalOpen && (
         <UserLogoModal user={userData} onClose={() => setIsModalOpen(false)} />
@@ -66,16 +57,10 @@ export const UserLogo = ({ user }) => {
   );
 };
 
-// UserLogo.propTypes = {
-//   user: PropTypes.shape({
-//     avatar: PropTypes.string,
-//     name: PropTypes.string.isRequired,
-//   }),
-// };
-
 UserLogo.propTypes = {
   user: PropTypes.shape({
-    avatar: PropTypes.string,
-    name: PropTypes.string.isRequired,
-  }).isRequired,
+    avatarURL: PropTypes.string,
+    name: PropTypes.string,
+    email: PropTypes.string,
+  }),
 };

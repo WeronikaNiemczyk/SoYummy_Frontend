@@ -1,23 +1,34 @@
 // src\components\Header\Header.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 import { UserLogo } from "./UserLogo";
 import { ThemeToggler } from "./ThemeToggler";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
+import { fetchUserData } from "../../utils/fetchUserData";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const user = {
-    name: "User name",
-    avatar: null,
-  };
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const data = await fetchUserData();
+        console.log("Fetched user data:", data);
+        setUser(data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    getUserData();
+  }, []);
 
   return (
     <header
@@ -28,7 +39,7 @@ export const Header = () => {
         <Navigation />
       </nav>
       <div className="HeaderRightContainer">
-        <UserLogo user={user} />
+        {user ? <UserLogo user={user.data} /> : <span>Loading...</span>}
         <div className="HeaderNavigation">
           <ThemeToggler />
         </div>

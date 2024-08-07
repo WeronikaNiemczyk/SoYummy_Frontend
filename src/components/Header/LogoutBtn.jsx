@@ -3,37 +3,40 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import symbolDefs from "../../images/symbol-defs.svg";
-import cookies from "../../features/cookies";
 import "../../styles/Header.css";
+import Cookies from "../../features/cookies";
 
 export const LogoutBtn = ({ onLogout, onClose }) => {
   const modalRef = useRef(null);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    const token = cookies.readCookie();
-    console.log(token)
-    fetch(`https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/logout`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to log out");
+  const handleLogout = async () => {
+    const token = Cookies.readCookie();
+    try {
+      const response = await fetch(
+        "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/logout",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
         }
-        onLogout();
-        onClose();
-        cookies.delCookie();
-        navigate("../SoYummy_FrontEnd_groupNo_1/");
-      })
-      .catch((error) => {
-        console.error("Error logging out:", error);
-        alert("An error occurred while logging out. Please try again.");
-      });
+      );
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Failed to log out: ${errorText}`);
+      }
+
+      onLogout();
+      onClose();
+      Cookies.eraseCookie("token");
+      navigate("/SoYummy_FrontEnd_groupNo_1/");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      alert(`An error occurred while logging out: ${error.message}`);
+    }
   };
 
   useEffect(() => {

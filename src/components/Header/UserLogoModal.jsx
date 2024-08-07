@@ -1,5 +1,5 @@
 // src\components\Header\UserLogoModal.jsx
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { UserInfoModal } from "./UserInfoModal";
 import { LogoutBtn } from "./LogoutBtn";
@@ -10,6 +10,7 @@ export const UserLogoModal = ({ onClose }) => {
   const [isUserInfoModalOpen, setIsUserInfoModalOpen] = useState(false);
   const [isUserLogoModalOpen, setIsUserLogoModalOpen] = useState(true);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  const modalRef = useRef(null);
 
   const handleEditProfileClick = () => {
     setIsUserInfoModalOpen(true);
@@ -21,10 +22,34 @@ export const UserLogoModal = ({ onClose }) => {
     setIsUserLogoModalOpen(false);
   };
 
+  useEffect(() => {
+    const handleBackgroundClick = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        onClose();
+      }
+    };
+
+    const handleEscapePress = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleBackgroundClick);
+    document.addEventListener("keydown", handleEscapePress);
+    return () => {
+      document.removeEventListener("mousedown", handleBackgroundClick);
+      document.removeEventListener("keydown", handleEscapePress);
+    };
+  }, [onClose]);
+
   return (
-    <div>
+    <div className="HeaderModalBackground">
       {isUserLogoModalOpen && (
-        <div className="HeaderModalContainer HeaderModalColor HeaderModalStyle">
+        <div
+          className="HeaderModalContainer HeaderModalColor HeaderModalStyle"
+          ref={modalRef}
+        >
           <button className="HeaderButton" onClick={handleEditProfileClick}>
             Edit profile
             <svg className="HeaderIcon">
@@ -62,7 +87,7 @@ export const UserLogoModal = ({ onClose }) => {
 
 UserLogoModal.propTypes = {
   user: PropTypes.shape({
-    avatar: PropTypes.string,
+    avatarURL: PropTypes.string,
     name: PropTypes.string.isRequired,
   }).isRequired,
   onClose: PropTypes.func.isRequired,
