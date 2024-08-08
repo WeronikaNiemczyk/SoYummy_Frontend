@@ -11,12 +11,12 @@ const userApi = axios.create({
 });
 
 // Konfiguracja dla Przepisów
-const recipesApi = axios.create({
+export const recipesApi = axios.create({
   baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/recipes",
 });
 
 // Konfiguracja dla Składników
-const ingredientsApi = axios.create({
+export const ingredientsApi = axios.create({
   baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/ingredients",
 });
 
