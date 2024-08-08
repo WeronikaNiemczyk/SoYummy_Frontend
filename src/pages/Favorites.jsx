@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 // import { Footer } from "../components/Footer/Footer"; // nie jest zrobiony i nie jest potrzebny
 // import { Header } from "../components/Header/Header"; // nie jest potrzebny
-import "../styles/favorites.css";
+import css from "../styles/Favorites.module.css";
 
 const Favorite = () => {
   const [recipes, setRecipes] = useState([]);
@@ -60,28 +60,28 @@ const Favorite = () => {
   const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   return (
-    <div className="favorite-container">
+    <div className={css.favoriteContainer}>
       {/* <Header /> */}
-      <h1 className="favorite-title">Favorites</h1>
-      <div className="recipe-list">
+      <h1 className={css.favoriteTitle}>Favorites</h1>
+      <div className={css.recipeList}>
         {currentRecipes.map((recipe) => (
-          <div key={recipe.id} className="recipe-card">
+          <div key={recipe.id} className={css.recipeCard}>
             <img
               src={recipe.image}
               alt={recipe.title}
-              className="recipe-image"
+              className={css.recipeImage}
             />
-            <h2 className="recipe-title">{recipe.title}</h2>
-            <p className="recipe-description">{recipe.description}</p>
-            <p className="recipe-time">{recipe.time}</p>
+            <h2 className={css.recipeTitle}>{recipe.title}</h2>
+            <p className={css.recipeDescription}>{recipe.description}</p>
+            <p className={css.recipeTime}>{recipe.time}</p>
             <button
-              className="see-recipe-btn"
+              className={css.seeRecipeBtn}
               onClick={() => (window.location.href = `/recipe/${recipe.id}`)}
             >
               See recipe
             </button>
             <button
-              className="delete-recipe-btn"
+              className={css.deleteRecipeBtn}
               onClick={() => handleDelete(recipe.id)}
             >
               Delete
@@ -89,7 +89,7 @@ const Favorite = () => {
           </div>
         ))}
       </div>
-      <div className="pagination">
+      <div className={css.pagination}>
         {Array.from(
           { length: Math.min(10, Math.ceil(recipes.length / recipesPerPage)) },
           (_, i) => (
