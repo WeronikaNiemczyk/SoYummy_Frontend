@@ -22,21 +22,16 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
             "Content-Type": "application/json",
           },
         }
-      );
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Failed to log out: ${errorText}`);
-      }
-
-      onLogout();
-      onClose();
-      Cookies.eraseCookie("token");
-      navigate("/SoYummy_FrontEnd_groupNo_1/");
-    } catch (error) {
-      console.error("Error logging out:", error);
-      alert(`An error occurred while logging out: ${error.message}`);
-    }
+        cookies.delCookie();
+        onLogout();
+        onClose();
+        navigate("../SoYummy_FrontEnd_groupNo_1/welcome");
+      })
+      .catch((error) => {
+        console.error("Error logging out:", error);
+        alert("An error occurred while logging out. Please try again.");
+      });
   };
 
   useEffect(() => {
