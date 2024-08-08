@@ -118,6 +118,10 @@ export const removeProductFromShoppingList = (data) =>
 // Pobranie listy zakupów użytkownika
 export const getShoppingList = () => recipesApi.get("/shopping-list/user");
 
+// Aktualizacja produktu w liście zakupów
+export const updateProductInShoppingList = (data) =>
+  recipesApi.patch("/shopping-list/update", data); // Dodany nowy endpoint
+
 // --------------- SKŁADNIKI ---------------
 
 // Pobranie listy składników
