@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import RecipeCard from "../components/RecipeCard";
-import "../styles/Favorites.css";
+import "srcstylesFavorites.css";
+import { Footer } from "../components/Footer/Footer";
+import { Header } from "../components/Header/Header";
 
 const Favorite = () => {
   const [recipes, setRecipes] = useState([]);
@@ -8,7 +9,9 @@ const Favorite = () => {
   const recipesPerPage = 4;
 
   useEffect(() => {
+    // Tutaj możesz załadować dane z backendu
     const fetchRecipes = async () => {
+      // Przykładowe dane
       const data = [
         {
           id: 1,
@@ -23,6 +26,20 @@ const Favorite = () => {
           title: "Chicken Alfredo",
           description: "Chicken Alfredo is...",
           time: "30 min",
+        },
+        {
+          id: 3,
+          image: "image3.png",
+          title: "Sugar Pie",
+          description: "Sugar pie is a dessert...",
+          time: "1 hour",
+        },
+        {
+          id: 4,
+          image: "image4.png",
+          title: "Beef Wellington",
+          description: "Beef Wellington is...",
+          time: "2 hours",
         },
       ];
       setRecipes(data);
@@ -44,24 +61,38 @@ const Favorite = () => {
   const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   return (
-    <div className="favorite-page">
+    <div className="favorite-container">
+      <Header />
       <h1 className="favorite-title">Favorites</h1>
-      <div className="recipe-gallery">
+      <div className="recipe-list">
         {currentRecipes.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            image={recipe.image}
-            title={recipe.title}
-            description={recipe.description}
-            time={recipe.time}
-            onDelete={() => handleDelete(recipe.id)}
-            onView={() => (window.location.href = `/recipe/${recipe.id}`)}
-          />
+          <div key={recipe.id} className="recipe-card">
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              className="recipe-image"
+            />
+            <h2 className="recipe-title">{recipe.title}</h2>
+            <p className="recipe-description">{recipe.description}</p>
+            <p className="recipe-time">{recipe.time}</p>
+            <button
+              className="see-recipe-btn"
+              onClick={() => (window.location.href = `/recipe/${recipe.id}`)}
+            >
+              See recipe
+            </button>
+            <button
+              className="delete-recipe-btn"
+              onClick={() => handleDelete(recipe.id)}
+            >
+              Delete
+            </button>
+          </div>
         ))}
       </div>
       <div className="pagination">
         {Array.from(
-          { length: Math.ceil(recipes.length / recipesPerPage) },
+          { length: Math.min(10, Math.ceil(recipes.length / recipesPerPage)) },
           (_, i) => (
             <button key={i} onClick={() => handlePageChange(i + 1)}>
               {i + 1}
@@ -69,6 +100,7 @@ const Favorite = () => {
           )
         )}
       </div>
+      <Footer mode="light" />
     </div>
   );
 };
