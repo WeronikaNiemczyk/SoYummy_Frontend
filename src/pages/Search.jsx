@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 import SearchedRecipesList from "../components/SearchedRecipesList";
 import { ingredientsApi, recipesApi } from "../API/api";
+import Loader from "../components/Loader";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,6 +13,7 @@ const Search = () => {
   const [searchType, setSearchType] = useState(
     searchParams.get("type") || "query"
   );
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const keyword = searchParams.get("keyword");
@@ -37,6 +39,8 @@ const Search = () => {
     } catch (error) {
       console.error("Error fetching recipes by ingredient:", error);
       setRecipes([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -50,6 +54,8 @@ const Search = () => {
     } catch (error) {
       console.error("Error fetching recipes:", error);
       setRecipes([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,7 +79,7 @@ const Search = () => {
         onSearchTypeChange={handleSearchTypeChange}
         onSubmit={handleSearch}
       />
-      <SearchedRecipesList recipes={recipes} />
+      {loading ? <Loader /> : <SearchedRecipesList recipes={recipes} />}
     </div>
   );
 };
