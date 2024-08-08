@@ -1,7 +1,5 @@
-// src/components/ShoppingList/IngredientsShoppingList.jsx
-
 import React, { useState, useEffect } from 'react';
-import { fetchShoppingList, addIngredientAPI, removeIngredientAPI } from '../../service/Api/ShoppingListAPI';
+import { getShoppingList, addProductToShoppingList, removeProductFromShoppingList } from '../../API/api';
 
 const IngredientsShoppingList = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -11,8 +9,8 @@ const IngredientsShoppingList = () => {
   useEffect(() => {
     const loadIngredients = async () => {
       try {
-        const data = await fetchShoppingList();
-        setIngredients(data);
+        const response = await getShoppingList();
+        setIngredients(response.data);
       } catch (error) {
         setError('Failed to fetch ingredients');
       } finally {
@@ -25,7 +23,7 @@ const IngredientsShoppingList = () => {
 
   const handleRemove = async (ingredientId) => {
     try {
-      await removeIngredientAPI(ingredientId);
+      await removeProductFromShoppingList({ id: ingredientId });
       setIngredients((prev) => prev.filter((item) => item._id !== ingredientId));
     } catch (error) {
       setError('Failed to remove ingredient');

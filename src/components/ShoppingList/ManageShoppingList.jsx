@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { getShoppingList, removeProductFromShoppingList, updateProductInShoppingList } from '../../API/api';
 
 const ManageShoppingList = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Fetch the initial list of ingredients from the backend
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await fetch('https://deploy-marek-b05855e6af89.herokuapp.com/recipes/shopping-list/user', {
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`,
-          },
-        });
-        if (!response.ok) throw new Error('Failed to fetch ingredients');
-        const data = await response.json();
-        setIngredients(data);
+        const response = await getShoppingList(); // Pobierz listę zakupów
+        setIngredients(response.data); // Zakładam, że odpowiedź zawiera listę składników
       } catch (error) {
-        setError(error.message);
+        setError("Failed to fetch ingredients");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -25,50 +23,43 @@ const ManageShoppingList = () => {
   }, []);
 
   // Handle removal of ingredient
-  const handleRemoveIngredient = async (index) => {
+  const handleRemoveIngredient = async (id) => {
     try {
-      const ingredientToRemove = ingredients[index];
-      const response = await fetch('https://deploy-marek-b05855e6af89.herokuapp.com/recipes/shopping-list/remove', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify({ id: ingredientToRemove._id }),
-      });
-      if (!response.ok) throw new Error('Failed to remove ingredient');
-      setIngredients(ingredients.filter((_, i) => i !== index));
+      await removeProductFromShoppingList({ id }); // Usuń składnik z listy
+      setIngredients(ingredients.filter((ingredient) => ingredient.id !== id)); // Zaktualizuj stan
     } catch (error) {
-      setError(error.message);
+      setError("Failed to remove ingredient");
     }
   };
 
   // Handle change of ingredient number
-  const handleNumberChange = async (index, value) => {
-    const updatedIngredients = [...ingredients];
-    updatedIngredients[index].number = value;
-    setIngredients(updatedIngredients);
-
+  const handleNumberChange = async (id, value) => {
     try {
-      const ingredientToUpdate = updatedIngredients[index];
-      const response = await fetch('https://deploy-marek-b05855e6af89.herokuapp.com/recipes/shopping-list/user', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify({ id: ingredientToUpdate._id, number: value }),
-      });
-      if (!response.ok) throw new Error('Failed to update ingredient number');
+      const ingredient = ingredients.find((item) => item.id === id);
+      if (ingredient) {
+        const updatedIngredient = { ...ingredient, number: value };
+
+        // Wyślij zaktualizowane dane do API
+        await updateProductInShoppingList(updatedIngredient);
+        
+        // Zaktualizuj stan lokalny
+        setIngredients((prev) =>
+          prev.map((item) =>
+            item.id === id ? updatedIngredient : item
+          )
+        );
+      }
     } catch (error) {
-      setError(error.message);
+      setError("Failed to update ingredient number");
     }
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div>
       <h2>Manage Your Shopping List</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
       <table>
         <thead>
           <tr>
@@ -78,19 +69,19 @@ const ManageShoppingList = () => {
           </tr>
         </thead>
         <tbody>
-          {ingredients.map((ingredient, index) => (
-            <tr key={ingredient._id}> {/* Zakładamy, że każdy składnik ma unikalne id */}
+          {ingredients.map((ingredient) => (
+            <tr key={ingredient.id}> {/* Zakładam, że każdy składnik ma unikalne id */}
               <td>{ingredient.name}</td>
               <td>
                 <input
                   type="text"
                   value={ingredient.number}
-                  onChange={(e) => handleNumberChange(index, e.target.value)}
+                  onChange={(e) => handleNumberChange(ingredient.id, e.target.value)}
                 />
               </td>
               <td>
                 <button
-                  onClick={() => handleRemoveIngredient(index)}
+                  onClick={() => handleRemoveIngredient(ingredient.id)}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -99,7 +90,7 @@ const ManageShoppingList = () => {
                     fontSize: '16px',
                   }}
                 >
-                  ×
+                  &times; {/* Poprawny znak krzyżyka */}
                 </button>
               </td>
             </tr>
