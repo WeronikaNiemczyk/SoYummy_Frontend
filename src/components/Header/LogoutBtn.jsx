@@ -1,19 +1,44 @@
 // src\components\Header\LogoutBtn.jsx
-import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "../../features/cookies";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
-import Cookies from "../../features/cookies";
 
 export const LogoutBtn = ({ onLogout, onClose }) => {
   const modalRef = useRef(null);
   const navigate = useNavigate();
 
+  // const handleLogout = async () => {
+  //   const token = Cookies.readCookie();
+  //   try {
+  //     const response = await fetch(
+  //       "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/logout",
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //       cookies.delCookie();
+  //       onLogout();
+  //       onClose();
+  //       navigate("../SoYummy_FrontEnd_groupNo_1/welcome");
+  //     }
+  //     .catch((error) => {
+  //       console.error("Error logging out:", error);
+  //       alert("An error occurred while logging out. Please try again.");
+  //     });
+  // };
+
   const handleLogout = async () => {
     const token = Cookies.readCookie();
     try {
-      const response = await fetch(
+      await fetch(
         "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/logout",
         {
           method: "GET",
@@ -22,16 +47,16 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
             "Content-Type": "application/json",
           },
         }
+      );
 
-        cookies.delCookie();
-        onLogout();
-        onClose();
-        navigate("../SoYummy_FrontEnd_groupNo_1/welcome");
-      })
-      .catch((error) => {
-        console.error("Error logging out:", error);
-        alert("An error occurred while logging out. Please try again.");
-      });
+      Cookies.delCookie(); // Poprawione wywołanie Cookies
+      onLogout();
+      onClose();
+      navigate("../SoYummy_FrontEnd_groupNo_1/welcome");
+    } catch (error) {
+      console.error("Error logging out:", error);
+      alert("An error occurred while logging out. Please try again.");
+    }
   };
 
   useEffect(() => {
