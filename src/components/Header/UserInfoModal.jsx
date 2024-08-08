@@ -3,63 +3,88 @@ import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
+import { fetchUserData } from "../../utils/fetchUserData";
+import Cookies from "../../features/cookies";
 
 export const UserInfoModal = ({ onClose }) => {
-  const [userData, setUserData] = useState({ avatar: "", name: "" });
+  const [userData, setUserData] = useState({ avatarURL: "", name: "" });
+  const [avatarFile, setAvatarFile] = useState(null);
   const nameInputRef = useRef(null);
   const modalRef = useRef(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    fetch(`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/users/current`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch user data");
-        }
-        return response.json();
-      })
-      .then((data) => setUserData(data))
-      .catch((error) => {
-        console.error("Error:", error);
+    const getUserData = async () => {
+      try {
+        const response = await fetchUserData();
+        console.log("Fetched user data in UserInfoModal:", response);
+        setUserData({
+          ...response.data,
+          avatarURL: `https://deploy-marek-b05855e6af89.herokuapp.com${response.data.avatarURL}`,
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
         alert("An error occurred while fetching user data. Please try again.");
-      });
+      }
+    };
+
+    getUserData();
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("name", userData.name);
-    formData.append("avatar", userData.avatar);
+    const token = Cookies.readCookie();
 
-    const token = localStorage.getItem("token");
-
-    fetch(`${import.meta.env.VITE_REACT_APP_API_BASE_URL}/users/avatars`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: formData,
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to update user data");
+    try {
+      const nameResponse = await fetch(
+        "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/update-name",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ name: userData.name }),
         }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        onClose();
-      })
-      .catch((error) => {
-        console.error("Error updating user:", error);
-        alert("An error occurred while updating user data. Please try again.");
-      });
+      );
+
+      if (!nameResponse.ok) {
+        const error = await nameResponse.json();
+        throw new Error(error.message || "Failed to update user name");
+      }
+
+      if (avatarFile) {
+        const formData = new FormData();
+        formData.append("avatar", avatarFile);
+
+        const avatarResponse = await fetch(
+          "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users/avatars",
+          {
+            method: "PATCH",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            body: formData,
+          }
+        );
+
+        if (!avatarResponse.ok) {
+          const error = await avatarResponse.json();
+          throw new Error(error.message || "Failed to update user avatar");
+        }
+
+        const avatarData = await avatarResponse.json();
+        console.log("Updated avatar data:", avatarData);
+        setUserData({
+          ...userData,
+          avatarURL: `https://deploy-marek-b05855e6af89.herokuapp.com${avatarData.data.avatarURL}`,
+        });
+      }
+
+      onClose();
+    } catch (error) {
+      console.error("Error updating user:", error);
+      alert(`An error occurred while updating user data: ${error.message}`);
+    }
   };
 
   const handleEditClick = () => {
@@ -100,9 +125,9 @@ export const UserInfoModal = ({ onClose }) => {
       <div ref={modalRef}>
         <form onSubmit={handleSubmit}>
           <div className="HeaderUserPhotoContainer">
-            {userData.avatar ? (
+            {userData.avatarURL ? (
               <img
-                src={URL.createObjectURL(userData.avatar)}
+                src={userData.avatarURL}
                 alt="User"
                 className="HeaderUserPhotoBig"
               />
@@ -113,9 +138,13 @@ export const UserInfoModal = ({ onClose }) => {
             )}
             <input
               type="file"
-              onChange={(e) =>
-                setUserData({ ...userData, avatar: e.target.files[0] })
-              }
+              onChange={(e) => {
+                setUserData({
+                  ...userData,
+                  avatarURL: URL.createObjectURL(e.target.files[0]),
+                });
+                setAvatarFile(e.target.files[0]);
+              }}
               className="HeaderUserPhotoInput"
             />
             <svg className="HeaderPlusIcon">
