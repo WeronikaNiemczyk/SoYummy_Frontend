@@ -5,6 +5,7 @@ import SharedLayout from './components/sharedLayuot'
 import AddRecipes from "./pages/AddRecipes";
 import Categories from "./pages/Categories";
 import MyRecipes from "./pages/MyRecipes";
+import RecipePage from "./pages/RecipePage";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import ShoppingList from "./pages/ShoppingListPage";
@@ -21,6 +22,7 @@ const App = () => {
         element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<SharedLayout />} />}>
         <Route path="home" element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<Home />} />} />
         <Route path="categories/:category" element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<Categories />} />} />
+        <Route path="recipe/:recipeID" element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<RecipePage />} />} />
         <Route path="add" element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<AddRecipes />} />} />
         <Route path="my" element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<MyRecipes />} />} />
         <Route path="favorite" element={<CheckRoute redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome" element={<Favorites />} />} />
