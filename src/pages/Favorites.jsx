@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "srcstylesFavorites.css";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
+import "../styles/favorites.css";
 
 const Favorite = () => {
   const [recipes, setRecipes] = useState([]);
@@ -9,9 +9,7 @@ const Favorite = () => {
   const recipesPerPage = 4;
 
   useEffect(() => {
-    // Tutaj możesz załadować dane z backendu
     const fetchRecipes = async () => {
-      // Przykładowe dane
       const data = [
         {
           id: 1,
@@ -49,6 +47,7 @@ const Favorite = () => {
   }, []);
 
   const handleDelete = (id) => {
+    // Tutaj usuń przepis z backendu
     setRecipes(recipes.filter((recipe) => recipe.id !== id));
   };
 
