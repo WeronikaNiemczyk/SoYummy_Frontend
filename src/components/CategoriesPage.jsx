@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  getCategoryListAPI,
   getAllRecipesByCategoryAPI,
+  getCategoryListAPI,
 } from "../service/Api/CategoriesApi";
 import css from "../styles/CategoriesPage.module.css";
 
@@ -11,7 +11,7 @@ const CategoriesPage = () => {
   console.log("Current category from URL:", category);
   const [categories, setCategories] = useState([]);
   const [recipes, setRecipes] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(category || "Beef");
+  const [selectedCategory, setSelectedCategory] = useState("Beef");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -22,7 +22,9 @@ const CategoriesPage = () => {
         const data = await getCategoryListAPI();
         console.log("Fetched categories:", data);
         setCategories(data);
-        if (!category) {
+
+        // Ustawienie wybranej kategorii na "Beef" tylko, jeśli kategoria z URL nie istnieje
+        if (!category || !data.includes(category)) {
           setSelectedCategory("Beef");
         } else {
           setSelectedCategory(category);
