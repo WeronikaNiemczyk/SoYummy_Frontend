@@ -1,7 +1,6 @@
 // src/service/Api/ShoppingListAPI.js
 
-const BASE_URL =
-  "/SoYummy_FrontEnd_groupNo_1/recipes/shopping-list/userhttps://deploy-marek-b05855e6af89.herokuapp.com";
+const BASE_URL = "https://deploy-marek-b05855e6af89.herokuapp.com";
 
 // Funkcja do pobierania listy zakupów
 export const fetchShoppingList = async () => {
