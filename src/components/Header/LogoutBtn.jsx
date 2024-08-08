@@ -25,10 +25,10 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
         if (!response.ok) {
           throw new Error("Failed to log out");
         }
+        cookies.delCookie();
         onLogout();
         onClose();
-        cookies.delCookie();
-        navigate("../SoYummy_FrontEnd_groupNo_1/");
+        navigate("../SoYummy_FrontEnd_groupNo_1/welcome");
       })
       .catch((error) => {
         console.error("Error logging out:", error);

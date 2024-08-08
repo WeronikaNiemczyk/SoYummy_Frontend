@@ -10,10 +10,10 @@ const AuthNav = () => {
   return (
     <>
       <nav className={css.authNav}>
-        <Link to="register" className={css.navLink}>
+        <Link to="/SoYummy_FrontEnd_groupNo_1/register" className={css.navLink}>
           Register
         </Link>
-        <Link to="signin" className={css.navLink}>
+        <Link to="/SoYummy_FrontEnd_groupNo_1/signin" className={css.navLink}>
           Sign In
         </Link>
       </nav>
