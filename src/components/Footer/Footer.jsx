@@ -4,7 +4,7 @@ import logoHeader from "images/logo/logo-footer.svg";
 import { BsFacebook, BsYoutube } from "react-icons/bs";
 import { FiInstagram } from "react-icons/fi";
 import { TfiTwitterAlt } from "react-icons/tfi";
-import { Box } from "../Box";
+// import { Box } from "../Box";
 import { FootForm } from "../FooterForm";
 import {
   BenefitsItem,

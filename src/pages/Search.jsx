@@ -1,11 +1,11 @@
 // src/pages/Search.jsx
 
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
-import SearchedRecipesList from "../components/SearchedRecipesList";
 import { ingredientsApi, recipesApi } from "../API/api";
 import Loader from "../components/Loader";
+import SearchBar from "../components/SearchBar";
+import SearchedRecipesList from "../components/SearchedRecipesList";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();

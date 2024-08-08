@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Footer } from "../components/Footer/Footer";
-import { Header } from "../components/Header/Header";
+import { useEffect, useState } from "react";
+// import { Footer } from "../components/Footer/Footer";
+// import { Header } from "../components/Header/Header";
 import "../styles/favorites.css";
 
 const Favorite = () => {
@@ -61,7 +61,7 @@ const Favorite = () => {
 
   return (
     <div className="favorite-container">
-      <Header />
+      {/* <Header /> */}
       <h1 className="favorite-title">Favorites</h1>
       <div className="recipe-list">
         {currentRecipes.map((recipe) => (
@@ -99,7 +99,7 @@ const Favorite = () => {
           )
         )}
       </div>
-      <Footer mode="light" />
+      {/* <Footer mode="light" /> */}
     </div>
   );
 };

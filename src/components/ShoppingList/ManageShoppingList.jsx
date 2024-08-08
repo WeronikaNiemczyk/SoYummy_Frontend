@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { getShoppingList, removeProductFromShoppingList, updateProductInShoppingList } from '../../API/api';
+import { useEffect, useState } from "react";
+import {
+  getShoppingList,
+  removeProductFromShoppingList,
+  updateProductInShoppingList,
+} from "../../API/api";
 
 const ManageShoppingList = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -41,12 +45,10 @@ const ManageShoppingList = () => {
 
         // Wyślij zaktualizowane dane do API
         await updateProductInShoppingList(updatedIngredient);
-        
+
         // Zaktualizuj stan lokalny
         setIngredients((prev) =>
-          prev.map((item) =>
-            item.id === id ? updatedIngredient : item
-          )
+          prev.map((item) => (item.id === id ? updatedIngredient : item))
         );
       }
     } catch (error) {
@@ -70,24 +72,28 @@ const ManageShoppingList = () => {
         </thead>
         <tbody>
           {ingredients.map((ingredient) => (
-            <tr key={ingredient.id}> {/* Zakładam, że każdy składnik ma unikalne id */}
+            <tr key={ingredient.id}>
+              {" "}
+              {/* Zakładam, że każdy składnik ma unikalne id */}
               <td>{ingredient.name}</td>
               <td>
                 <input
                   type="text"
                   value={ingredient.number}
-                  onChange={(e) => handleNumberChange(ingredient.id, e.target.value)}
+                  onChange={(e) =>
+                    handleNumberChange(ingredient.id, e.target.value)
+                  }
                 />
               </td>
               <td>
                 <button
                   onClick={() => handleRemoveIngredient(ingredient.id)}
                   style={{
-                    background: 'none',
-                    border: 'none',
-                    color: 'red',
-                    cursor: 'pointer',
-                    fontSize: '16px',
+                    background: "none",
+                    border: "none",
+                    color: "red",
+                    cursor: "pointer",
+                    fontSize: "16px",
                   }}
                 >
                   &times; {/* Poprawny znak krzyżyka */}
