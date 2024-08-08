@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-// import { Footer } from "../components/Footer/Footer";
-// import { Header } from "../components/Header/Header";
+// import { Footer } from "../components/Footer/Footer"; // nie jest zrobiony i nie jest potrzebny
+// import { Header } from "../components/Header/Header"; // nie jest potrzebny
 import "../styles/favorites.css";
 
 const Favorite = () => {
