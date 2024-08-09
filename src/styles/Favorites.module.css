@@ -1,9 +1,9 @@
-.favorite-container {
+.favoriteContainer {
   position: relative;
   padding: 20px;
 }
 
-.favorite-title {
+.favoriteTitle {
   position: absolute;
   width: 199px;
   height: 44px;
@@ -18,14 +18,14 @@
   color: #001833;
 }
 
-.recipe-list {
+.recipeList {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 80px;
 }
 
-.recipe-card {
+.recipeCard {
   position: relative;
   width: 343px;
   height: 152px;
@@ -34,13 +34,13 @@
   padding: 10px;
 }
 
-.recipe-image {
+.recipeImage {
   width: 124px;
   height: 124px;
   border-radius: 8px;
 }
 
-.recipe-title {
+.recipeTitle {
   position: absolute;
   width: 153px;
   height: 14px;
@@ -55,7 +55,7 @@
   color: #3e4462;
 }
 
-.recipe-description {
+.recipeDescription {
   position: absolute;
   width: 153px;
   height: 57px;
@@ -70,7 +70,7 @@
   color: #23262a;
 }
 
-.recipe-time {
+.recipeTime {
   position: absolute;
   left: 147px;
   top: 124px;
@@ -83,7 +83,7 @@
   color: #3e4462;
 }
 
-.see-recipe-btn {
+.seeRecipeBtn {
   position: absolute;
   width: 87px;
   height: 27px;
@@ -100,7 +100,7 @@
   cursor: pointer;
 }
 
-.delete-recipe-btn {
+.deleteRecipeBtn {
   position: absolute;
   width: 24px;
   height: 24px;
@@ -126,7 +126,7 @@
   align-items: center;
 }
 
-.pagination button {
+.paginationButton {
   background: none;
   border: none;
   font-family: "Poppins";
@@ -140,17 +140,17 @@
 
 /* Tablet CSS */
 @media (min-width: 768px) {
-  .recipe-card {
+  .recipeCard {
     width: 704px;
     height: 288px;
   }
 
-  .recipe-image {
+  .recipeImage {
     width: 228px;
     height: 232px;
   }
 
-  .recipe-title {
+  .recipeTitle {
     width: 265px;
     height: 24px;
     left: 276px;
@@ -159,7 +159,7 @@
     line-height: 24px;
   }
 
-  .recipe-description {
+  .recipeDescription {
     width: 298px;
     height: 73px;
     left: 276px;
@@ -168,12 +168,12 @@
     line-height: 18px;
   }
 
-  .recipe-time {
+  .recipeTime {
     left: 276px;
     top: 240px;
   }
 
-  .see-recipe-btn {
+  .seeRecipeBtn {
     width: 138px;
     height: 45px;
     left: 542px;
@@ -182,7 +182,7 @@
     line-height: 21px;
   }
 
-  .delete-recipe-btn {
+  .deleteRecipeBtn {
     width: 38px;
     height: 38px;
     left: 642px;
@@ -199,31 +199,31 @@
 
 /* Desktop CSS */
 @media (min-width: 1024px) {
-  .favorite-title {
+  .favoriteTitle {
     left: 100px;
     top: 164px;
   }
 
-  .recipe-list {
+  .recipeList {
     flex-direction: column;
     gap: 10px;
   }
 
-  .recipe-card {
+  .recipeCard {
     width: 1240px;
     height: 404px;
     left: 100px;
     margin-bottom: 32px;
   }
 
-  .recipe-image {
+  .recipeImage {
     width: 318px;
     height: 324px;
     left: 40px;
     top: 40px;
   }
 
-  .recipe-title {
+  .recipeTitle {
     width: 112px;
     height: 24px;
     left: 398px;
@@ -232,7 +232,7 @@
     line-height: 24px;
   }
 
-  .recipe-description {
+  .recipeDescription {
     width: 679px;
     height: 158px;
     left: 398px;
@@ -241,7 +241,7 @@
     line-height: 24px;
   }
 
-  .recipe-time {
+  .recipeTime {
     width: 40px;
     height: 20px;
     left: 398px;
@@ -250,7 +250,7 @@
     line-height: 20px;
   }
 
-  .see-recipe-btn {
+  .seeRecipeBtn {
     width: 160px;
     height: 54px;
     left: 1040px;
@@ -259,7 +259,7 @@
     line-height: 24px;
   }
 
-  .delete-recipe-btn {
+  .deleteRecipeBtn {
     width: 44px;
     height: 44px;
     left: 1156px;
