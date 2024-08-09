@@ -6,6 +6,8 @@ import { ingredientsApi, recipesApi } from "../API/api";
 import Loader from "../components/Loader";
 import SearchBar from "../components/SearchBar";
 import SearchedRecipesList from "../components/SearchedRecipesList";
+import Stack from "@mui/material/Stack";
+import CustomPagination from "../components/Pagination";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,10 +16,13 @@ const Search = () => {
     searchParams.get("type") || "query"
   );
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const recipesPerPage = 6;
 
   useEffect(() => {
     const keyword = searchParams.get("keyword");
     if (keyword) {
+      setLoading(true);
       if (searchType === "ingredient") {
         fetchRecipesByIngredient(keyword);
       } else {
@@ -60,17 +65,28 @@ const Search = () => {
   };
 
   const handleSearch = (keyword) => {
-    setSearchParams({ keyword, type: searchType });
+    setSearchParams({ keyword, type: searchType, page: 1 });
+    setCurrentPage(1);
   };
 
   const handleSearchTypeChange = (type) => {
     setSearchType(type);
     const keyword = searchParams.get("keyword");
     if (keyword) {
-      setSearchParams({ keyword, type });
+      setSearchParams({ keyword, type, page: 1 });
+      setCurrentPage(1);
     }
   };
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
+  const indexOfLastRecipe = currentPage * recipesPerPage;
+  const currentRecipes = recipes.slice(
+    indexOfLastRecipe - recipesPerPage,
+    indexOfLastRecipe
+  );
+  const totalPages = Math.ceil(recipes.length / recipesPerPage);
   return (
     <div>
       <h1>Search</h1>
@@ -79,7 +95,19 @@ const Search = () => {
         onSearchTypeChange={handleSearchTypeChange}
         onSubmit={handleSearch}
       />
-      {loading ? <Loader /> : <SearchedRecipesList recipes={recipes} />}
+      {loading ? <Loader /> : <SearchedRecipesList recipes={currentRecipes} />}
+      {totalPages > 1 && (
+        <Stack spacing={2} alignItems="center">
+          <CustomPagination
+            count={totalPages}
+            page={currentPage}
+            onChange={handlePageChange}
+            shape="rounded"
+            showFirstButton
+            showLastButton
+          />
+        </Stack>
+      )}
     </div>
   );
 };
