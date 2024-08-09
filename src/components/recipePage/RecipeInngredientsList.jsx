@@ -1,17 +1,34 @@
-import { useState, useEffect } from "react"
-import { getIngredientsList } from "../../API/api"
-import { getRecipeById } from '../../API/api'
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
 
-const RecipeInngredientsList = ({ element }) => {
+const RecipeIngredientsList = ({ element }) => {
+    const [markup, setMarkup] = useState(null);
    
     useEffect(() => {
-        if(element.downloadedRecipe){
-        console.log(element.downloadedRecipe.newdata2[0])}
-    }, [element])
-    return (
-        <div>recipe.data.description</div>
-    )
-}
+        if (element.downloadedRecipe && element.list.length > 0) {
+            const recipe = element.downloadedRecipe.newdata2.ingredients;
+            const markupRecipe = recipe.map((recipeElement) => {
+                const ingredList = element.list[0];
+                for (let i = 0; i < ingredList.length; i++) {
+                    if (ingredList[i]._id === recipeElement.id) {
+                        return (
+                            <div key={ingredList[i]._id}>
+                            <img src={ingredList[i].thb} alt={ingredList[i].ttl} />;
+                            <div >{ingredList[i].ttl}</div>
+                            <div >{recipeElement.measure}</div>
+                            </div>
+                        );
+                    }
+                }
+                return null;
+            });
 
-export default RecipeInngredientsList
+            setMarkup(markupRecipe); 
+        }
+    }, [element]); 
+   
+    return (
+        <div>{markup}</div> 
+    );
+};
+
+export default RecipeIngredientsList;
