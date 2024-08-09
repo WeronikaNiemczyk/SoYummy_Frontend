@@ -1,121 +1,115 @@
 // src/pages/AddRecipes.jsx
 
 import { useEffect, useState } from "react";
-import { addOwnRecipe, getPopularRecipes } from "../API/api";
+import { addOwnRecipe, getCategoryList, getIngredientsList } from "../API/api";
+import AddRecipeForm from "../components/AddRecipes/AddRecipeForm/AddRecipeForm";
+import AddRecipePage from "../components/AddRecipes/AddRecipePage/AddRecipePage";
+import FollowUs from "../components/AddRecipes/FollowUs/FollowUs"; // Dodany import
+import PopularRecipe from "../components/AddRecipes/PopularRecipe/PopularRecipe";
+import RecipeDescriptionFields from "../components/AddRecipes/RecipeDescriptionFields/RecipeDescriptionFields";
+import RecipeIngredientsFields from "../components/AddRecipes/RecipeIngredientsFields/RecipeIngredientsFields";
+import RecipePreparationFields from "../components/AddRecipes/RecipePreparationFields/RecipePreparationFields";
 import css from "../styles/AddRecipes.module.css";
 
 const AddRecipes = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [measurement, setMeasurement] = useState("");
-  const [image, setImage] = useState(null);
-  const [popularRecipes, setPopularRecipes] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
+  const [recipeData, setRecipeData] = useState({
+    title: "",
+    description: "",
+    measurement: "",
+    image: null,
+    cookTime: "",
+    category: "",
+    ingredients: [],
+    preparation: [],
+  });
 
   useEffect(() => {
-    const fetchPopularRecipes = async () => {
+    const fetchCategories = async () => {
       try {
-        const response = await getPopularRecipes();
-        setPopularRecipes(response.data);
+        const response = await getCategoryList();
+        setCategories(response.data);
       } catch (error) {
-        console.error("Error fetching popular recipes:", error);
+        console.error("Error fetching categories:", error);
       }
     };
-    fetchPopularRecipes();
+
+    const fetchIngredients = async () => {
+      try {
+        const response = await getIngredientsList();
+        setIngredients(response.data);
+      } catch (error) {
+        console.error("Error fetching ingredients:", error);
+      }
+    };
+
+    fetchCategories();
+    fetchIngredients();
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("measurement", measurement);
-    if (image) {
-      formData.append("image", image);
-    }
+  const handleRecipeDataChange = (newData) => {
+    setRecipeData((prevData) => ({
+      ...prevData,
+      ...newData,
+    }));
+  };
+
+  const handleIngredientsChange = (newIngredients) => {
+    setRecipeData((prevData) => ({
+      ...prevData,
+      ingredients: newIngredients,
+    }));
+  };
+
+  const handlePreparationChange = (preparationSteps) => {
+    setRecipeData((prevData) => ({
+      ...prevData,
+      preparation: preparationSteps,
+    }));
+  };
+
+  const handleSubmit = async (formData) => {
     try {
       await addOwnRecipe(formData);
       alert("Recipe added successfully");
-      setTitle("");
-      setDescription("");
-      setMeasurement("");
-      setImage(null);
+      setRecipeData({
+        title: "",
+        description: "",
+        measurement: "",
+        image: null,
+        cookTime: "",
+        category: "",
+        ingredients: [],
+        preparation: [],
+      });
     } catch (error) {
       console.error("Error adding recipe:", error);
     }
   };
 
   return (
-    <div className={css.containerAddRecipes}>
-      <form onSubmit={handleSubmit} className={css.formAddRecipes}>
-        <h1>Add New Recipe</h1>
-        <div className={css.inputGroupAddRecipes}>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
+    <AddRecipePage>
+      <div className={css.containerAddRecipes}>
+        <AddRecipeForm onSubmit={handleSubmit}>
+          <RecipeDescriptionFields
+            onChange={handleRecipeDataChange}
+            recipeData={recipeData}
+            categories={categories}
           />
-        </div>
-        <div className={css.inputGroupAddRecipes}>
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
+          <RecipeIngredientsFields
+            ingredients={recipeData.ingredients}
+            onIngredientsChange={handleIngredientsChange}
           />
-        </div>
-        <div className={css.inputGroupAddRecipes}>
-          <label htmlFor="measurement">Measurement</label>
-          <select
-            id="measurement"
-            value={measurement}
-            onChange={(e) => setMeasurement(e.target.value)}
-            required
-          >
-            <option value="">Select a measurement</option>
-            <option value="grams">Grams</option>
-            <option value="milliliters">Milliliters</option>
-            <option value="cups">Cups</option>
-            {/* Add more options as needed */}
-          </select>
-        </div>
-        <div className={css.inputGroupAddRecipes}>
-          <label htmlFor="image">Upload Image</label>
-          <input
-            type="file"
-            id="image"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
+          <RecipePreparationFields
+            onPreparationChange={handlePreparationChange}
           />
-        </div>
-        <button className={css.buttonAddRecipes} type="submit">
-          Add
-        </button>
-      </form>
-      <aside className={css.popularRecipesAddRecipes}>
-        <h2>Popular Recipes</h2>
-        <ul>
-          {popularRecipes.map((recipe) => (
-            <li key={recipe.id}>{recipe.title}</li>
-          ))}
-        </ul>
-      </aside>
-    </div>
+        </AddRecipeForm>
+        <PopularRecipe />
+        <FollowUs /> {/* Dodany komponent */}
+      </div>
+    </AddRecipePage>
   );
 };
 
 export default AddRecipes;
-
-// const AddRecipes = () => {
-//   return (
-//     <div>
-//       <h1>AddRecipes</h1>
-//       <p>mu zrób swojego page</p>
-//     </div>
-//   );
-// };
-
-// export default AddRecipes;

@@ -1,0 +1,28 @@
+/* src/components/AddRecipes/RecipeDescriptionFields/RecipeDescriptionFields.module.css */
+
+.fieldsContainerRecipeDescriptionFields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroupRecipeDescriptionFields {
+  margin-bottom: 15px;
+}
+
+.inputGroupRecipeDescriptionFields label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.inputGroupRecipeDescriptionFields input,
+.inputGroupRecipeDescriptionFields textarea,
+.inputGroupRecipeDescriptionFields select {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}

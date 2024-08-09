@@ -3,7 +3,11 @@
 .containerAddRecipes {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .formAddRecipes {
@@ -82,4 +86,56 @@ textareaAddRecipes {
   .popularRecipesAddRecipes {
     margin-top: 20px;
   }
+}
+
+.popularRecipesAddRecipes {
+  width: 30%;
+  padding: 10px;
+  border-left: 2px solid #eee;
+}
+
+.popularRecipesAddRecipes h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.popularRecipesAddRecipes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.popularRecipesAddRecipes li {
+  margin-bottom: 10px;
+}
+
+.containerFollowUs {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titleFollowUs {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.socialLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.socialItem {
+  margin-bottom: 10px;
+}
+
+.socialLink {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.socialLink:hover {
+  text-decoration: underline;
 }

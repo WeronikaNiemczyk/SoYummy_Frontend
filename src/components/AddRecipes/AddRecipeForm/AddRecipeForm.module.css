@@ -1,0 +1,46 @@
+/* src/components/AddRecipes/AddRecipeForm/AddRecipeForm.module.css */
+
+.formAddRecipeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.inputGroupAddRecipeForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroupAddRecipeForm label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.inputGroupAddRecipeForm input,
+.inputGroupAddRecipeForm textarea,
+.inputGroupAddRecipeForm select {
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.buttonAddRecipeForm {
+  background-color: var(--dark-blue);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 24px 44px;
+  transition: background-color 0.3s ease;
+}
+
+.buttonAddRecipeForm:hover {
+  background-color: var(--green);
+}

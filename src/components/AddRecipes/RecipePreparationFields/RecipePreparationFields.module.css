@@ -1,0 +1,27 @@
+/* src/components/AddRecipes/RecipePreparationFields/RecipePreparationFields.module.css */
+
+.containerRecipePreparationFields {
+  margin-bottom: 20px;
+}
+
+.titleRecipePreparationFields {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.textareaRecipePreparationFields {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.textareaRecipePreparationFields:focus {
+  outline: none;
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+}
