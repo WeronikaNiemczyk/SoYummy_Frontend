@@ -83,7 +83,7 @@ const CategoriesPage = () => {
           <div key={recipe._id} className={css.categoryRecipeCard}>
             <h3>{recipe.name}</h3>
             <p>{recipe.description}</p>
-            <button onClick={() => navigate(`/recipes/${recipe._id}`)}>
+            <button onClick={() => navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipe._id}`)}>
               View Recipe
             </button>
           </div>
