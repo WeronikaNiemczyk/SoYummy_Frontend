@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { addOwnRecipe, getPopularRecipes } from "../API/api";
-import styles from "../styles/AddRecipes.module.css";
+import css from "../styles/AddRecipes.module.css";
 
 const AddRecipes = () => {
   const [title, setTitle] = useState("");
@@ -45,10 +45,10 @@ const AddRecipes = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <form onSubmit={handleSubmit} className={styles.form}>
+    <div className={css.containerAddRecipes}>
+      <form onSubmit={handleSubmit} className={css.formAddRecipes}>
         <h1>Add New Recipe</h1>
-        <div className={styles.inputGroup}>
+        <div className={css.inputGroupAddRecipes}>
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -58,7 +58,7 @@ const AddRecipes = () => {
             required
           />
         </div>
-        <div className={styles.inputGroup}>
+        <div className={css.inputGroupAddRecipes}>
           <label htmlFor="description">Description</label>
           <textarea
             id="description"
@@ -67,7 +67,7 @@ const AddRecipes = () => {
             required
           />
         </div>
-        <div className={styles.inputGroup}>
+        <div className={css.inputGroupAddRecipes}>
           <label htmlFor="measurement">Measurement</label>
           <select
             id="measurement"
@@ -82,7 +82,7 @@ const AddRecipes = () => {
             {/* Add more options as needed */}
           </select>
         </div>
-        <div className={styles.inputGroup}>
+        <div className={css.inputGroupAddRecipes}>
           <label htmlFor="image">Upload Image</label>
           <input
             type="file"
@@ -91,9 +91,11 @@ const AddRecipes = () => {
             onChange={(e) => setImage(e.target.files[0])}
           />
         </div>
-        <button type="submit">Add Recipe</button>
+        <button className={css.buttonAddRecipes} type="submit">
+          Add
+        </button>
       </form>
-      <aside className={styles.popularRecipes}>
+      <aside className={css.popularRecipesAddRecipes}>
         <h2>Popular Recipes</h2>
         <ul>
           {popularRecipes.map((recipe) => (
