@@ -48,7 +48,6 @@ const RecipePage = () => {
       <RecipeHero element={{ downloadedRecipe }}/>
       <RecipeInngredientsList element={{ downloadedRecipe, list }} />
       <RecpiePreparation element={{ downloadedRecipe }}/>
-      <p></p>
     </div>
     
 
