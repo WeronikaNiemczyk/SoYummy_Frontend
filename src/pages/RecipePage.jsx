@@ -1,6 +1,7 @@
 
 import RecipeHero from '../components/recipePage/recipeHero'
 import RecipeInngredientsList from '../components/recipePage/RecipeInngredientsList';
+import RecpiePreparation from '../components/recipePage/RecipePreparation';
 import { getIngredientsList } from "../API/api"
 import { getRecipeById } from '../API/api'
 import { useParams } from 'react-router-dom';
@@ -9,17 +10,16 @@ import { useState, useEffect } from "react"
 const RecipePage = () => {
 
   const { recipeID } = useParams()
-  console.log(recipeID)
     const [picture, setPicture] = useState()
     const [name, setName] = useState()
     const [number, setNumber] = useState()
-    const [list, setList] = useState({})
+    const [list, setList] = useState([]);
     const [downloadedRecipe, setDownloadedRecipe] = useState()
   
    const data = () => getIngredientsList()
      .then((response) => {
           const newdata=response.data.ingredients
-            setList({ ...list, newdata });
+          setList([...list,newdata]);
             return 
     })
     .catch((error) => {
@@ -30,8 +30,7 @@ const RecipePage = () => {
     const recipe = (id) => {
         getRecipeById(id)
           .then((response) => {
-            const newdata2 = response.data.ingredients
-            console.log(newdata2)
+            const newdata2 = response.data
             setDownloadedRecipe({ ...downloadedRecipe, newdata2 })
             return
         })
@@ -40,20 +39,15 @@ const RecipePage = () => {
         });
     }
  useEffect(() => {
-      data()
       recipe(recipeID)
+      data()
   },[])
-
-  useEffect(() => {
-    if (list) {
-      console.log(list)
-    }
-  }, [list])
 
   return (
       <div>
-      <RecipeHero />
+      <RecipeHero element={{ downloadedRecipe }}/>
       <RecipeInngredientsList element={{ downloadedRecipe, list }} />
+      <RecpiePreparation element={{ downloadedRecipe }}/>
       <p></p>
     </div>
     
