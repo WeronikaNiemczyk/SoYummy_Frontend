@@ -8,17 +8,31 @@ import axios from "axios";
 // Konfiguracja dla Użytkowników i obsługi maili
 const userApi = axios.create({
   baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users",
+  withCredentials: true, // Dodano opcję, aby wysyłać ciasteczka
 });
 
 // Konfiguracja dla Przepisów
 export const recipesApi = axios.create({
   baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/recipes",
+  withCredentials: true, // Dodano opcję, aby wysyłać ciasteczka
 });
 
 // Konfiguracja dla Składników
 export const ingredientsApi = axios.create({
   baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/ingredients",
+  withCredentials: true, // Dodano opcję, aby wysyłać ciasteczka
 });
+
+// // Dodanie interceptorów do recipesApi
+// recipesApi.interceptors.request.use((config) => {
+//   const token = localStorage.getItem("token"); // Zakładam, że token jest przechowywany w localStorage
+//   if (token) {
+//     config.headers.Authorization = `Bearer ${token}`;
+//   }
+//   return config;
+// }, (error) => {
+//   return Promise.reject(error);
+// });
 
 // --------------- UŻYTKOWNICY ---------------
 
