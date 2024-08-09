@@ -1,6 +1,6 @@
 const RecipeHero = ()=>{
     return (
-        <div>głowny widok</div>
+        <div>głowny widok recipe</div>
     )
 }
 
