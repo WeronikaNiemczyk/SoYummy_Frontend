@@ -4,7 +4,7 @@
 
 .containerFollowUs {
   padding: 20px;
-  background-color: #c97979;
+  background-color: var(--cream);
   border-radius: 8px;
   text-align: center;
 }
@@ -41,10 +41,10 @@
 .icon {
   width: 100%; /* Dopasowuje ikonę do szerokości kontenera */
   height: 100%; /* Dopasowuje ikonę do wysokości kontenera */
-  fill: #8baa36; /* Kolor ikon */
+  fill: var(--green); /* Kolor ikon */
   transition: fill 0.3s; /* Płynna zmiana koloru */
 }
 
 .icon:hover {
-  fill: #1e1f28; /* Kolor ikon przy hoverze */
+  fill: var(--dark-blue); /* Kolor ikon przy hoverze */
 }

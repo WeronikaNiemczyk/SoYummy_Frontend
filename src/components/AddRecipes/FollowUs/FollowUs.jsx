@@ -1,5 +1,6 @@
 // src/components/AddRecipes/FollowUs/FollowUs.jsx
 
+import symbolDefs from "../../../images/symbol-defs.svg";
 import css from "./FollowUs.module.css";
 
 const FollowUs = () => {
@@ -15,7 +16,7 @@ const FollowUs = () => {
             className={css.socialLinkFollowUs}
           >
             <svg className={css.icon} aria-hidden="true">
-              <use xlinkHref="#icon-facebook"></use>
+              <use href={`${symbolDefs}#icon-facebook`}></use>
             </svg>
           </a>
         </li>
@@ -27,7 +28,7 @@ const FollowUs = () => {
             className={css.socialLinkFollowUs}
           >
             <svg className={css.icon} aria-hidden="true">
-              <use xlinkHref="#icon-twitter"></use>
+              <use href={`${symbolDefs}#icon-twitter`}></use>
             </svg>
           </a>
         </li>
@@ -39,7 +40,7 @@ const FollowUs = () => {
             className={css.socialLinkFollowUs}
           >
             <svg className={css.icon} aria-hidden="true">
-              <use xlinkHref="#icon-instagram"></use>
+              <use href={`${symbolDefs}#icon-instagram`}></use>
             </svg>
           </a>
         </li>
@@ -51,7 +52,7 @@ const FollowUs = () => {
             className={css.socialLinkFollowUs}
           >
             <svg className={css.icon} aria-hidden="true">
-              <use xlinkHref="#icon-youtube"></use>
+              <use href={`${symbolDefs}#icon-youtube`}></use>
             </svg>
           </a>
         </li>
