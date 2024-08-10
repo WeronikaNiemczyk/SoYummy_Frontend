@@ -1,12 +1,12 @@
 // src\components\Header\Header.jsx
-import { useState, useEffect } from "react";
-import { Logo } from "./Logo";
-import { Navigation } from "./Navigation";
-import { UserLogo } from "./UserLogo";
-import { ThemeToggler } from "./ThemeToggler";
+import { useEffect, useState } from "react";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/Header.css";
 import { fetchUserData } from "../../utils/fetchUserData";
+import { Logo } from "./Logo";
+import { Navigation } from "./Navigation";
+import { ThemeToggler } from "./ThemeToggler";
+import { UserLogo } from "./UserLogo";
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

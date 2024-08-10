@@ -1,0 +1,16 @@
+/* src/components/MainPageTitle/MainPageTitle.module.css */
+
+.mainPageTitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  text-align: left;
+  width: auto; /* Adjusts width according to text length */
+  height: 44px;
+  margin-top: 164px; /* Adjusted to match the layout requirement */
+  margin-left: 100px; /* Adjusted to match the layout requirement */
+  gap: 0px;
+  opacity: 1; /* Changed from 0 to 1 to ensure the text is visible */
+}

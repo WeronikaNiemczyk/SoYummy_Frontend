@@ -1,81 +1,101 @@
 // src/components/AddRecipes/AddRecipeForm/AddRecipeForm.jsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { addOwnRecipe, getCategoryList } from "../../../API/api";
+import MainPageTitle from "../../MainPageTitle/MainPageTitle"; // Importujemy MainPageTitle
+import RecipeDescriptionFields from "../RecipeDescriptionFields/RecipeDescriptionFields";
+import RecipeIngredientsFields from "../RecipeIngredientsFields/RecipeIngredientsFields";
+import RecipePreparationFields from "../RecipePreparationFields/RecipePreparationFields";
 import css from "./AddRecipeForm.module.css";
 
-const AddRecipeForm = ({ onSubmit }) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [measurement, setMeasurement] = useState("");
-  const [image, setImage] = useState(null);
+const AddRecipeForm = () => {
+  const [recipeData, setRecipeData] = useState({
+    title: "",
+    description: "",
+    category: "",
+    cookTime: "",
+    image: null,
+  });
+  const [ingredients, setIngredients] = useState([]);
+  const [preparation, setPreparation] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    // Fetch categories and any other data needed
+    const fetchCategories = async () => {
+      try {
+        const response = await getCategoryList();
+        // Ensure categories is an array
+        setCategories(Array.isArray(response.data) ? response.data : []);
+      } catch (err) {
+        console.error("Error fetching categories:", err);
+      }
+    };
+    fetchCategories();
+  }, []);
+
+  const handleRecipeDataChange = (data) => {
+    setRecipeData((prev) => ({
+      ...prev,
+      ...data,
+    }));
+  };
+
+  const handleIngredientsChange = (data) => {
+    setIngredients(data);
+  };
+
+  const handlePreparationChange = (data) => {
+    setPreparation(data);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("description", description);
-    formData.append("measurement", measurement);
-    if (image) {
-      formData.append("image", image);
+    formData.append("title", recipeData.title);
+    formData.append("description", recipeData.description);
+    formData.append("category", recipeData.category);
+    formData.append("cookTime", recipeData.cookTime);
+    if (recipeData.image) {
+      formData.append("image", recipeData.image);
     }
+    formData.append("ingredients", JSON.stringify(ingredients));
+    formData.append("preparation", JSON.stringify(preparation));
 
-    onSubmit(formData);
-
-    setTitle("");
-    setDescription("");
-    setMeasurement("");
-    setImage(null);
+    try {
+      await addOwnRecipe(formData);
+      navigate("/my-recipes"); // Redirect to MyRecipesPage after success
+    } catch (err) {
+      setError("Error adding recipe. Please try again.");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={css.formAddRecipeForm}>
-      <div className={css.inputGroupAddRecipeForm}>
-        <label htmlFor="title">Title</label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
+    <div className={css.addRecipeFormContainer}>
+      <MainPageTitle text="Add Recipe" />{" "}
+      {/* Używamy komponentu MainPageTitle */}
+      {error && <p className={css.errorMessage}>{error}</p>}
+      <form onSubmit={handleSubmit} className={css.formAddRecipeForm}>
+        <RecipeDescriptionFields
+          onChange={handleRecipeDataChange}
+          categories={categories} // Ensure categories is an array
+          recipeData={recipeData}
         />
-      </div>
-      <div className={css.inputGroupAddRecipeForm}>
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
+        <RecipeIngredientsFields
+          ingredients={ingredients}
+          onIngredientsChange={handleIngredientsChange}
         />
-      </div>
-      <div className={css.inputGroupAddRecipeForm}>
-        <label htmlFor="measurement">Measurement</label>
-        <select
-          id="measurement"
-          value={measurement}
-          onChange={(e) => setMeasurement(e.target.value)}
-          required
-        >
-          <option value="">Select a measurement</option>
-          <option value="grams">Grams</option>
-          <option value="milliliters">Milliliters</option>
-          <option value="cups">Cups</option>
-          {/* Add more options as needed */}
-        </select>
-      </div>
-      <div className={css.inputGroupAddRecipeForm}>
-        <label htmlFor="image">Upload Image</label>
-        <input
-          type="file"
-          id="image"
-          accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
+        <RecipePreparationFields
+          onPreparationChange={handlePreparationChange}
         />
-      </div>
-      <button className={css.buttonAddRecipeForm} type="submit">
-        Add
-      </button>
-    </form>
+        <button className={css.buttonAddRecipeForm} type="submit">
+          Add Recipe
+        </button>
+      </form>
+    </div>
   );
 };
 

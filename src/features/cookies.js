@@ -21,11 +21,11 @@ const readCookie = () => {
   return null;
 };
 
-const eraseCookie = (name) => {
+const delCookie = (name) => {
   document.cookie = `${name}=; Max-Age=0; path=/;`;
 };
 
-export default { setCookie, readCookie, eraseCookie };
+export default { setCookie, readCookie, delCookie };
 
 /*
 const setCookie = (token, exdays) => {

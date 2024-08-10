@@ -1,13 +1,10 @@
 // src/components/MainPageTitle/MainPageTitle.jsx
 
-import React from 'react';
+// import React from "react";
+import css from "./MainPageTitle.module.css";
 
-const MainPageTitle = ({ title }) => {
-  return (
-    <header>
-      <h1>{title}</h1>
-    </header>
-  );
+const MainPageTitle = ({ text }) => {
+  return <h1 className={css.mainPageTitle}>{text}</h1>;
 };
 
 export default MainPageTitle;
