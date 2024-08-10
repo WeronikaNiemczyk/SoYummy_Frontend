@@ -1,9 +1,8 @@
+//src/API/api.js
+
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  getAllRecipesByCategoryAPI,
-  getCategoryListAPI,
-} from "../service/Api/CategoriesApi";
+import { getCategoryList, getRecipesByCategory } from "../API/api.js";
 import css from "../styles/CategoriesPage.module.css";
 
 const CategoriesPage = () => {
@@ -19,11 +18,11 @@ const CategoriesPage = () => {
     const fetchCategories = async () => {
       try {
         console.log("Fetching categories...");
-        const data = await getCategoryListAPI();
+        const response = await getCategoryList();
+        const data = response.data.categories;
         console.log("Fetched categories:", data);
         setCategories(data);
 
-        // Ustawienie wybranej kategorii na "Beef" tylko, jeśli kategoria z URL nie istnieje
         if (!category || !data.includes(category)) {
           setSelectedCategory("Beef");
         } else {
@@ -42,7 +41,8 @@ const CategoriesPage = () => {
     const fetchRecipes = async () => {
       try {
         console.log(`Fetching recipes for category: ${selectedCategory}`);
-        const data = await getAllRecipesByCategoryAPI(selectedCategory);
+        const response = await getRecipesByCategory(selectedCategory);
+        const data = response.data;
         console.log("Fetched recipes:", data);
         setRecipes(data);
       } catch (error) {
@@ -98,28 +98,32 @@ export default CategoriesPage;
 // import { useEffect, useState } from "react";
 // import { useNavigate, useParams } from "react-router-dom";
 // import {
-//   getCategoryListAPI,
 //   getAllRecipesByCategoryAPI,
+//   getCategoryListAPI,
 // } from "../service/Api/CategoriesApi";
 // import css from "../styles/CategoriesPage.module.css";
 
 // const CategoriesPage = () => {
-//   const { categoryName } = useParams();
+//   const { category } = useParams();
+//   console.log("Current category from URL:", category);
 //   const [categories, setCategories] = useState([]);
 //   const [recipes, setRecipes] = useState([]);
-//   const [selectedCategory, setSelectedCategory] = useState(
-//     categoryName || "Beef"
-//   );
+//   const [selectedCategory, setSelectedCategory] = useState("Beef");
 //   const [error, setError] = useState(null);
 //   const navigate = useNavigate();
 
 //   useEffect(() => {
 //     const fetchCategories = async () => {
 //       try {
+//         console.log("Fetching categories...");
 //         const data = await getCategoryListAPI();
+//         console.log("Fetched categories:", data);
 //         setCategories(data);
-//         if (!categoryName) {
+
+//         if (!category || !data.includes(category)) {
 //           setSelectedCategory("Beef");
+//         } else {
+//           setSelectedCategory(category);
 //         }
 //       } catch (error) {
 //         console.error("Error fetching categories:", error);
@@ -128,7 +132,7 @@ export default CategoriesPage;
 //     };
 
 //     fetchCategories();
-//   }, [categoryName]);
+//   }, [category]);
 
 //   useEffect(() => {
 //     const fetchRecipes = async () => {
@@ -143,12 +147,15 @@ export default CategoriesPage;
 //       }
 //     };
 
-//     fetchRecipes();
+//     if (selectedCategory) {
+//       fetchRecipes();
+//     }
 //   }, [selectedCategory]);
 
 //   const handleCategoryChange = (category) => {
+//     console.log(`Category changed to: ${category}`);
 //     setSelectedCategory(category);
-//     navigate(`/categories/${category}`);
+//     navigate(`/SoYummy_FrontEnd_groupNo_1/categories/${category}`);
 //   };
 
 //   return (
