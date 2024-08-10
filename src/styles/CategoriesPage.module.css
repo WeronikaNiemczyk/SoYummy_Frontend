@@ -1,5 +1,14 @@
 /* CategoriesPage.module.css */
 
+:root {
+  --cream: #fafafa;
+  --light-green: #ebf3d4;
+  --green: #8baa36;
+  --dark-blue: #22252a;
+  --light-grey: #d9d9d9;
+  --dark-grey: #c4c4c4;
+}
+
 .categoriesPage {
   padding: 20px;
 }
@@ -53,4 +62,61 @@
 
 .categoryErrorMessage {
   color: red;
+}
+
+.MainRecipeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.MainRecipeList li {
+  display: none;
+}
+
+.MainRecipeList li:first-child {
+  display: block;
+}
+
+.MainRecipeItem {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.MainRecipeItem:hover {
+  transform: scale(1.05);
+}
+
+.MainRecipeItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.MainRecipeItem p {
+  position: absolute;
+  width: calc(100% - 72px);
+  bottom: 0;
+  background-color: var(--cream);
+  text-align: left;
+  justify-content: center;
+  font-weight: 600;
+  margin: auto 18px 32px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.MainRecipeItem p {
+  transition: background-color 0.3s ease;
+}
+
+.MainRecipeItem:hover p {
+  background-color: var(--light-green);
 }
