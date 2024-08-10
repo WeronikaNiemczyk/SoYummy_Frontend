@@ -29,10 +29,10 @@ const Home = () => {
 export default Home;
 */
 import { Outlet } from "react-router-dom";
-import { Main } from "../components/MainPage/Main";
 import { ChooseYourBreakfast } from "../components/MainPage/ChooseYourBreakfast";
-import { Search } from "../components/MainPage/Search";
+import { Main } from "../components/MainPage/Main";
 import { PreviewCategories } from "../components/MainPage/PreviewCategories";
+import { Search } from "../components/MainPage/Search";
 import "../styles/MainPage.css";
 
 export const Home = () => {
@@ -50,3 +50,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;
