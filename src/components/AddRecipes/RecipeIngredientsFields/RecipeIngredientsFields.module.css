@@ -1,12 +1,98 @@
 /* src/components/AddRecipes/RecipeIngredientsFields/RecipeIngredientsFields.module.css */
 
-.recipeIngredientsFields {
-  margin-top: 20px;
+.ingredientsFieldsWrapper {
+  margin-bottom: 44px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 100px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 609px;
+  }
 }
 
-.subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.titleWrapper {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 36px;
+  }
+}
+
+.title {
+  font-weight: 700; /* Adjust based on your theme */
+  font-size: 24px;
+  line-height: 1.5; /* Adjust based on your theme */
+  letter-spacing: 0.5px; /* Adjust based on your theme */
+  color: #333; /* Adjust based on your theme */
+}
+
+.btnsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  border: 1px solid #ccc; /* Adjust based on your theme */
+  border-radius: 18px;
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    height: 32px;
+  }
+}
+
+.btnDecrease,
+.btnIncrease {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: inherit;
+  padding: 7px;
+
+  svg {
+    stroke: #333; /* Adjust based on your theme */
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 8px;
+  }
+}
+
+.amountIngredients {
+  min-width: 16px;
+  padding: 6px 3px;
+  text-align: center;
+  color: #333; /* Adjust based on your theme */
+
+  @media screen and (min-width: 768px) {
+    min-width: 20px;
+    padding: 4px 3px;
+  }
+}
+
+.wrapperTextErr {
+  position: relative;
+}
+
+.textNotify {
+  color: #999; /* Adjust based on your theme */
+}
+
+.errMessage {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  font-size: 14px;
+  line-height: 1.5; /* Adjust based on your theme */
+  letter-spacing: 0.5px; /* Adjust based on your theme */
+  color: #f00; /* Adjust based on your theme */
 }
 
 .fieldGroup {
@@ -21,8 +107,7 @@
   padding: 5px;
 }
 
-.removeButton,
-.addButton {
+.removeButton {
   background-color: #d9534f;
   color: #fff;
   border: none;
@@ -32,4 +117,8 @@
 
 .addButton {
   background-color: #5bc0de;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
 }

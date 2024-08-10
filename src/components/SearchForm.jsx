@@ -2,25 +2,29 @@
 
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import css from "../styles/Search.module.css";
 
 const SearchForm = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-      onSubmit(query);
-      setQuery("");
+    onSubmit(query);
+    setQuery("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={ css.searchForm} onSubmit={handleSubmit}>
       <input
+        className={css.searchInput}
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search..."
       />
-      <button type="submit">Search</button>
+      <button className={css.searchButton} type="submit">
+        Search
+      </button>
     </form>
   );
 };
