@@ -30,7 +30,6 @@ const RecipeHero = ({element})=>{
 
     return (
         <>
-        <div className={css.background}></div>
         <div className={css.div}>
             <div className={css.sectionTitle}>{title}</div>
             <div className={css.sectionText}>{descrition}</div>

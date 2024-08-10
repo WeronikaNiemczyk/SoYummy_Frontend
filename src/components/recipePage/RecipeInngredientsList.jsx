@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { addProductToShoppingList,removeProductFromShoppingList } from '../../API/api'
+import { addProductToShoppingList, removeProductFromShoppingList } from '../../API/api'
+import css from '../../styles/RecipeIngredientsList.module.css'
 
 const RecipeIngredientsList = ({ element }) => {
     const [markup, setMarkup] = useState(null);
@@ -20,13 +21,17 @@ const RecipeIngredientsList = ({ element }) => {
                 for (let i = 0; i < ingredList.length; i++) {
                     if (ingredList[i]._id === recipeElement.id) {
                         return (
-                            <tr key={ingredList[i]._id}>
-                            <td>
+                            <tr className={css.trList } key={ingredList[i]._id}>
+                                <td className={`${css.leftAllign} ${css.thImg}`}>
                                 <img src={ingredList[i].thb} alt={ingredList[i].ttl} />
                             </td>
-                            <td >{ingredList[i].ttl}</td>
-                            <td >{recipeElement.measure}</td>
-                                <td><input type="checkbox" id={ingredList[i]._id} onChange={handleCheckboxChange} /></td>
+                            <td className={css.leftAllign}>{ingredList[i].ttl}</td>
+                                <td className={css.rightAllign}>
+                                    <div className={css.measureDiv}>
+                                        <p className={css.measureText}>{recipeElement.measure}</p>
+                                    </div>
+                                </td>
+                            <td className={css.rightAllign}><input className={css.checkbox} type="checkbox" id={ingredList[i]._id} onChange={handleCheckboxChange} /></td>
                             </tr>
                         );
                     }
@@ -39,17 +44,19 @@ const RecipeIngredientsList = ({ element }) => {
     }, [element]); 
    
     return (
-        <table>
-            <thead>
+        <div className={css.mainDiv}>
+        <table className={css.mainTable}  >
+            <thead className={css.mainTableRow} >
             <tr>
-                <th scope="col">Ingredients</th>
-                <th scope="col"></th>
-                <th scope="col">Number</th>
-                <th scope="col">Add to list</th>
+                <th className={`${css.thHead} ${css.leftAllign}`} scope="col">Ingredients</th>
+                <th className={css.thHead} scope="col"></th>
+                <th className={css.thHead} scope="col">Number</th>
+                <th className={css.thHead} scope="col">Add to list</th>
                 </tr>
             </thead>
             <tbody>{markup}</tbody>
-        </table>
+            </table>
+        </div>
     );
 };
 

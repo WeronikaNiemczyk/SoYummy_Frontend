@@ -1,0 +1,95 @@
+.mainTable{
+    width: 1240px; 
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0 50px
+}
+
+.mainTableRow{
+background-color: #8BAA36;
+border-radius: 8px;
+border: none;
+}
+
+.mainDiv{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center
+}
+ .thHead{
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+ }
+
+ .thHeadLeft{
+    padding-top: 20px;
+    padding-bottom: 20px;
+ }
+
+thead th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.trList{
+   background-color: #EBF3D4;
+}
+
+.leftAllign{
+    text-align: left;
+    padding-left: 40px;
+    padding-bottom: 0px;
+    padding-top: 0px
+}
+
+.rightAllign{
+    text-align: center;
+}
+
+img {
+    width: 128px;
+    height: 128px;
+}
+
+.thImg{
+    width: 182px;
+    height: 182px;
+}
+
+.measureText{
+    width: 52px;
+    height: 27px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FAFAFA;
+    margin: 0;
+}
+
+.measureDiv{
+    width: 68px;
+    height: 35px;
+    border-radius: 4px;
+    background-color: #8BAA36;
+    display: inline-block;
+}
+
+.checkbox{
+    width: 35px;
+    height: 35px;
+    border-radius: 4px;
+    border: 2px;
+}
+
+
+

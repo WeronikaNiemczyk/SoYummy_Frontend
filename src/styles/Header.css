@@ -23,6 +23,9 @@ form {
   padding: 18px 16px;
   background-color: transparent;
   width: 100vw;
+  position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .HeaderRightContainer {

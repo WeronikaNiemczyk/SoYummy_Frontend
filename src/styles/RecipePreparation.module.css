@@ -1,0 +1,25 @@
+.mainDivRecipe{
+    display: flex;
+        flex-direction: row;
+        min-width: 1240px;
+        justify-content: space-between;
+}
+
+ul{
+    padding: 0;
+    list-style: none;
+}
+
+li{
+    display: flex;
+    flex-direction: row;
+    gap:14px;
+}
+
+.pointer{
+    width: 21px;
+    height: 21px;
+    background-color: #8BAA36;
+    text-align: center;
+    border-radius: 50%;
+}

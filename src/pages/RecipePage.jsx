@@ -6,6 +6,7 @@ import { getIngredientsList } from "../API/api"
 import { getRecipeById } from '../API/api'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react"
+import css from '../styles/RecipePage.module.css'
 
 const RecipePage = () => {
 
@@ -44,10 +45,10 @@ const RecipePage = () => {
   },[])
 
   return (
-      <div>
-      <RecipeHero element={{ downloadedRecipe }}/>
-      <RecipeInngredientsList element={{ downloadedRecipe, list }} />
-      <RecpiePreparation element={{ downloadedRecipe }}/>
+    <div className={css.divMain}>
+      <RecipeHero element={{ downloadedRecipe }} />
+        <RecipeInngredientsList element={{ downloadedRecipe, list }} />
+        <RecpiePreparation element={{ downloadedRecipe }} />
     </div>
     
 
