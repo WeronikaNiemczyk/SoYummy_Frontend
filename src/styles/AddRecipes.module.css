@@ -1,4 +1,39 @@
-/* src/styles/AddRecipes.module.css */
+/* src/styles/AddRecipePage.module.css */
+
+.mainWrapper {
+  margin-top: 72px;
+  margin-bottom: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  .mainWrapper {
+    margin-top: 100px;
+    margin-bottom: 200px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .mainWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.followUsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+.followUsTitle {
+  font-weight: 500; /* Replace with your theme's font weight if available */
+  font-size: 24px;
+  line-height: 1.5; /* Replace with your theme's line height if available */
+  letter-spacing: 0.02em; /* Replace with your theme's letter spacing if available */
+  color: #333; /* Replace with your theme's color if available */
+}
 
 .containerAddRecipes {
   display: flex;
@@ -32,9 +67,10 @@
   box-sizing: border-box;
 }
 
-textareaAddRecipes {
+.textareaAddRecipes {
   resize: vertical;
 }
+
 .buttonAddRecipes {
   display: flex;
   align-items: center;
@@ -54,44 +90,11 @@ textareaAddRecipes {
 }
 
 .popularRecipesAddRecipes {
-  flex: 1;
-  background: #f4f4f4;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.popularRecipesAddRecipes h2 {
-  margin-top: 0;
-}
-
-.popularRecipesAddRecipes ul {
-  list-style: none;
-  padding: 0;
-}
-
-.popularRecipesAddRecipes li {
-  margin-bottom: 10px;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-  .containerAddRecipes {
-    flex-direction: column;
-  }
-
-  .formAddRecipes {
-    margin-right: 0;
-  }
-
-  .popularRecipesAddRecipes {
-    margin-top: 20px;
-  }
-}
-
-.popularRecipesAddRecipes {
   width: 30%;
   padding: 10px;
+  background: #f4f4f4;
   border-left: 2px solid #eee;
+  border-radius: 5px;
 }
 
 .popularRecipesAddRecipes h2 {
@@ -138,4 +141,19 @@ textareaAddRecipes {
 
 .socialLink:hover {
   text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .containerAddRecipes {
+    flex-direction: column;
+  }
+
+  .formAddRecipes {
+    margin-right: 0;
+  }
+
+  .popularRecipesAddRecipes {
+    margin-top: 20px;
+  }
 }

@@ -8,13 +8,25 @@ import css from "../styles/AddRecipes.module.css";
 
 const AddRecipe = () => {
   return (
-    <div className={css.addRecipePageContainer}>
-      <MainPageTitle text="Add Recipe" />{" "}
-      {/* Używamy komponentu MainPageTitle */}
+    <div className={css.mainWrapper}>
+      <MainPageTitle text="Add Recipe" />
       <AddRecipeForm />
-      <PopularRecipe />
-      <FollowUs />
+      <div>
+        <div className={css.followUsWrapper}>
+          <h4 className={css.followUsTitle}>Follow Us</h4>
+          <FollowUs />
+        </div>
+        <PopularRecipe />
+      </div>
     </div>
+
+    // <div className={css.addRecipePageContainer}>
+    //   <MainPageTitle text="Add Recipe" />{" "}
+    //   {/* Używamy komponentu MainPageTitle */}
+    //   <AddRecipeForm />
+    //   <PopularRecipe />
+    //   <FollowUs />
+    // </div>
   );
 };
 
