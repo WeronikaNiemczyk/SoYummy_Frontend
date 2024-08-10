@@ -1,6 +1,7 @@
 // src/API/api.js
 
 import axios from "axios";
+import cookies from "../features/cookies";
 
 // Globalny URL powinien być taki dla wszystkich zapytań!!
 // const BASE_URL = "https://deploy-marek-b05855e6af89.herokuapp.com";
@@ -83,64 +84,213 @@ export const sendNewsletterEmail = (data) =>
 // --------------- PRZEPISY ---------------
 
 // Pobranie głównych przepisów według kategorii
-export const getMainRecipesByCategory = () => recipesApi.get("/main-page");
+export const getMainRecipesByCategory = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get("/main-page", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Pobranie listy kategorii przepisów
-export const getCategoryList = () => recipesApi.get("/category-list");
+export const getCategoryList = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get("/category-list", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Wyszukiwanie przepisów
-export const searchRecipes = (query) =>
-  recipesApi.get("/search", { params: { query } });
+export const searchRecipes = (query) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get(
+    "/search",
+    { params: { query } },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
 
 // Pobranie przepisów według kategorii
-export const getRecipesByCategory = (category) =>
-  recipesApi.get(`/${category}`);
+export const getRecipesByCategory = (category) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get(`/${category}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Pobranie przepisu według ID
-export const getRecipeById = (id) => recipesApi.get(`/recipe/${id}`);
+export const getRecipeById = (id) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get(`/recipe/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Pobranie popularnych przepisów
-export const getPopularRecipes = () => recipesApi.get("/popular/recipe");
+export const getPopularRecipes = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get("/popular/recipe", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Pobranie własnych przepisów użytkownika
-export const getOwnRecipes = () => recipesApi.get("/ownRecipes/user");
+export const getOwnRecipes = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get("/ownRecipes/user", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Dodanie własnego przepisu
-export const addOwnRecipe = (data) => recipesApi.post("/ownRecipes", data);
+export const addOwnRecipe = (data) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.post("/ownRecipes", data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Usunięcie własnego przepisu
-export const deleteOwnRecipe = (id) => recipesApi.delete(`/ownRecipes/${id}`);
+export const deleteOwnRecipe = (id) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.delete(`/ownRecipes/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Dodanie przepisu do ulubionych
-export const addFavoriteRecipe = (data) => recipesApi.post("/favorites", data);
+export const addFavoriteRecipe = (data) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.post("/favorites", data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Pobranie ulubionych przepisów użytkownika
-export const getFavoriteRecipes = () => recipesApi.get("/favorites/user");
+export const getFavoriteRecipes = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get("/favorites/user", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Usunięcie przepisu z ulubionych
-export const removeFavoriteRecipe = (id) =>
-  recipesApi.delete(`/favorites/${id}`);
+export const removeFavoriteRecipe = (id) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.delete(`/favorites/${id}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Dodanie produktu do listy zakupów
-export const addProductToShoppingList = (data) =>
-  recipesApi.post("/shopping-list/add", data);
+export const addProductToShoppingList = (data) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.post("/shopping-list/add", data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Usunięcie produktu z listy zakupów
-export const removeProductFromShoppingList = (data) =>
-  recipesApi.delete("/shopping-list/remove", { data });
+export const removeProductFromShoppingList = (data) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.delete(
+    "/shopping-list/remove",
+    { data },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
 
 // Pobranie listy zakupów użytkownika
-export const getShoppingList = () => recipesApi.get("/shopping-list/user");
+export const getShoppingList = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.get("/shopping-list/user", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Aktualizacja produktu w liście zakupów
-export const updateProductInShoppingList = (data) =>
-  recipesApi.patch("/shopping-list/update", data); // Dodany nowy endpoint
+export const updateProductInShoppingList = (data) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return recipesApi.patch("/shopping-list/update", data, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}; // Dodany nowy endpoint
 
 // --------------- SKŁADNIKI ---------------
 
 // Pobranie listy składników
-export const getIngredientsList = () => ingredientsApi.get("/list");
+export const getIngredientsList = () => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return ingredientsApi.get("/list", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
 // Pobranie przepisów według składników
-export const getRecipeByIngredients = (ingredients) =>
-  ingredientsApi.get("/", { params: { ingredients } });
+export const getRecipeByIngredients = (ingredients) => {
+  const token = cookies.readCookie();
+  console.log("token1", token);
+  return ingredientsApi.get(
+    "/",
+    { params: { ingredients } },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
