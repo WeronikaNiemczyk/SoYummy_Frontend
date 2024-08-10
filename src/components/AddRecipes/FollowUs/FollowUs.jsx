@@ -14,7 +14,9 @@ const FollowUs = () => {
             rel="noopener noreferrer"
             className={css.socialLinkFollowUs}
           >
-            Facebook
+            <svg className={css.icon} aria-hidden="true">
+              <use xlinkHref="#icon-facebook"></use>
+            </svg>
           </a>
         </li>
         <li className={css.socialItemFollowUs}>
@@ -24,7 +26,9 @@ const FollowUs = () => {
             rel="noopener noreferrer"
             className={css.socialLinkFollowUs}
           >
-            Twitter
+            <svg className={css.icon} aria-hidden="true">
+              <use xlinkHref="#icon-twitter"></use>
+            </svg>
           </a>
         </li>
         <li className={css.socialItemFollowUs}>
@@ -34,7 +38,9 @@ const FollowUs = () => {
             rel="noopener noreferrer"
             className={css.socialLinkFollowUs}
           >
-            Instagram
+            <svg className={css.icon} aria-hidden="true">
+              <use xlinkHref="#icon-instagram"></use>
+            </svg>
           </a>
         </li>
         <li className={css.socialItemFollowUs}>
@@ -44,7 +50,9 @@ const FollowUs = () => {
             rel="noopener noreferrer"
             className={css.socialLinkFollowUs}
           >
-            YouTube
+            <svg className={css.icon} aria-hidden="true">
+              <use xlinkHref="#icon-youtube"></use>
+            </svg>
           </a>
         </li>
       </ul>

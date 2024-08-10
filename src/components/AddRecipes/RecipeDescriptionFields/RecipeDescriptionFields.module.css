@@ -1,28 +1,137 @@
 /* src/components/AddRecipes/RecipeDescriptionFields/RecipeDescriptionFields.module.css */
 
+/* Container for all fields */
 .fieldsContainerRecipeDescriptionFields {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Container for each input group */
 .inputGroupRecipeDescriptionFields {
-  margin-bottom: 15px;
+  position: relative;
+  margin-bottom: 24px; /* Adjusted for better spacing */
 }
 
+/* Labels */
 .inputGroupRecipeDescriptionFields label {
   display: block;
   margin-bottom: 5px;
+  font-size: 14px;
+  color: #333; /* You can adjust the color */
 }
 
+/* Input, textarea, and select styling */
 .inputGroupRecipeDescriptionFields input,
 .inputGroupRecipeDescriptionFields textarea,
 .inputGroupRecipeDescriptionFields select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   box-sizing: border-box;
+  border: 1px solid #ccc; /* Default border color */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 textarea {
   resize: vertical;
+  height: 100px; /* Adjust height if needed */
+}
+
+/* Specific input styling */
+.inputGroupRecipeDescriptionFields input[type="file"] {
+  padding: 0;
+}
+
+/* Error message styling */
+.errMessage {
+  position: absolute;
+  font-size: 14px;
+  color: red; /* Error color */
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Category and cooking time styling */
+.selectContainer {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+
+.selectStyled {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.selectContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.selectItem {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.selectItem:hover {
+  background-color: #f0f0f0;
+}
+
+/* Additional styling for responsiveness */
+@media screen and (min-width: 768px) {
+  .fieldsContainerRecipeDescriptionFields {
+    gap: 32px;
+  }
+
+  .inputGroupRecipeDescriptionFields {
+    margin-bottom: 32px;
+  }
+
+  .inputGroupRecipeDescriptionFields input,
+  .inputGroupRecipeDescriptionFields textarea,
+  .inputGroupRecipeDescriptionFields select {
+    font-size: 18px;
+  }
+
+  .textarea {
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .fieldsContainerRecipeDescriptionFields {
+    gap: 50px;
+  }
+
+  .inputGroupRecipeDescriptionFields {
+    margin-bottom: 40px;
+  }
+
+  .inputGroupRecipeDescriptionFields input,
+  .inputGroupRecipeDescriptionFields textarea,
+  .inputGroupRecipeDescriptionFields select {
+    font-size: 18px;
+  }
+
+  .textarea {
+    height: 200px;
+  }
 }

@@ -1,14 +1,21 @@
+/* src/components/AddRecipes/FollowUs/FollowUs.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
 .containerFollowUs {
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #c97979;
   border-radius: 8px;
   text-align: center;
 }
 
 .titleFollowUs {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   font-size: 24px;
-  margin-bottom: 16px;
-  color: #333;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+  margin-bottom: 20px;
 }
 
 .socialLinksFollowUs {
@@ -17,18 +24,27 @@
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .socialItemFollowUs {
+  display: flex;
+  align-items: center;
 }
 
 .socialLinkFollowUs {
-  text-decoration: none;
-  color: #0073e6;
-  font-weight: bold;
+  display: block;
+  width: 28px; /* Ustawiamy szerokość kontenera ikon */
+  height: 28px; /* Ustawiamy wysokość kontenera ikon */
 }
 
-.socialLinkFollowUs:hover {
-  text-decoration: underline;
+.icon {
+  width: 100%; /* Dopasowuje ikonę do szerokości kontenera */
+  height: 100%; /* Dopasowuje ikonę do wysokości kontenera */
+  fill: #8baa36; /* Kolor ikon */
+  transition: fill 0.3s; /* Płynna zmiana koloru */
+}
+
+.icon:hover {
+  fill: #1e1f28; /* Kolor ikon przy hoverze */
 }

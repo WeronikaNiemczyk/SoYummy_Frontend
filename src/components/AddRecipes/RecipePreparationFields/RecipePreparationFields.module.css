@@ -1,27 +1,70 @@
 /* src/components/AddRecipes/RecipePreparationFields/RecipePreparationFields.module.css */
 
 .containerRecipePreparationFields {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  position: relative;
 }
 
 .titleRecipePreparationFields {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: 600; /* Możesz dostosować do wartości z theme */
+  font-size: 24px;
+  line-height: 1.2; /* Dostosuj do wartości z theme */
+  letter-spacing: 0.5px; /* Możesz dostosować do wartości z theme */
+  color: #333; /* Możesz dostosować do wartości z theme */
+  margin-bottom: 28px;
 }
 
 .textareaRecipePreparationFields {
+  font-family: inherit;
+  border-radius: 4px; /* Możesz dostosować do wartości z theme */
   width: 100%;
-  padding: 10px;
+  height: 154px; /* Możesz dostosować do wartości z theme */
+  overflow-y: auto;
+  resize: none;
+  padding: 10px 16px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  line-height: 1.5;
-  resize: vertical;
+  background: #f9f9f9; /* Możesz dostosować do wartości z theme */
+  color: #333; /* Możesz dostosować do wartości z theme */
+
+  &::placeholder {
+    font-size: 14px; /* Możesz dostosować do wartości z theme */
+    line-height: 1.5; /* Możesz dostosować do wartości z theme */
+    color: #888; /* Możesz dostosować do wartości z theme */
+    letter-spacing: 0.5px; /* Możesz dostosować do wartości z theme */
+  }
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Możesz dostosować do wartości z theme */
+    border-radius: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 60px;
+    border-radius: 12px;
+    background-color: #888; /* Możesz dostosować do wartości z theme */
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    height: 224px;
+    padding: 16px 23px;
+
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
 }
 
-.textareaRecipePreparationFields:focus {
-  outline: none;
-  border-color: #66afe9;
-  box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+.errMessage {
+  position: absolute;
+  top: 98%;
+  left: 0;
+  font-size: 14px;
+  line-height: 1.5; /* Możesz dostosować do wartości z theme */
+  letter-spacing: 0.5px; /* Możesz dostosować do wartości z theme */
+  color: #e74c3c; /* Możesz dostosować do wartości z theme */
 }
