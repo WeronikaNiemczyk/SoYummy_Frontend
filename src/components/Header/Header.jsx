@@ -39,7 +39,11 @@ export const Header = () => {
         <Navigation />
       </nav>
       <div className="HeaderRightContainer">
-        {user ? <UserLogo user={user.data} /> : <span>Loading...</span>}
+        {user ? (
+          <UserLogo user={user.data} />
+        ) : (
+          <span className="HeaderUserName">Loading...</span>
+        )}
         <div className="HeaderNavigation">
           <ThemeToggler />
         </div>
