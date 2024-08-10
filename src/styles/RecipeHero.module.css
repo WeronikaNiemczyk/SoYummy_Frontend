@@ -4,7 +4,6 @@
     background-repeat: no-repeat;
     background-position: top;
     position: absolute;
-    max-height: 496px;
     top: 0;
     left: 0;
     width: 100%;
@@ -15,9 +14,15 @@
     flex-direction: column
 }
 .div{
+    background-image: url('../images/recpiePageHero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 496px;
     display: flex;
     align-items: center;
-    flex-direction: column
+    flex-direction: column;
+    min-width: 100vw;
+    margin: 0 auto;
 }
 
 .sectionTitle{
@@ -29,12 +34,14 @@
     letter-spacing: -2%;
 }
 .sectionText{
+    width: 656px;
     padding-top: 24px;
     font-weight: 400;
     font-size: 18px;
     line-height: 24px;
     letter-spacing: -2%;
-    color: #23262A
+    color: #23262A;
+    text-align: center;
 }
 .button{
     margin-top: 30px;
