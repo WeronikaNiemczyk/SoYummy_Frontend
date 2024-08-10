@@ -1,0 +1,38 @@
+/* src/components/AddRecipes/PopularRecipe/PopularRecipe.module.css */
+
+.containerPopularRecipe {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.titlePopularRecipe {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.errorMessage {
+  color: #d9534f;
+  font-size: 1rem;
+}
+
+.recipeList {
+  list-style: none;
+  padding: 0;
+}
+
+.recipeItem {
+  margin-bottom: 10px;
+}
+
+.recipeLink {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.recipeLink:hover {
+  text-decoration: underline;
+}
