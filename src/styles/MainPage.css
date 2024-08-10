@@ -1,0 +1,535 @@
+:root {
+  --cream: #fafafa;
+  --light-green: #ebf3d4;
+  --green: #8baa36;
+  --dark-blue: #22252a;
+  --light-grey: #d9d9d9;
+  --dark-grey: #c4c4c4;
+}
+
+.MainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+.MainWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.MainImage img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.MainContainerInside {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 83px;
+  position: relative;
+  place-items: center;
+}
+
+.MainAppName {
+  font-size: 60px;
+  font-weight: 400;
+  margin-top: 68px;
+  margin-bottom: 14px;
+}
+
+.MainDescriptionText {
+  font-size: 14px;
+  font-weight: 500;
+  width: 248px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.MainGreenFont {
+  color: var(--green);
+}
+
+.MainContainerChooseBreakfast {
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 225px;
+  padding: 8px;
+  position: absolute;
+  right: 0%;
+  transform: translateY(-50%);
+  top: 60%;
+  background-color: var(--cream);
+}
+
+.MainChooseBreakfastText {
+  font-size: 12px;
+  text-align: left;
+  margin: 0;
+}
+
+.MainButtonSeeRecipes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70px;
+  padding: 0;
+  font-size: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-blue);
+  margin-left: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.MainButtonSeeRecipes:hover,
+.MainButtonSeeRecipes:hover svg {
+  color: var(--green);
+  stroke: var(--green);
+}
+
+.MainButtonSeeRecipes:active,
+.MainButtonSeeRecipes:focus,
+.MainSearchButton:active,
+.MainSearchButton:focus,
+.MainOtherButton:active,
+.MainOtherButton:focus {
+  outline: none;
+}
+
+.MainIcon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--dark-blue);
+}
+
+.MainArrow {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: auto;
+}
+
+.MainSearchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: inline-block;
+  width: 295px;
+  margin: 0 auto;
+  height: 52px;
+}
+
+.MainSearchContainer input {
+  border: 1px solid var(--light-grey);
+  padding: 10px 113px 10px 40px;
+  font-size: 12px;
+  width: 295px;
+  outline: none;
+  border-radius: 24px 44px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.MainSearchContainer input:hover,
+.MainSearchContainer input:focus {
+  border: 1px solid var(--dark-grey);
+}
+
+.MainSearchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dark-blue);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 113px;
+  border-radius: 24px 44px;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  font-size: 14px;
+  height: 100%;
+}
+
+.MainSearchButton:hover {
+  background-color: var(--green);
+}
+
+.MainCategoryName {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark-blue);
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.MainCategoryName:hover {
+  color: var(--green);
+}
+
+.MainSeeAllButton {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px 0 0 auto;
+  width: 120px;
+  font-weight: 400;
+}
+
+.MainSeeAllButton:hover {
+  background-color: var(--dark-blue);
+}
+
+.MainOtherButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cream);
+  color: var(--dark-blue);
+  padding: 14px 20px;
+  margin: 20px auto 100px;
+  border: 1px solid var(--green);
+  cursor: pointer;
+  width: 195px;
+  border-radius: 24px 44px;
+  font-size: 14px;
+  height: auto;
+}
+
+.MainOtherButton:hover {
+  background-color: var(--green);
+  color: var(--cream);
+  border: 1px solid var(--green);
+}
+
+.MainContainerRecipes {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.MainRecipesCategory {
+  margin-bottom: 32px;
+}
+
+.MainRecipeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.MainRecipeList li {
+  display: none;
+}
+
+.MainRecipeList li:first-child {
+  display: block;
+}
+
+.MainRecipeItem {
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.MainRecipeItem:hover {
+  transform: scale(1.05);
+}
+
+.MainRecipeItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.MainRecipeItem p {
+  position: absolute;
+  width: calc(100% - 72px);
+  bottom: 0;
+  background-color: var(--cream);
+  text-align: left;
+  justify-content: center;
+  font-weight: 600;
+  margin: auto 18px 32px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.MainRecipeItem p {
+  transition: background-color 0.3s ease;
+}
+
+.MainRecipeItem:hover p {
+  background-color: var(--light-green);
+}
+
+@media (min-width: 768px) {
+  .MainContainer {
+    margin: 0 auto;
+    max-width: 704px;
+  }
+
+  .MainContainerInside {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-bottom: 130px;
+    margin: auto;
+  }
+
+  .MainContainerInside > div:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .MainContainerInside > div:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .MainContainerInside > div:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+  }
+  .PreviewCategories {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
+
+  .MainAppName {
+    font-size: 72px;
+    margin-top: 140px;
+  }
+
+  .MainDescriptionText {
+    font-size: 14px;
+    width: 362px;
+    text-align: left;
+  }
+
+  .MainContainerChooseBreakfast {
+    width: 260px;
+    padding: 12px;
+  }
+
+  .MainChooseBreakfastText {
+    font-size: 14px;
+  }
+
+  .MainSearchContainer {
+    width: 369px;
+    height: 59px;
+  }
+
+  .MainSearchContainer input {
+    padding: 10px 161px 10px 45px;
+    font-size: 16px;
+    width: 369px;
+  }
+
+  .MainSearchButton {
+    width: 161px;
+    font-size: 16px;
+  }
+
+  .MainImage img {
+    width: auto;
+    max-width: 378px;
+  }
+
+  .MainCategoryName {
+    font-size: 44px;
+    margin-bottom: 40px;
+  }
+
+  .MainSeeAllButton {
+    margin: 40px 0 0 auto;
+  }
+
+  .MainRecipeList {
+    gap: 32px;
+  }
+
+  .MainRecipeItem {
+    width: calc((100% - 32px) / 2);
+  }
+
+  .MainRecipeList li:nth-child(2) {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .MainContainer {
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+
+  .MainAppName {
+    font-size: 100px;
+    margin-top: 162px;
+  }
+
+  .MainDescriptionText {
+    font-size: 18px;
+    width: 450px;
+    margin-bottom: 50px;
+  }
+
+  .MainContainerChooseBreakfast {
+    width: 298px;
+    padding: 16px;
+  }
+
+  .MainSearchContainer {
+    width: 510px;
+    height: 71px;
+  }
+
+  .MainSearchContainer input {
+    width: 510px;
+  }
+
+  .MainImage img {
+    max-width: 578px;
+  }
+
+  .MainCategoryName {
+    margin-bottom: 50px;
+  }
+
+  .MainSeeAllButton {
+    margin: 50px 0 0 auto;
+  }
+
+  .MainRecipeList {
+    gap: 14px;
+  }
+
+  .MainRecipeItem {
+    width: calc((100% - 42px) / 4);
+    gap: 14px;
+  }
+
+  .MainRecipeList li:nth-child(3),
+  .MainRecipeList li:nth-child(4) {
+    display: block;
+  }
+}
+
+body.dark-mode .MainSearchButton {
+  background-color: var(--green);
+  color: var(--cream);
+}
+
+body.dark-mode .MainSearchButton:hover {
+  background-color: var(--dark-blue);
+  border: 1px solid var(--dark-grey);
+}
+
+body.dark-mode .MainSearchContainer input {
+  border: 1px solid var(--dark-grey);
+  background-color: var(--dark-blue);
+  color: var(--cream);
+}
+
+body.dark-mode .MainSearchContainer input:hover,
+body.dark-mode .MainSearchContainer input:active {
+  border: 1px solid var(--light-grey);
+  background-color: var(--dark-blue);
+  color: var(--cream);
+}
+
+body.dark-mode .MainContainerChooseBreakfast {
+  background-color: var(--dark-blue);
+}
+
+body.dark-mode .MainChooseBreakfastText,
+body.dark-mode .MainButtonSeeRecipes,
+body.dark-mode .MainIcon {
+  color: var(--cream);
+  stroke: var(--cream);
+}
+
+body.dark-mode .MainButtonSeeRecipes:hover,
+body.dark-mode .MainButtonSeeRecipes:hover svg {
+  color: var(--green);
+  stroke: var(--green);
+}
+
+body.dark-mode .MainCategoryName {
+  color: var(--cream);
+}
+
+body.dark-mode .MainCategoryName:hover {
+  color: var(--green);
+}
+
+body.dark-mode .MainRecipeItem p {
+  background-color: var(--dark-blue);
+  color: var(--cream);
+}
+
+body.dark-mode .MainSeeAllButton:hover {
+  color: var(--dark-blue);
+  background-color: var(--green);
+}
+
+body.dark-mode .MainOtherButton {
+  background-color: var(--dark-blue);
+  color: var(--cream);
+  border: 1px solid var(--green);
+}
+
+body.dark-mode .MainOtherButton:hover {
+  background-color: var(--green);
+  color: var(--dark-blue);
+  border: 1px solid var(--green);
+}
+
+body.dark-mode .MainRecipeItem p {
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .MainRecipeItem:hover p {
+  background-color: var(--light-green);
+  color: var(--dark-blue);
+}

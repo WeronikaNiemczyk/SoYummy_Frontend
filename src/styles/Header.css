@@ -7,6 +7,22 @@
   --dark-grey: #c4c4c4;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../images/mainLeavesDown.png") left bottom no-repeat,
+    url("../images/mainLeavesRight.png") right top no-repeat,
+    url("../images/mainShapeMobile.png") right top no-repeat,
+    url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
+  background-size: contain contain contain contain cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow-x: hidden;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -110,11 +126,7 @@ form {
 }
 
 .HeaderStyledLogo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.HeaderStyledLogo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 1em var(--green));
 }
 
 .HeaderStyledLogo svg {
@@ -138,6 +150,13 @@ form {
   font-size: 18px;
   text-decoration: none;
   color: var(--dark-blue);
+}
+
+.HeaderStyledLink:hover,
+.HeaderStyledLink:hover .HeaderIconSearch {
+  font-weight: bold;
+  color: var(--green);
+  stroke: var(--green);
 }
 
 .HeaderStyledLink.active,
@@ -445,13 +464,18 @@ form {
 .HeaderUserNameInput {
   width: 100%;
   height: 49px;
-  border: 1px solid var(--dark-grey);
+  border: 1px solid var(--light-grey);
   border-radius: 5px;
   margin: 24px 0;
   background-color: var(--cream);
   padding-left: 80px;
   font-size: 16px;
   color: var(--dark-blue);
+}
+
+.HeaderUserNameInput:hover,
+.HeaderUserNameInput:focus {
+  border: 1px solid var(--dark-blue);
 }
 
 .HeaderSaveButton {
@@ -479,7 +503,6 @@ form {
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
-  padding: 5px;
   cursor: pointer;
   transition: background 0.3s, box-shadow 0.3s;
 }
@@ -525,6 +548,14 @@ form {
 }
 
 @media (min-width: 768px) {
+  body {
+    background: url("../images/mainLeavesDown.png") left bottom no-repeat,
+      url("../images/mainLeavesRight.png") right top no-repeat,
+      url("../images/mainShapeMobile.png") right top no-repeat,
+      url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
+    background-size: contain contain contain contain cover;
+  }
+
   .HeaderContainer {
     padding: 18px 32px;
     justify-content: space-between;
@@ -584,6 +615,13 @@ form {
 }
 
 @media (min-width: 1024px) {
+  body {
+    background: url("../images/mainLeavesDown.png") left bottom no-repeat,
+      url("../images/mainLeavesRight.png") right top no-repeat,
+      url("../images/mainShapeComp.png") right top no-repeat,
+      url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
+    background-size: contain contain contain contain cover;
+  }
   .HeaderContainer {
     padding: 18px 100px;
   }
@@ -623,6 +661,10 @@ form {
   .HeaderSearchText {
     display: none;
   }
+
+  body.dark-mode .HeaderUserName {
+    color: var(--dark-blue) !important;
+  }
 }
 
 body.dark-mode {
@@ -630,7 +672,6 @@ body.dark-mode {
   color: var(--cream);
 }
 
-body.dark-mode .HeaderHamburger svg,
 body.dark-mode .HeaderIconSearch,
 body.dark-mode .HeaderIcon,
 body.dark-mode .HeaderUserIconForm,
@@ -669,4 +710,11 @@ body.dark-mode .HeaderUserNameInput {
   border: 1px solid var(--dark-grey);
   background-color: var(--dark-blue);
   color: var(--cream);
+}
+
+body.dark-mode .HeaderStyledLink:hover,
+body.dark-mode .HeaderStyledLink:hover .HeaderIconSearch {
+  font-weight: bold;
+  color: var(--green);
+  stroke: var(--green);
 }
