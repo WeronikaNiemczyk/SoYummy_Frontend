@@ -8,6 +8,7 @@ import SearchBar from "../components/SearchBar";
 import SearchedRecipesList from "../components/SearchedRecipesList";
 import Stack from "@mui/material/Stack";
 import CustomPagination from "../components/Pagination";
+import css from "../styles/Search.module.css";
 
 const Search = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -88,8 +89,8 @@ const Search = () => {
   );
   const totalPages = Math.ceil(recipes.length / recipesPerPage);
   return (
-    <div>
-      <h1>Search</h1>
+    <div className={css.searchContainer}>
+      <h1 className={css.searchTitle}>Search</h1>
       <SearchBar
         searchType={searchType}
         onSearchTypeChange={handleSearchTypeChange}
