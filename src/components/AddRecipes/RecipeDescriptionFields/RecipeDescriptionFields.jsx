@@ -17,6 +17,7 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
 
         if (response.data && Array.isArray(response.data.categories)) {
           setCategories(response.data.categories);
+          console.log("categories", response.data.categories);
         } else {
           console.error("Invalid data format: Expected { categories: Array }");
         }
@@ -56,8 +57,6 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
     { value: "pinch", label: "Pinches" },
     { value: "piece", label: "Pieces" },
     { value: "c", label: "Cups" },
-    { value: "g", label: "Grams" },
-    { value: "ml", label: "Milliliters" },
   ];
 
   return (
@@ -97,9 +96,9 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
           >
             <option value="">Select a category</option>
             {categories.length > 0 ? (
-              categories.map((cat) => (
-                <option key={cat._id} value={cat._id}>
-                  {cat.title}
+              categories.map((cat, index) => (
+                <option key={index} value={cat}>
+                  {cat}
                 </option>
               ))
             ) : (
