@@ -1,18 +1,18 @@
-import WelcomePage from "./pages/WelcomePage";
 import { Route, Routes } from "react-router-dom";
-import SharedLayout from "./components/sharedLayuot";
+import SharedLayout from "./components/SharedLayout";
+import { ShoppingListProvider } from "./components/ShoppingList/SchoppingListContext";
+import CheckRoute from "./features/routes";
 import AddRecipes from "./pages/AddRecipes";
 import Categories from "./pages/Categories";
+import Favorites from "./pages/Favorites";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import MyRecipes from "./pages/MyRecipes";
 import RecipePage from "./pages/RecipePage";
-import Home from "./pages/Home";
-import Favorites from "./pages/Favorites";
-import ShoppingList from "./pages/ShoppingListPage";
-import Search from "./pages/Search";
-import Login from "./pages/Login";
 import Register from "./pages/Register";
-import CheckRoute from "./features/routes";
-import { ShoppingListProvider } from "./components/ShoppingList/SchoppingListContext";
+import Search from "./pages/Search";
+import ShoppingList from "./pages/ShoppingListPage";
+import WelcomePage from "./pages/WelcomePage";
 const App = () => {
   return (
     <ShoppingListProvider>
