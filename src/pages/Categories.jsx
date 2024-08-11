@@ -6,7 +6,7 @@ import css from "../styles/Categories.module.css";
 const Categories = () => {
   return (
     <div className={css.categoriesContainer}>
-      <h1 className={css.categoriesText}>Categories</h1>
+      <h1 className={css.categoriesTexts}>Categories</h1>
       <CategoriesPage />
     </div>
   );
