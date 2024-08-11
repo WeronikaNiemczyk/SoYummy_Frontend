@@ -3,3 +3,8 @@
     flex-direction: column;
     align-items: center
 }
+
+main {
+    background: url('/images/mainLeavesDown.png') left bottom no-repeat,
+        url('/images/mainLeavesLeft.png') left top no-repeat;
+}
