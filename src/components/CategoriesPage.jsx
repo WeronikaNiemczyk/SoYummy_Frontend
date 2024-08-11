@@ -78,27 +78,27 @@ const CategoriesPage = () => {
           <p>No categories available.</p>
         )}
       </div>
-      <div className={css.categoryRecipesList}>
-        {error && <p className={css.categoryErrorMessage}>{error}</p>}
+      <div className={css.categoriesRecipeList}>
+        {error && <p className={css.categoriesErrorMessage}>{error}</p>}
         {recipes.length > 0 ? (
-          recipes.map((recipe) => (
-            <div key={recipe._id} className={css.categoryRecipeCard}>
-              <img
-                src={recipe.thumb}
-                alt={recipe.title}
-                className={css.recipeImage}
-              />
-              <h3>{recipe.title}</h3>
-              <p>{recipe.description}</p>
-              <button
+          <ul className={css.categoriesRecipeItems}>
+            {recipes.map((recipe) => (
+              <li
+                key={recipe._id}
+                className={css.categoriesRecipeItem}
                 onClick={() =>
                   navigate(`../recipe/${recipe._id}`)
                 }
               >
-                View Recipe
-              </button>
-            </div>
-          ))
+                <img
+                  src={recipe.thumb}
+                  alt={recipe.title}
+                  className={css.categoriesRecipeImage}
+                />
+                <p className={css.categoriesRecipeTitle}>{recipe.title}</p>
+              </li>
+            ))}
+          </ul>
         ) : (
           <p>No recipes available for this category.</p>
         )}
