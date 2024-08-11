@@ -1,11 +1,12 @@
-
-import RecipeHero from '../components/recipePage/recipeHero'
-import RecipeInngredientsList from '../components/recipePage/RecipeInngredientsList';
-import RecpiePreparation from '../components/recipePage/RecipePreparation';
-import { getIngredientsList } from "../API/api"
-import { getRecipeById } from '../API/api'
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from "react"
+import RecipeHero from "../components/recipePage/recipeHero";
+import RecipeInngredientsList from "../components/recipePage/RecipeInngredientsList";
+import RecpiePreparation from "../components/recipePage/RecipePreparation";
+import { getIngredientsList } from "../API/api";
+import { getRecipeById } from "../API/api";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useShoppingList } from "../components/ShoppingList/SchoppingListContext";
+import css from "../styles/RecipePage.module.css";
 
 const RecipePage = () => {
   const { recipeID } = useParams();
