@@ -18,8 +18,28 @@ const Search = () => {
   );
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const recipesPerPage = 6;
+  const [recipesPerPage, setRecipesPerPage] = useState(6);
 
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width >= 1280) {
+        setRecipesPerPage(12); // Desktop
+      } else if (width >= 768) {
+        setRecipesPerPage(8); // Tablet
+      } else {
+        setRecipesPerPage(6); // Mobile
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useEffect(() => {
     const keyword = searchParams.get("keyword");
     if (keyword) {
