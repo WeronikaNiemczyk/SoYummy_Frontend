@@ -34,8 +34,8 @@ const PopularRecipe = () => {
       ) : (
         <ul className={css.recipeList}>
           {recipes.map((recipe) => (
-            <li key={recipe.id} className={css.recipeItem}>
-              <Link to={`/recipe/${recipe.id}`} className={css.recipeLink}>
+            <li key={recipe._id} className={css.recipeItem}>
+              <Link to={`/recipe/${recipe._id}`} className={css.recipeLink}>
                 {recipe.title}
               </Link>
             </li>

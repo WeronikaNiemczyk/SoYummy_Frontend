@@ -37,13 +37,27 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
     });
   };
 
+  // Definicja jednostek miary
   const measurementUnits = [
     { value: "g", label: "Grams" },
+    { value: "kg", label: "Kilograms" },
     { value: "ml", label: "Milliliters" },
+    { value: "l", label: "Liters" },
     { value: "tbsp", label: "Tablespoons" },
     { value: "tsp", label: "Teaspoons" },
     { value: "cup", label: "Cups" },
-    // Dodaj więcej jednostek miary, jeśli jest to potrzebne
+    { value: "oz", label: "Ounces" },
+    { value: "lb", label: "Pounds" },
+    { value: "pt", label: "Pints" },
+    { value: "qt", label: "Quarts" },
+    { value: "gal", label: "Gallons" },
+    { value: "spritz", label: "Spritzes" },
+    { value: "dash", label: "Dashes" },
+    { value: "pinch", label: "Pinches" },
+    { value: "piece", label: "Pieces" },
+    { value: "c", label: "Cups" },
+    { value: "g", label: "Grams" },
+    { value: "ml", label: "Milliliters" },
   ];
 
   return (
@@ -123,8 +137,7 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
           onChange={handleChange}
         />
       </div>
-      {/* Zakomentowany kod do pobierania jednostek miary z API */}
-      {/* <div className={css.inputGroupRecipeDescriptionFields}>
+      <div className={css.inputGroupRecipeDescriptionFields}>
         <label htmlFor="measurement">Measurement</label>
         <select
           id="measurement"
@@ -134,13 +147,13 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
           required
         >
           <option value="">Select a measurement unit</option>
-          {measurementOptions.map((option) => (
-            <option key={option._id} value={option._id}>
-              {option.title}
+          {measurementUnits.map((unit) => (
+            <option key={unit.value} value={unit.value}>
+              {unit.label}
             </option>
           ))}
         </select>
-      </div> */}
+      </div>
     </div>
   );
 };
@@ -153,6 +166,7 @@ RecipeDescriptionFields.propTypes = {
     category: PropTypes.string,
     cookTime: PropTypes.string,
     image: PropTypes.object,
+    measurement: PropTypes.string,
   }).isRequired,
 };
 
