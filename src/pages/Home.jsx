@@ -45,7 +45,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="MainBackground">
       <div className="MainContainer">
         <div className="MainContainerInside">
           <Main />

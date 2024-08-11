@@ -12,25 +12,33 @@
 }
 
 body.home {
-  background: url("../images/mainLeavesDown.png") left bottom no-repeat,
-    url("../images/mainLeavesRight.png") right top no-repeat,
+  background: url("../images/mainLeavesRight.png") right top no-repeat,
     url("../images/mainShapeMobile.png") right top no-repeat,
     url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
-  background-size: contain contain contain contain cover;
+  background-size: contain contain contain cover;
   width: 100%;
   height: 100%;
   z-index: -1;
   overflow-x: hidden;
+  margin: 0 auto;
+}
+
+.MainBackground {
+  background: url("../images/mainLeavesDown.png") left bottom no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .MainContainer {
-  padding-top:80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   max-width: 340px;
+  padding-top: 80px;
 }
 
 .MainWrapper {
@@ -59,9 +67,7 @@ body.home {
   grid-template-rows: auto;
   place-items: center;
   width: 100%;
-  height: calc(100vh - 80px);
-  position: relative;
-  place-items: center;
+  height: calc(100vh - 150px);
 }
 
 .MainAppName {
@@ -112,8 +118,8 @@ body.home {
   background-color: transparent;
   color: var(--dark-blue);
   margin-left: auto;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .MainButtonSeeRecipes:hover,
@@ -139,7 +145,7 @@ body.home {
 
 .MainArrow {
   position: absolute;
-  bottom: -50px;
+  bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
@@ -252,19 +258,24 @@ body.home {
 .MainContainerRecipes {
   display: flex;
   flex-direction: column;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 64px auto 0;
 }
 
 .MainRecipesCategory {
   margin-bottom: 32px;
+  width: 100%;
 }
 
-.MainRecipeList {
+ul.MainRecipeList {
   display: flex;
-  flex-wrap: wrap;
   gap: 32px;
-  margin: 0;
   padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: none;
 }
 
 .MainRecipeList li {
@@ -277,9 +288,6 @@ body.home {
 
 .MainRecipeItem {
   position: relative;
-  display: block;
-  margin-bottom: 10px;
-  width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -296,7 +304,6 @@ body.home {
 
 .MainRecipeItem p {
   position: absolute;
-  width: calc(100% - 72px);
   bottom: 0;
   background-color: var(--cream);
   text-align: left;
@@ -306,6 +313,8 @@ body.home {
   padding: 10px 15px;
   font-size: 16px;
   border-radius: 10px;
+  height: fit-content;
+  width: calc(100% - 36px);
 }
 
 .MainRecipeItem p {
@@ -318,16 +327,21 @@ body.home {
 
 @media (min-width: 768px) {
   body.home {
-    background: url("../images/mainLeavesDown.png") left bottom no-repeat,
-      url("../images/mainLeavesRight.png") right top no-repeat,
+    background: url("../images/mainLeavesRight.png") right top no-repeat,
       url("../images/mainShapeMobile.png") right top no-repeat,
       url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
-    background-size: contain contain contain contain cover;
+    background-size: contain contain contain cover;
+  }
+
+  .MainBackground {
+    background: url("../images/mainLeavesDown.png") left bottom no-repeat;
+    background-size: 70%;
   }
 
   .MainContainer {
     margin: 0 auto;
     max-width: 704px;
+    padding: auto 32px;
   }
 
   .MainContainerInside {
@@ -358,10 +372,11 @@ body.home {
   .MainAppName {
     font-size: 72px;
     margin-top: 140px;
+    margin-bottom: 24px;
   }
 
   .MainDescriptionText {
-    font-size: 14px;
+    font-size: 18px;
     width: 362px;
     text-align: left;
   }
@@ -376,6 +391,7 @@ body.home {
   }
 
   .MainSearchContainer {
+    margin-top: 30px;
     width: 369px;
     height: 59px;
   }
@@ -392,8 +408,9 @@ body.home {
   }
 
   .MainImage img {
-    width: auto;
+    width: 100%;
     max-width: 378px;
+    height: auto;
   }
 
   .MainCategoryName {
@@ -405,7 +422,7 @@ body.home {
     margin: 40px 0 0 auto;
   }
 
-  .MainRecipeList {
+  ul.MainRecipeList {
     gap: 32px;
   }
 
@@ -418,23 +435,29 @@ body.home {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1240px) {
   body.home {
-    background: url("../images/mainLeavesDown.png") left bottom no-repeat,
-      url("../images/mainLeavesRight.png") right top no-repeat,
+    background: url("../images/mainLeavesRight.png") right top no-repeat,
       url("../images/mainShapeComp.png") right top no-repeat,
       url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
-    background-size: contain contain contain contain cover;
+    background-size: contain contain contain cover;
+  }
+
+  .MainBackground {
+    background: url("../images/mainLeavesDown.png") left bottom no-repeat;
+    background-size: 40%;
   }
 
   .MainContainer {
     margin: 0 auto;
-    max-width: 1024px;
+    max-width: 1240px;
+    padding: auto 100px;
   }
 
   .MainAppName {
     font-size: 100px;
     margin-top: 162px;
+    margin-bottom: 14px;
   }
 
   .MainDescriptionText {
@@ -469,13 +492,12 @@ body.home {
     margin: 50px 0 0 auto;
   }
 
-  .MainRecipeList {
+  ul.MainRecipeList {
     gap: 14px;
   }
 
   .MainRecipeItem {
     width: calc((100% - 42px) / 4);
-    gap: 14px;
   }
 
   .MainRecipeList li:nth-child(3),
