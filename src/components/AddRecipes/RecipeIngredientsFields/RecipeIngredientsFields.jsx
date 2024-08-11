@@ -5,6 +5,26 @@ import { useEffect, useState } from "react";
 import { getIngredientsList } from "../../../API/api";
 import css from "./RecipeIngredientsFields.module.css";
 
+const measurementUnits = [
+  { value: "g", label: "Grams" },
+  { value: "kg", label: "Kilograms" },
+  { value: "ml", label: "Milliliters" },
+  { value: "l", label: "Liters" },
+  { value: "tbsp", label: "Tablespoons" },
+  { value: "tsp", label: "Teaspoons" },
+  { value: "cup", label: "Cups" },
+  { value: "oz", label: "Ounces" },
+  { value: "lb", label: "Pounds" },
+  { value: "pt", label: "Pints" },
+  { value: "qt", label: "Quarts" },
+  { value: "gal", label: "Gallons" },
+  { value: "spritz", label: "Spritzes" },
+  { value: "dash", label: "Dashes" },
+  { value: "pinch", label: "Pinches" },
+  { value: "piece", label: "Pieces" },
+  { value: "c", label: "Cups" },
+];
+
 const RecipeIngredientsFields = ({ ingredients, onIngredientsChange }) => {
   const [ingredientOptions, setIngredientOptions] = useState([]);
 
@@ -17,6 +37,7 @@ const RecipeIngredientsFields = ({ ingredients, onIngredientsChange }) => {
         // Sprawdzamy, czy odpowiedź zawiera klucz 'ingredients' i jest tablicą
         if (response.data && Array.isArray(response.data.ingredients)) {
           setIngredientOptions(response.data.ingredients);
+          console.log("set ingredients", response.data.ingredients);
         } else {
           console.error("Invalid data format: Expected { ingredients: Array }");
         }
@@ -64,7 +85,7 @@ const RecipeIngredientsFields = ({ ingredients, onIngredientsChange }) => {
             <option value="">Select Ingredient</option>
             {ingredientOptions.map((option) => (
               <option key={option._id} value={option.title}>
-                {option.title}
+                {option.ttl}
               </option>
             ))}
           </select>
@@ -87,7 +108,11 @@ const RecipeIngredientsFields = ({ ingredients, onIngredientsChange }) => {
             required
           >
             <option value="">Select Measurement</option>
-            {/* Dodaj miary tutaj */}
+            {measurementUnits.map((unit) => (
+              <option key={unit.value} value={unit.value}>
+                {unit.label}
+              </option>
+            ))}
           </select>
           <button
             type="button"
