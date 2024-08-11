@@ -6,7 +6,7 @@ const SharedLayout = () => {
   return (
     <div>
       <Header />
-      <main style={{ paddingTop: "80px" }}>
+      <main>
         <Outlet />
       </main>
       {/* <Footer />*/}
