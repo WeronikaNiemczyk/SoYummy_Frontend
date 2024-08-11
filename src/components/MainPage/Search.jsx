@@ -9,7 +9,9 @@ export const Search = () => {
 
   const handleSearch = () => {
     if (query) {
-      navigate(`../search?query=${query}`);
+      navigate(
+        `/SoYummy_FrontEnd_groupNo_1/search?keyword=${query}&type=query&page=1`
+      );
     } else {
       alert("Please enter a search term.");
     }
@@ -26,11 +28,12 @@ export const Search = () => {
       <input
         type="text"
         value={query}
+        name="keyword"
         onChange={(e) => setQuery(e.target.value)}
         onKeyPress={handleKeyPress}
         placeholder="Enter the text"
       />
-      <button className="MainSearchButton" onClick={handleSearch}>
+      <button type="button" className="MainSearchButton" onClick={handleSearch}>
         Search
       </button>
     </div>
