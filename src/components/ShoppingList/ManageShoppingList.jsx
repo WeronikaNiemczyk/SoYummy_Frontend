@@ -1,108 +1,36 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import IngredientsShoppingList from "./IngredientsShoppingList";
 import {
-  getShoppingList,
+  addProductToShoppingList,
   removeProductFromShoppingList,
-  updateProductInShoppingList,
 } from "../../API/api";
 
-const ManageShoppingList = () => {
-  const [ingredients, setIngredients] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  // Fetch the initial list of ingredients from the backend
-  useEffect(() => {
-    const fetchIngredients = async () => {
-      try {
-        const response = await getShoppingList(); // Pobierz listę zakupów
-        setIngredients(response.data); // Zakładam, że odpowiedź zawiera listę składników
-      } catch (error) {
-        setError("Failed to fetch ingredients");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchIngredients();
-  }, []);
-
-  // Handle removal of ingredient
-  const handleRemoveIngredient = async (id) => {
+const ManageShoppingList = ({ ingredients }) => {
+  const handleAdd = async (recipeId, ingredientId, measure) => {
     try {
-      await removeProductFromShoppingList({ id }); // Usuń składnik z listy
-      setIngredients(ingredients.filter((ingredient) => ingredient.id !== id)); // Zaktualizuj stan
+      await addProductToShoppingList(recipeId, ingredientId, measure);
+      // Opcjonalnie zaktualizuj lokalny stan lub pobierz listę na nowo
     } catch (error) {
-      setError("Failed to remove ingredient");
+      console.error("Error adding product to shopping list:", error);
     }
   };
 
-  // Handle change of ingredient number
-  const handleNumberChange = async (id, value) => {
+  const handleRemove = async (id) => {
     try {
-      const ingredient = ingredients.find((item) => item.id === id);
-      if (ingredient) {
-        const updatedIngredient = { ...ingredient, number: value };
-
-        // Wyślij zaktualizowane dane do API
-        await updateProductInShoppingList(updatedIngredient);
-
-        // Zaktualizuj stan lokalny
-        setIngredients((prev) =>
-          prev.map((item) => (item.id === id ? updatedIngredient : item))
-        );
-      }
+      await removeProductFromShoppingList({ id });
+      // Opcjonalnie zaktualizuj lokalny stan lub pobierz listę na nowo
     } catch (error) {
-      setError("Failed to update ingredient number");
+      console.error("Error removing product from shopping list:", error);
     }
   };
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
 
   return (
     <div>
-      <h2>Manage Your Shopping List</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Number</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ingredients.map((ingredient) => (
-            <tr key={ingredient.id}>
-              {" "}
-              {/* Zakładam, że każdy składnik ma unikalne id */}
-              <td>{ingredient.name}</td>
-              <td>
-                <input
-                  type="text"
-                  value={ingredient.number}
-                  onChange={(e) =>
-                    handleNumberChange(ingredient.id, e.target.value)
-                  }
-                />
-              </td>
-              <td>
-                <button
-                  onClick={() => handleRemoveIngredient(ingredient.id)}
-                  style={{
-                    background: "none",
-                    border: "none",
-                    color: "red",
-                    cursor: "pointer",
-                    fontSize: "16px",
-                  }}
-                >
-                  &times; {/* Poprawny znak krzyżyka */}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <IngredientsShoppingList
+        ingredients={ingredients}
+        onRemove={handleRemove}
+        onAdd={handleAdd} // Dodaj funkcję handleAdd jako prop
+      />
     </div>
   );
 };

@@ -1,56 +1,40 @@
-import { useEffect, useState } from "react";
-// import { getShoppingList, addProductToShoppingList, removeProductFromShoppingList } from '../../API/api';
-import { getShoppingList, removeProductFromShoppingList } from "../../API/api";
+import React from "react";
 
-const IngredientsShoppingList = () => {
-  const [ingredients, setIngredients] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadIngredients = async () => {
-      try {
-        const response = await getShoppingList();
-        setIngredients(response.data);
-      } catch (error) {
-        setError("Failed to fetch ingredients");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadIngredients();
-  }, []);
-
-  const handleRemove = async (ingredientId) => {
-    try {
-      await removeProductFromShoppingList({ id: ingredientId });
-      setIngredients((prev) =>
-        prev.filter((item) => item._id !== ingredientId)
-      );
-    } catch (error) {
-      setError("Failed to remove ingredient");
-    }
-  };
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+const IngredientsShoppingList = ({ ingredients, onRemove, onAdd }) => {
+  if (!Array.isArray(ingredients)) {
+    return <p>Brak składników.</p>;
+  }
 
   return (
     <ul>
-      {ingredients.map((ingredient) => (
-        <li key={ingredient._id}>
-          <img
-            src={ingredient.image || "default-image-url"}
-            alt={ingredient.name}
-          />
-          <span>{ingredient.name}</span>
-          <span>
-            {ingredient.quantity} {ingredient.unit}
-          </span>
-          <button onClick={() => handleRemove(ingredient._id)}>Remove</button>
-        </li>
-      ))}
+      {ingredients.length === 0 ? (
+        <p>Brak składników na liście.</p>
+      ) : (
+        ingredients.map((ingredient) => (
+          <li key={ingredient._id}>
+            <img
+              src={ingredient.image || "domyślny-obrazek-url"}
+              alt={ingredient.name}
+            />
+            <span>{ingredient.name}</span>
+            <span>
+              {ingredient.quantity} {ingredient.unit}
+            </span>
+            <button onClick={() => onRemove(ingredient._id)}>Usuń</button>
+            <button
+              onClick={() =>
+                onAdd(
+                  "recipeId-placeholder",
+                  ingredient._id,
+                  ingredient.measure
+                )
+              } // Przykład użycia; recipeId i measure muszą być dostosowane
+            >
+              Dodaj
+            </button>
+          </li>
+        ))
+      )}
     </ul>
   );
 };
