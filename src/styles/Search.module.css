@@ -58,15 +58,11 @@
 .searchButton {
   width: 113px;
   height: 53px;
-  /* align-items: center;
-  justify-content: center; */
   background-color: var(--green);
   color: var(--cream);
   border: none;
   cursor: pointer;
   border-radius: 24px 44px;
-  /* display: flex; */
-  /* box-sizing: border-box; */
   position: absolute;
   left: 59%;
   font-family: "Poppins", sans-serif;
@@ -208,15 +204,6 @@
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-/* @media (min-width: 768px) and (max-width: 1280px) {
-  .RecipeItem {
-    width: calc((100% - 32px) / 2);
-  }
-} */
-/* @media (min-width: 1280px) {
-  .RecipeItem {
-  }
-} */
 
 .RecipeItem:hover {
   transform: scale(1.05);
@@ -240,6 +227,20 @@
   padding: 10px 15px;
   font-size: 16px;
   border-radius: 10px;
+  width: 307px;
+  height: 52px;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .RecipeItem p {
+    width: 300px;
+    height: 52px;
+  }
+}
+@media (min-width: 1280px) {
+  .RecipeItem p {
+    width: 268px;
+    height: 52px;
+  }
 }
 
 .RecipeItem p {
@@ -249,3 +250,18 @@
 .RecipeItem:hover p {
   background-color: var(--light-green);
 }
+.noSearchContainer {
+  margin-top: 42px;
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+  .noSearchContainer {
+    margin-top: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .noSearchContainer {
+    margin-top: 90px;
+  }
+}
+
