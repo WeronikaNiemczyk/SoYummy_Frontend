@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { mediaSizes } from '../constants/media';
+import styled from "@emotion/styled";
+import { mediaSizes } from "../constants/media";
 
 export const ImgLog = styled.img`
   width: 32px;

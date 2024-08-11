@@ -1,47 +1,48 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { subscribe } from "../operations/subscribe";
 import {
-  FooterWrapper,
-  WrapperName,
-  TextName,
-  Text,
-  FooterMain,
-  ListTextInf,
-  WrapperFirstList,
-  ListRouts,
-  TextRous,
-  ListNetWork,
-  WrapperRouters,
-  TextSubSlet,
-  TextOffers,
-  StyledForm,
   BtnLogOut,
-  WrapperInp,
-  MailInp,
+  FooterMain,
+  FooterWrapper,
   InputMod,
-  WrapperLastFooter,
+  ListNetWork,
   ListNetWorkLast,
-  WrapperInpBtn,
+  ListRouts,
+  ListTextInf,
+  MailInp,
   SocialMediaFace,
   SocialMediaInst,
-  SocialMediaYout,
   SocialMediaTwit,
-} from './Footer.styled';
-import { subscribe } from 'operations/subscribe';
+  SocialMediaYout,
+  StyledForm,
+  Text,
+  TextName,
+  TextOffers,
+  TextRous,
+  TextSubSlet,
+  WrapperFirstList,
+  WrapperInp,
+  WrapperInpBtn,
+  WrapperLastFooter,
+  WrapperName,
+  WrapperRouters,
+} from "./Footer.styled";
 
-import { Logo } from '../LogoFooter/LogoFooter';
+import { Logo } from "../LogoFooter/LogoFooter";
 const Footer = () => {
-  const notifySuccess = message => toast.success(message, { autoClose: 3000 });
-  const notifyError = message => toast.error(message, { autoClose: 3000 });
+  const notifySuccess = (message) =>
+    toast.success(message, { autoClose: 3000 });
+  const notifyError = (message) => toast.error(message, { autoClose: 3000 });
 
-  const subscribeHandler = async e => {
+  const subscribeHandler = async (e) => {
     e.preventDefault();
     const form = e.target;
     const { email } = form.elements;
     try {
       const result = await subscribe({ email: email.value });
       form.reset();
-      if (result) notifySuccess('You have successfully subscribed!');
+      if (result) notifySuccess("You have successfully subscribed!");
     } catch (error) {
       notifyError(error.message);
     }
@@ -49,7 +50,7 @@ const Footer = () => {
   const uppPageHandler = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
   return (
@@ -135,7 +136,7 @@ const Footer = () => {
             <TextOffers>
               Subscribe up to our newsletter. Be in touch with latest news and
               special offers, etc.
-            </TextOffers>{' '}
+            </TextOffers>{" "}
             <WrapperInpBtn>
               <StyledForm onSubmit={subscribeHandler}>
                 <WrapperInp>
