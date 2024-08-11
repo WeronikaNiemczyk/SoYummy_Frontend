@@ -22,21 +22,35 @@ export const PreviewCategories = () => {
   }, []);
 
   const handleSeeAll = (categoryName) => {
-    navigate(`../SoYummy_FrontEnd_groupNo_1/categories/${categoryName}`);
+    navigate(`/SoYummy_FrontEnd_groupNo_1/categories/${categoryName}`);
   };
 
   const handleOtherCategories = () => {
-    navigate("../SoYummy_FrontEnd_groupNo_1/categories");
+    navigate("/SoYummy_FrontEnd_groupNo_1/categories/:category");
   };
 
-  const handleRecipeClick = (recipeId) => {
-    console.log(recipeId);
-    navigate(`../SoYummy_FrontEnd_groupNo_1/recipes/${recipeId}`);
+  const handleRecipeClick = (recipeID) => {
+    console.log(recipeID);
+    navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipeID}`);
   };
+
+  const orderedCategories = [
+    "Breakfast",
+    "Miscellaneous",
+    "Chicken",
+    "Dessert",
+  ];
+  const sortedCategories = categories
+    .filter((category) => orderedCategories.includes(category.category))
+    .sort(
+      (a, b) =>
+        orderedCategories.indexOf(a.category) -
+        orderedCategories.indexOf(b.category)
+    );
 
   return (
     <div className="MainContainerRecipes">
-      {categories.map((category) => (
+      {sortedCategories.map((category) => (
         <div className="MainRecipesCategory" key={category.category}>
           <h2 className="MainCategoryName">{category.category}</h2>
           <ul className="MainRecipeList">

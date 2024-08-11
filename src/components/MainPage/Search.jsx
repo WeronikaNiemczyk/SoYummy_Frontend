@@ -9,9 +9,15 @@ export const Search = () => {
 
   const handleSearch = () => {
     if (query) {
-      navigate(`../SoYummy_FrontEnd_groupNo_1/search?query=${query}`);
+      navigate(`../search?query=${query}`);
     } else {
       alert("Please enter a search term.");
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
     }
   };
 
@@ -21,6 +27,7 @@ export const Search = () => {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyPress={handleKeyPress}
         placeholder="Enter the text"
       />
       <button className="MainSearchButton" onClick={handleSearch}>
