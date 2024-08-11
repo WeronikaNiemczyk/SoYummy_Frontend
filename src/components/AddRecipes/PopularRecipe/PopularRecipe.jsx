@@ -16,7 +16,7 @@ const PopularRecipe = () => {
         if (response.data.length === 0) {
           setError("No popular recipes at the moment.");
         } else {
-          setRecipes(response.data);
+          setRecipes(response.data.slice(0, 4)); // Ograniczenie do 4 przepisów
         }
       } catch (err) {
         setError("Error fetching popular recipes.");
@@ -30,14 +30,30 @@ const PopularRecipe = () => {
     <div className={css.containerPopularRecipe}>
       <h2 className={css.titlePopularRecipe}>Popular Recipes</h2>
       {error ? (
-        <p className={css.errorMessage}>{error}</p>
+        <p className={css.errorMessagePopularRecipe}>{error}</p>
       ) : (
-        <ul className={css.recipeList}>
+        <ul className={css.recipeListPopularRecipe}>
           {recipes.map((recipe) => (
-            <li key={recipe._id} className={css.recipeItem}>
-              <Link to={`/recipe/${recipe._id}`} className={css.recipeLink}>
-                {recipe.title}
+            <li key={recipe._id} className={css.recipeItemPopularRecipe}>
+              <Link
+                to={`/recipe/${recipe._id}`}
+                className={css.recipeLinkPopularRecipe}
+              >
+                <img
+                  src={recipe.thumb}
+                  alt={recipe.title}
+                  className={css.recipeImagePopularRecipe}
+                />
+                <div className={css.recipeDetailsPopularRecipe}>
+                  <h3 className={css.recipeTitlePopularRecipe}>
+                    {recipe.title}
+                  </h3>
+                  <p className={css.recipeDescriptionPopularRecipe}>
+                    {recipe.description}
+                  </p>
+                </div>
               </Link>
+              <div className={css.separatorPopularRecipe}></div>
             </li>
           ))}
         </ul>
