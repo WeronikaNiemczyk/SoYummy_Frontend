@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import { addProductToShoppingList, removeProductFromShoppingList } from '../../API/api'
-import css from '../../styles/RecipeIngredientsList.module.css'
+import {
+  addProductToShoppingList,
+  removeProductFromShoppingList,
+} from "../../API/api";
+import css from "../../styles/RecipeIngredientsList.module.css";
 
 const RecipeIngredientsList = ({ element, onAdd }) => {
   const [markup, setMarkup] = useState(null);
