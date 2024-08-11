@@ -7,6 +7,22 @@
   --dark-grey: #c4c4c4;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body.home {
+  background: url("../images/mainLeavesDown.png") left bottom no-repeat,
+    url("../images/mainLeavesRight.png") right top no-repeat,
+    url("../images/mainShapeMobile.png") right top no-repeat,
+    url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
+  background-size: contain contain contain contain cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow-x: hidden;
+}
+
 .MainContainer {
   display: flex;
   flex-direction: column;
@@ -300,6 +316,14 @@
 }
 
 @media (min-width: 768px) {
+  body.home {
+    background: url("../images/mainLeavesDown.png") left bottom no-repeat,
+      url("../images/mainLeavesRight.png") right top no-repeat,
+      url("../images/mainShapeMobile.png") right top no-repeat,
+      url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
+    background-size: contain contain contain contain cover;
+  }
+
   .MainContainer {
     margin: 0 auto;
     max-width: 704px;
@@ -394,6 +418,14 @@
 }
 
 @media (min-width: 1024px) {
+  body.home {
+    background: url("../images/mainLeavesDown.png") left bottom no-repeat,
+      url("../images/mainLeavesRight.png") right top no-repeat,
+      url("../images/mainShapeComp.png") right top no-repeat,
+      url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
+    background-size: contain contain contain contain cover;
+  }
+
   .MainContainer {
     margin: 0 auto;
     max-width: 1024px;
