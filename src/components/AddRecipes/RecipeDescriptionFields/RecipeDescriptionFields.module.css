@@ -135,3 +135,17 @@ textarea {
     height: 200px;
   }
 }
+
+.inputGroupRecipeDescriptionFields input,
+.inputGroupRecipeDescriptionFields textarea,
+.inputGroupRecipeDescriptionFields select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc; /* Default border color */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333; /* Ustawienie koloru tekstu */
+  background-color: #fff; /* Ustawienie koloru tła */
+}

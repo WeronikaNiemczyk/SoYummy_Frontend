@@ -122,3 +122,13 @@
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.select,
+.input {
+  margin-right: 10px;
+  padding: 5px;
+  color: #333; /* Ustawienie koloru tekstu */
+  background-color: #fff; /* Ustawienie koloru tła */
+  border: 1px solid #ccc; /* Ustawienie koloru obramowania */
+  border-radius: 4px; /* Zaokrąglenie rogów */
+}
