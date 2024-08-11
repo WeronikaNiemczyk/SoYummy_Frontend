@@ -42,8 +42,7 @@
   grid-template-rows: auto;
   place-items: center;
   width: 100%;
-  height: 100vh;
-  padding-bottom: 83px;
+  height: calc(100vh - 80px);
   position: relative;
   place-items: center;
 }
@@ -51,7 +50,6 @@
 .MainAppName {
   font-size: 60px;
   font-weight: 400;
-  margin-top: 68px;
   margin-bottom: 14px;
 }
 
@@ -310,8 +308,6 @@
   .MainContainerInside {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    padding-bottom: 130px;
-    margin: auto;
   }
 
   .MainContainerInside > div:nth-child(1) {
