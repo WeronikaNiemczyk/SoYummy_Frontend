@@ -220,14 +220,22 @@ export const removeFavoriteRecipe = (id) => {
 };
 
 // Dodanie produktu do listy zakupów
-export const addProductToShoppingList = (data) => {
+export const addProductToShoppingList = (recipeId, ingredientId, measure) => {
   const token = cookies.readCookie();
   console.log("token1", token);
-  return recipesApi.post("/shopping-list/add", data, {
-    headers: {
-      Authorization: `Bearer ${token}`,
+  return recipesApi.post(
+    "/shopping-list/add",
+    {
+      recipeId,
+      ingredientId,
+      measure,
     },
-  });
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
 };
 
 // Usunięcie produktu z listy zakupów

@@ -6,53 +6,55 @@ import { getIngredientsList } from "../API/api"
 import { getRecipeById } from '../API/api'
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react"
-import css from '../styles/RecipePage.module.css'
 
 const RecipePage = () => {
+  const { recipeID } = useParams();
+  // const [picture, setPicture] = useState()
+  // const [name, setName] = useState()
+  // const [number, setNumber] = useState()
+  const [list, setList] = useState([]);
+  const [downloadedRecipe, setDownloadedRecipe] = useState();
+  const { addToShoppingList } = useShoppingList();
 
-  const { recipeID } = useParams()
-    const [picture, setPicture] = useState()
-    const [name, setName] = useState()
-    const [number, setNumber] = useState()
-    const [list, setList] = useState([]);
-    const [downloadedRecipe, setDownloadedRecipe] = useState()
-  
-   const data = () => getIngredientsList()
-     .then((response) => {
-          const newdata=response.data.ingredients
-          setList([...list,newdata]);
-            return 
-    })
-    .catch((error) => {
+  const data = () =>
+    getIngredientsList()
+      .then((response) => {
+        const newdata = response.data.ingredients;
+        setList([...list, newdata]);
+        return;
+      })
+      .catch((error) => {
         console.error("Błąd pobierania składników:", error);
-    });
+      });
 
-         
-    const recipe = (id) => {
-        getRecipeById(id)
-          .then((response) => {
-            const newdata2 = response.data
-            setDownloadedRecipe({ ...downloadedRecipe, newdata2 })
-            return
-        })
-        .catch((error) => {
-            console.error("Błąd pobierania składników:", error);
-        });
-    }
- useEffect(() => {
-      recipe(recipeID)
-      data()
-  },[])
+  const recipe = (id) => {
+    getRecipeById(id)
+      .then((response) => {
+        const newdata2 = response.data;
+        setDownloadedRecipe({ ...downloadedRecipe, newdata2 });
+        return;
+      })
+      .catch((error) => {
+        console.error("Błąd pobierania składników:", error);
+      });
+  };
+  useEffect(() => {
+    recipe(recipeID);
+    data();
+  }, []);
 
   return (
     <div className={css.divMain}>
       <RecipeHero element={{ downloadedRecipe }} />
-        <RecipeInngredientsList element={{ downloadedRecipe, list }} />
-        <RecpiePreparation element={{ downloadedRecipe }} />
+      <RecipeInngredientsList
+        element={{ downloadedRecipe, list }}
+        onAdd={(ingredientId, measure) =>
+          addToShoppingList(recipeID, ingredientId, measure)
+        }
+      />
+      <RecpiePreparation element={{ downloadedRecipe }} />
     </div>
-    
+  );
+};
 
-    );
-}
-
-export default RecipePage
+export default RecipePage;
