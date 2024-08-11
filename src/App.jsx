@@ -1,6 +1,6 @@
 import WelcomePage from "./pages/WelcomePage";
 import { Route, Routes } from "react-router-dom";
-import SharedLayout from "./components/SharedLayout";
+import SharedLayout from "./components/sharedLayuot";
 import AddRecipes from "./pages/AddRecipes";
 import Categories from "./pages/Categories";
 import MyRecipes from "./pages/MyRecipes";
