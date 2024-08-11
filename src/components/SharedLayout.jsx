@@ -2,11 +2,11 @@ import { Outlet } from "react-router-dom";
 import { Header } from "./Header/Header";
 //import { Footer } from './Footer/Footer'
 
-const sharedLayuot = () => {
+const SharedLayout = () => {
   return (
     <div>
       <Header />
-      <main>
+      <main style={{ paddingTop: "80px" }}>
         <Outlet />
       </main>
       {/* <Footer />*/}
@@ -14,4 +14,4 @@ const sharedLayuot = () => {
   );
 };
 
-export default sharedLayuot;
+export default SharedLayout;

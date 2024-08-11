@@ -35,7 +35,7 @@ import { PreviewCategories } from "../components/MainPage/PreviewCategories";
 import { Search } from "../components/MainPage/Search";
 import "../styles/MainPage.css";
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <div className="MainContainer">
