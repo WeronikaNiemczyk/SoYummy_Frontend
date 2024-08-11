@@ -22,6 +22,23 @@ border: none;
 
  }
 
+  .thHeadRight {
+    padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 40px;
+  }
+
+  .thHeadRightAddToList {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 40px;
+
+  }
+
  .thHeadLeft{
     padding-top: 20px;
     padding-bottom: 20px;
@@ -48,8 +65,16 @@ thead th:last-child {
     padding-top: 0px
 }
 
-.rightAllign{
-    text-align: center;
+.rightAllignCheck{
+    text-align: right;
+}
+
+.rightAllign {
+    text-align: right;
+        padding-left: 70px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
 }
 
 img {
@@ -63,7 +88,7 @@ img {
 }
 
 .measureText{
-    width: 52px;
+    min-width: 52px;
     height: 27px;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -77,19 +102,78 @@ img {
 }
 
 .measureDiv{
-    width: 68px;
-    height: 35px;
-    border-radius: 4px;
-    background-color: #8BAA36;
-    display: inline-block;
-}
-
-.checkbox{
-    width: 35px;
-    height: 35px;
-    border-radius: 4px;
-    border: 2px;
+        min-width: 68px;
+            height: 35px;
+            border-radius: 4px;
+            background-color: #8BAA36;
+            display: inline-block;
+            margin-right: 30px;
+            margin-top: 72px;
+            text-align: center;
 }
 
 
+.pHead{
+font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: #FAFAFA;
+    text-align: center;
+}
 
+label{
+    position: relative;
+        margin-bottom: 15px;
+        cursor: pointer;
+        font-size: 20px;
+        right: 70px;
+        margin: 0;
+
+}
+
+.checkboxContainer{
+    position: absolute;
+        top:-5px;
+        left: 0;
+        height: 35px;
+        width: 35px;
+        background-color: transparent;
+        border: 2px solid #7e7e7e7c;
+        border-radius: 4px;
+
+}
+
+label input[type=checkbox] {
+     visibility: hidden;
+ }
+
+
+  /* Checkmark */
+  .checkboxContainer::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 13px;
+      top: 3px;
+      width: 17px;
+      height: 17px;
+      border: solid #8BAA36;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);;
+      transform-origin: center;
+  }
+
+  /* Display checkmark when checked */
+  label input:checked~.checkboContainer::after {
+      display: block;
+      color: #8BAA36;
+      }
+
+ .checkbox:checked+.checkboxContainer::after {
+              display: block;
+                width: 6px;
+                height: 17px;
+                border: solid #8BAA36;
+                border-width: 0 2px 2px 0;
+                
+          }

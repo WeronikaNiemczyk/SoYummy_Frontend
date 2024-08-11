@@ -9,7 +9,7 @@ export const ChooseYourBreakfast = () => {
   const navigate = useNavigate();
 
   const handleSeeRecipes = () => {
-    navigate("../SoYummy_FrontEnd_groupNo_1/recipes/categories/Breakfast");
+    navigate("/SoYummy_FrontEnd_groupNo_1/categories/Breakfast");
   };
 
   return (

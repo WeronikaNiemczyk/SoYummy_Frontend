@@ -13,7 +13,7 @@ const RecpiePreparation =({element})=>{
                     {instruction.map((point, index) => (
                         <li key={index}>
                             <div className={css.pointer}>{index}</div>
-                            {point}
+                            <p>{point}</p>
                         </li>
                     ))}
                 </ul>
@@ -31,7 +31,7 @@ const RecpiePreparation =({element})=>{
         <div>
                 <h3>Recipe Preparation</h3>
                 <ul>{instructions}</ul></div>
-        <img src={image} alt={instructions} />
+        <img className={css.image} src={image} alt={instructions} />
         </div>
     )
 }

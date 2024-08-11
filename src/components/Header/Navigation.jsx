@@ -9,9 +9,9 @@ export const Navigation = () => {
     <nav className="HeaderNav">
       <NavLink
         className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/categories/:categoryName"
+        to="../SoYummy_FrontEnd_groupNo_1/categories/:category"
       >
-        {/* <NavLink className="HeaderStyledLink" to="/categories/:categoryName"> */}
+        {/* <NavLink className="HeaderStyledLink" to="/categories/:category"> */}
         Categories
       </NavLink>
       <NavLink
@@ -42,7 +42,10 @@ export const Navigation = () => {
         {/* <NavLink className="HeaderStyledLink" to="/shopping-list"> */}
         Shopping List
       </NavLink>
-      <NavLink className="HeaderStyledLink" to="../SoYummy_FrontEnd_groupNo_1/search">
+      <NavLink
+        className="HeaderStyledLink"
+        to="../SoYummy_FrontEnd_groupNo_1/search"
+      >
         <svg className="HeaderIconSearch">
           <use xlinkHref={`${symbolDefs}#icon-search`} />
         </svg>

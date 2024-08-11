@@ -529,3 +529,7 @@ body.dark-mode .MainRecipeItem:hover p {
   background-color: var(--light-green);
   color: var(--dark-blue);
 }
+
+.hidden-category {
+  display: none;
+}

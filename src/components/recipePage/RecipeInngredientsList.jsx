@@ -8,6 +8,7 @@ import css from "../../styles/RecipeIngredientsList.module.css";
 const RecipeIngredientsList = ({ element, onAdd }) => {
   const [markup, setMarkup] = useState(null);
 
+
   useEffect(() => {
     const handleCheckboxChange = (event) => {
       const isChecked = event.target.checked;
@@ -78,6 +79,8 @@ const RecipeIngredientsList = ({ element, onAdd }) => {
       </table>
     </div>
   );
+
+  
 };
 
 export default RecipeIngredientsList;
