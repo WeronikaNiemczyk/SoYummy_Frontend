@@ -1,25 +1,59 @@
 .mainDivRecipe{
+    margin-top: 50px;
     display: flex;
         flex-direction: row;
-        min-width: 1240px;
+        max-width: 1240px;
         justify-content: space-between;
+        gap: 50px
 }
 
 ul{
     padding: 0;
     list-style: none;
+    max-width: 757px;
 }
 
 li{
     display: flex;
     flex-direction: row;
     gap:14px;
+    align-items: center;
+    margin-bottom: 19.5px;
+}
+
+p{
+    margin:0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: -2%;
+}
+
+h3{
+    margin: 0;
+    padding-bottom: 32px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: -0.24px;
+    color: #3E4462;
 }
 
 .pointer{
-    width: 21px;
+    min-width: 21px;
     height: 21px;
     background-color: #8BAA36;
-    text-align: center;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.image{
+    width: 433px;
+    height: 332px;
 }

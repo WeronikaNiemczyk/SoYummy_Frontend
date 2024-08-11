@@ -92,7 +92,7 @@ const CategoriesPage = () => {
               <p>{recipe.description}</p>
               <button
                 onClick={() =>
-                  navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipe._id}`)
+                  navigate(`../recipe/${recipe._id}`)
                 }
               >
                 View Recipe

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { addFavoriteRecipe } from '../../API/api'
 import css from '../../styles/RecipeHero.module.css'
+import clock from '../../assets/clock.svg'
 
 const RecipeHero = ({element})=>{
     const [title, setTitle]=useState()
@@ -34,7 +35,9 @@ const RecipeHero = ({element})=>{
             <div className={css.sectionTitle}>{title}</div>
             <div className={css.sectionText}>{descrition}</div>
             <button className={css.button} type="button" onClick={onClick}>Add to favorite recipes</button>
-            <div className={css.time}>{time}</div> 
+                <div className={css.time}>
+                    <img className={css.clock} src={clock} alt='clock'></img>
+                    <p>{time} min</p></div> 
          </div>          
         </>
     )

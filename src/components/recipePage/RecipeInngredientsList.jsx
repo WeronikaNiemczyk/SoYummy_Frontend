@@ -8,11 +8,32 @@ const RecipeIngredientsList = ({ element }) => {
     useEffect(() => {
         const handleCheckboxChange = (event) => {
             const isChecked = event.target.checked
-            const id = event.target.id
-            if (isChecked) {
-                addProductToShoppingList(id)
+            const ingredientId = event.target.id
+            const recipeId = element._id
+            const data = {
+                "recipeId": recipeId,
+                "ingredientId": ingredientId,
+                "measure": "50g"
             }
-            else{removeProductFromShoppingList(id)}
+            
+            if (isChecked) {
+                addProductToShoppingList(data)
+                 .then((response) => {
+                 console.log("info", response);
+                 })
+                .catch((error) => {
+                console.error("Błąd dodania składnika:", error);
+                });
+                }
+            else {
+                removeProductFromShoppingList(data)
+                 .then((response) => {
+                 console.log("info", response);
+                    })
+                .catch((error) => {
+                console.error("Błąd usunięcia składnika:", error);
+                });
+            }
         };
         if (element.downloadedRecipe && element.list.length > 0) {
             const recipe = element.downloadedRecipe.newdata2.ingredients;
@@ -31,7 +52,13 @@ const RecipeIngredientsList = ({ element }) => {
                                         <p className={css.measureText}>{recipeElement.measure}</p>
                                     </div>
                                 </td>
-                            <td className={css.rightAllign}><input className={css.checkbox} type="checkbox" id={ingredList[i]._id} onChange={handleCheckboxChange} /></td>
+                                <td className={css.rightAllignCheck}>
+                                    <label>
+                                        <input className={css.checkbox} type="checkbox" id={ingredList[i]._id} onChange={handleCheckboxChange}></input>
+                                        <span className={css.checkboxContainer}></span>
+                                        
+                                    </label>
+                                </td>
                             </tr>
                         );
                     }
@@ -48,10 +75,10 @@ const RecipeIngredientsList = ({ element }) => {
         <table className={css.mainTable}  >
             <thead className={css.mainTableRow} >
             <tr>
-                <th className={`${css.thHead} ${css.leftAllign}`} scope="col">Ingredients</th>
+                <th className={`${css.thHead} ${css.leftAllign}`} scope="col"><p className={css.pHead}>Ingredients</p></th>
                 <th className={css.thHead} scope="col"></th>
-                <th className={css.thHead} scope="col">Number</th>
-                <th className={css.thHead} scope="col">Add to list</th>
+                <th className={css.thHeadRight} scope="col"><p className={css.pHead}>Number</p></th>
+                <th className={css.thHead} scope="col"><p className={css.pHead}>Add to list</p></th>
                 </tr>
             </thead>
             <tbody>{markup}</tbody>
