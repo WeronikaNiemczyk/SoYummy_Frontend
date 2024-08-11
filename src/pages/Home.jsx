@@ -28,6 +28,7 @@ const Home = () => {
 
 export default Home;
 */
+import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { ChooseYourBreakfast } from "../components/MainPage/ChooseYourBreakfast";
 import { Main } from "../components/MainPage/Main";
@@ -36,6 +37,13 @@ import { Search } from "../components/MainPage/Search";
 import "../styles/MainPage.css";
 
 const Home = () => {
+  useEffect(() => {
+    document.body.classList.add("home");
+    return () => {
+      document.body.classList.remove("home");
+    };
+  }, []);
+
   return (
     <div>
       <div className="MainContainer">
