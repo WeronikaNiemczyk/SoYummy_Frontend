@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import css from "../../styles/SchoppingList.module.css";
 
 const IngredientsShoppingList = ({ ingredients, onRemove }) => {
@@ -26,21 +26,28 @@ const IngredientsShoppingList = ({ ingredients, onRemove }) => {
             </tr>
           ) : (
             ingredients.map((ingredient) => (
-              <tr key={ingredient._id}>
+              <tr key={ingredient._id.$oid}>
+                {" "}
+                {/* Poprawka klucza */}
                 <td className={css.product}>
                   <img
-                    src={ingredient.image || "domyślny-obrazek-url"}
-                    alt={ingredient.name}
+                    src={ingredient.thb || "https://via.placeholder.com/150"} // Użyj 'thb' dla obrazka
+                    alt={ingredient.ttl} // Poprawka: użyj 'ttl' dla tekstu alternatywnego
                   />
-                  {ingredient.name}
+                  {ingredient.ttl}{" "}
+                  {/* Poprawka: użyj 'ttl' dla nazwy produktu */}
                 </td>
                 <td className={css.number}>
                   <span className={css.numberContent}>
-                    {ingredient.quantity} {ingredient.unit}
+                    {/* Zakładając, że pole 'quantity' i 'unit' mogą być puste lub nie istnieć */}
+                    {ingredient.quantity || "N/A"} {ingredient.unit || ""}
                   </span>
                 </td>
                 <td className={css.remove}>
-                  <button onClick={() => onRemove(ingredient._id)}>X</button>
+                  <button onClick={() => onRemove(ingredient._id.$oid)}>
+                    X
+                  </button>{" "}
+                  {/* Poprawka klucza */}
                 </td>
               </tr>
             ))
