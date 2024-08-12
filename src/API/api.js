@@ -239,18 +239,39 @@ export const addProductToShoppingList = (recipeId, ingredientId, measure) => {
 };
 
 // Usunięcie produktu z listy zakupów
+// export const removeProductFromShoppingList = async (ingredientId) => {
+//   const token = cookies.readCookie();
+//   console.log("Token:", token);
+
+//   try {
+//     const response = await recipesApi({
+//       method: "DELETE",
+//       url: "/shopping-list/remove",
+//       headers: {
+//         Authorization: `Bearer ${token}`,
+//       },
+//       data: { ingredientId },
+//     });
+
+//     return response.data;
+//   } catch (error) {
+//     console.error(
+//       "Error removing product from shopping list:",
+//       error.response ? error.response.data : error.message
+//     );
+//     throw error;
+//   }
+// };
 export const removeProductFromShoppingList = (ingredientId) => {
   const token = cookies.readCookie();
   console.log("token1", token);
-  return recipesApi.delete(
-    "/shopping-list/remove",
-    { data: ingredientId },
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-  );
+  return recipesApi.delete("/shopping-list/remove", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+
+    data: { ingredientId },
+  });
 };
 
 // Pobranie listy zakupów użytkownika

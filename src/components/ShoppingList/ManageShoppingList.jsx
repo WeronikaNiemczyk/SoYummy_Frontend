@@ -15,11 +15,13 @@ const ManageShoppingList = ({ ingredients, shoppingList }) => {
     }
   };
 
-  const handleRemove = async (id) => {
+  const handleRemove = async (ingredientId) => {
+    console.log("Ingredient ID to remove:", ingredientId);
     try {
-      const result = await removeProductFromShoppingList(id);
+      const result = await removeProductFromShoppingList(ingredientId);
       const updatedShoppingList = result.shoppingList;
       console.log("updatedShoppingList", updatedShoppingList);
+      window.location.reload();
       // Opcjonalnie zaktualizuj lokalny stan lub pobierz listę na nowo
     } catch (error) {
       console.error("Error removing product from shopping list:", error);

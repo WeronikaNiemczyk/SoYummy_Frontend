@@ -8,6 +8,7 @@ const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
 
   const ingredientImageMap = ingredients.reduce((acc, ingredient) => {
     acc[ingredient._id] = ingredient.thb;
+    // console.log('ingid', ingredient._id)
     return acc;
   }, {});
 
@@ -49,7 +50,7 @@ const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
                   </span>
                 </td>
                 <td className={css.remove}>
-                  <button onClick={() => onRemove(item._id)}>X</button>
+                  <button onClick={() => onRemove(item.ingredientId)}>X</button>
                 </td>
               </tr>
             ))
