@@ -1,47 +1,59 @@
-// src/components/MyRecipesList/MyRecipesList.jsx
-
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MyRecipesItem from "../MyRecepiesItem/MyRecepiesItem";
+import css from '../../styles/MyRecipesList.module.css';
+import {useNavigate} from "react-router-dom";
 
-const MyRecipesList = () => {
-  const [recipes, setRecipes] = useState([]);
+const MyRecipesList = ({ recipes }) => {
+  const navigate = useNavigate();
+  const [markup, setMarkup] = useState([]);
+
+  const onClick = (e)=>{
+    console.log(e.target)
+    navigate(`../recipe/${e.target.id}`)
+  }
 
   useEffect(() => {
-    // Pobierz przepisy po załadowaniu komponentu
-    const fetchRecipes = async () => {
-      try {
-        const response = await axios.get("/recipes/ownRecipes/user");
-        setRecipes(response.data);
-      } catch (error) {
-        console.error("Failed to fetch recipes:", error);
-      }
-    };
+    if (recipes && recipes.recipes) {
+      
+      console.log("Updated recipes:", recipes.recipes);
 
-    fetchRecipes();
-  }, []);
+      const generatedMarkup = recipes.recipes.map((res) => {
+        console.log(res);
+        return (
+          <div key={res._id} className={css.mainDiv}>
+            <img className={css.img} src={res.thumb} alt={res.tag}></img>
+            <div className={css.textContainer}>
+              <div className={css.titleDiv}>
+                <p className={css.mainDiv}>{res.title}</p>
+                <button onClick={() => handleDelete(res._id)}>del</button>
+              </div>
+              <p>{res.description}</p>
+              <div className={css.timeDiv}>
+                <p>{res.time} min</p>
+                <button id={res._id} onClick={onClick}>seeRecipe</button>
+              </div>
+            </div>
+          </div>
+        );
+      });
+
+      setMarkup(generatedMarkup); // Update markup state
+    }
+  }, [recipes]); // Re-run the effect when recipes change
 
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/recipes/ownRecipes/${id}`);
-      setRecipes(recipes.filter((recipe) => recipe.id !== id));
+      setMarkup((prevMarkup) => prevMarkup.filter((item) => item.key !== id));
     } catch (error) {
       console.error("Failed to delete recipe:", error);
     }
   };
 
   return (
-    <div>
+    <div className={css.mainContainer}>
       <h2>My Recipes</h2>
-      <div className="recipes-list">
-        {recipes.map((recipe) => (
-          <MyRecipesItem
-            key={recipe.id}
-            recipe={recipe}
-            onDelete={() => handleDelete(recipe.id)}
-          />
-        ))}
-      </div>
+      <div>{markup}</div>
     </div>
   );
 };
