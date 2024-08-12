@@ -1,275 +1,219 @@
 .favoriteContainer {
-  position: relative;
-  padding: 20px;
-}
-
-.favoriteTitle {
-  position: absolute;
-  width: 199px;
-  height: 44px;
-  left: 16px;
-  top: 100px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 44px;
-  line-height: 44px;
-  letter-spacing: -0.02em;
-  color: #001833;
-}
-
-.recipeList {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 80px;
+  padding: 20px;
 }
-
-.recipeCard {
+.favoriteTitle {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 28px;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favoriteTitle {
+    font-size: 32px;
+    margin-top: 72px;
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .favoriteTitle {
+    font-size: 44px;
+    margin-top: 104px;
+    margin-bottom: 50px;
+  }
+}
+.favoriteRecipesContainer {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favoriteRecipesContainer {
+    margin-top: 28px;
+  }
+}
+@media (min-width: 1280px) {
+  .favoriteRecipesContainer {
+    margin-top: 28px;
+  }
+}
+.favoriteRecipeCard {
   position: relative;
-  width: 343px;
-  height: 152px;
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 10px;
+  display: flex;
+  margin-bottom: 10px;
+  width: 100%;
+  cursor: pointer;
+  flex-direction: row;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 9px;
 }
-
-.recipeImage {
-  width: 124px;
-  height: 124px;
-  border-radius: 8px;
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favoriteRecipeCard {
+    margin-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 24px;
+  }
 }
-
-.recipeTitle {
-  position: absolute;
-  width: 153px;
-  height: 14px;
-  left: 147px;
-  top: 14px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 14px;
-  letter-spacing: -0.24px;
-  color: #3e4462;
+@media (min-width: 1280px) {
+  .favoriteRecipeCard {
+    margin-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+  }
 }
-
-.recipeDescription {
-  position: absolute;
-  width: 153px;
-  height: 57px;
-  left: 147px;
-  top: 42px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 10px;
-  letter-spacing: -0.02em;
-  color: #23262a;
-}
-
-.recipeTime {
-  position: absolute;
-  left: 147px;
-  top: 124px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 14px;
-  letter-spacing: -0.24px;
-  color: #3e4462;
-}
-
 .seeRecipeBtn {
-  position: absolute;
   width: 87px;
   height: 27px;
-  left: 247px;
-  top: 111px;
-  background: #22252a;
-  color: #fafafa;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
+  background-color: black;
+  color: var(--cream);
+  border: none;
+  cursor: pointer;
+  border-radius: 24px 44px;
+  /* position: absolute; */
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  font-weight: 300;
   font-size: 10px;
-  line-height: 15px;
-  border: none;
-  cursor: pointer;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
-
-.deleteRecipeBtn {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 310px;
-  top: 14px;
-  background: #ebf3d4;
-  border-radius: 4px;
-  border: 1.2px solid #22252a;
-  cursor: pointer;
-}
-
-.pagination {
-  position: absolute;
-  width: 275px;
-  height: 51px;
-  left: 50px;
-  top: 894px;
-  background: #fafafa;
-  box-shadow: 0px 4px 4px rgba(135, 135, 135, 0.2);
-  border-radius: 26px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.paginationButton {
-  background: none;
-  border: none;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 18px;
-  color: #656565;
-  cursor: pointer;
-}
-
-/* Tablet CSS */
-@media (min-width: 768px) {
-  .recipeCard {
-    width: 704px;
-    height: 288px;
-  }
-
-  .recipeImage {
-    width: 228px;
-    height: 232px;
-  }
-
-  .recipeTitle {
-    width: 265px;
-    height: 24px;
-    left: 276px;
-    top: 32px;
-    font-size: 24px;
-    line-height: 24px;
-  }
-
-  .recipeDescription {
-    width: 298px;
-    height: 73px;
-    left: 276px;
-    top: 84px;
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  .recipeTime {
-    left: 276px;
-    top: 240px;
-  }
-
+@media (min-width: 768px) and (max-width: 1280px) {
   .seeRecipeBtn {
     width: 138px;
     height: 45px;
-    left: 542px;
-    top: 215px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 12px;
+    padding-bottom: 12px;
     font-size: 14px;
-    line-height: 21px;
-  }
-
-  .deleteRecipeBtn {
-    width: 38px;
-    height: 38px;
-    left: 642px;
-    top: 28px;
-  }
-
-  .pagination {
-    width: 436px;
-    height: 55px;
-    left: 166px;
-    top: 1590px;
   }
 }
-
-/* Desktop CSS */
-@media (min-width: 1024px) {
-  .favoriteTitle {
-    left: 100px;
-    top: 164px;
-  }
-
-  .recipeList {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .recipeCard {
-    width: 1240px;
-    height: 404px;
-    left: 100px;
-    margin-bottom: 32px;
-  }
-
-  .recipeImage {
-    width: 318px;
-    height: 324px;
-    left: 40px;
-    top: 40px;
-  }
-
-  .recipeTitle {
-    width: 112px;
-    height: 24px;
-    left: 398px;
-    top: 40px;
-    font-size: 24px;
-    line-height: 24px;
-  }
-
-  .recipeDescription {
-    width: 679px;
-    height: 158px;
-    left: 398px;
-    top: 114px;
-    font-size: 18px;
-    line-height: 24px;
-  }
-
-  .recipeTime {
-    width: 40px;
-    height: 20px;
-    left: 398px;
-    top: 344px;
-    font-size: 14px;
-    line-height: 20px;
-  }
-
+@media (min-width: 1280px) {
   .seeRecipeBtn {
     width: 160px;
     height: 54px;
-    left: 1040px;
-    top: 310px;
+    padding-left: 38px;
+    padding-right: 38px;
+    padding-top: 14px;
+    padding-bottom: 14px;
     font-size: 16px;
-    line-height: 24px;
-  }
-
-  .deleteRecipeBtn {
-    width: 44px;
-    height: 44px;
-    left: 1156px;
-    top: 40px;
-  }
-
-  .pagination {
-    width: 436px;
-    height: 55px;
-    left: 502px;
-    top: 2124px;
   }
 }
+
+.favRecipeTitle {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  padding-left: 14px;
+  color: #3e4462;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favRecipeTitle {
+    padding-left: 24px;
+    font-size: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .favRecipeTitle {
+    padding-left: 40px;
+    font-size: 24px;
+  }
+}
+.favDescription {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 8px;
+  /* padding-top: 42px; */
+  padding-left: 14px;
+  /* max-width: 170px; */
+  line-height: 1.3;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favDescription {
+    font-size: 14px;
+    padding-left: 24px;
+  }
+}
+@media (min-width: 1280px) {
+  .favDescription {
+    font-size: 18px;
+    padding-left: 40px;
+  }
+}
+
+.favImg {
+  width: 124px;
+  height: 124px;
+  border-radius: 7%;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favImg {
+    width: 228px;
+    height: 232px;
+  }
+}
+@media (min-width: 1280px) {
+  .favImg {
+    width: 318px;
+    height: 324px;
+  }
+}
+
+.favTime {
+  padding-left: 14px;
+  padding-top: 15px;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .favTime {
+    padding-left: 24px;
+    padding-top: 83px;
+  }
+}
+@media (min-width: 1280px) {
+  .favTime {
+    padding-left: 40px;
+    padding-top: 96px;
+  }
+}
+.trashButton {
+  width: 24px; /* Szerokość ikony */
+  height: 24px; /* Wysokość ikony */
+  background: #ebf3d4;
+  cursor: pointer;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .trashButton {
+    width: 38px; /* Szerokość ikony */
+    height: 38px; /* Wysokość ikony */
+  }
+}
+@media (min-width: 1280px) {
+  .trashButton {
+    width: 44px; /* Szerokość ikony */
+    height: 44px; /* Wysokość ikony */
+  }
+}
+
+.trash-button svg {
+  width: 11px; /* Szerokość ikony */
+  height: 12px; /* Wysokość ikony */
+  color: #22252a; /* Ustaw kolor ikonki na kolor tekstu */
+}
+
+/* Klasa do stylizacji samej ikony SVG */
+.trash-button svg path {
+  fill: currentColor; /* Dziedziczy kolor z 'color' */
+}
+/* .favButtons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-start;
+} */
