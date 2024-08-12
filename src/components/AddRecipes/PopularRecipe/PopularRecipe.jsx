@@ -1,13 +1,19 @@
 // src/components/AddRecipes/PopularRecipe/PopularRecipe.jsx
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getPopularRecipes } from "../../../API/api";
 import css from "./PopularRecipe.module.css";
 
 const PopularRecipe = () => {
   const [recipes, setRecipes] = useState([]);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleRecipeClick = (recipeID) => {
+    console.log(recipeID);
+    navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipeID}`);
+  };
 
   useEffect(() => {
     const fetchPopularRecipes = async () => {
@@ -34,7 +40,11 @@ const PopularRecipe = () => {
       ) : (
         <ul className={css.recipeListPopularRecipe}>
           {recipes.map((recipe) => (
-            <li key={recipe._id} className={css.recipeItemPopularRecipe}>
+            <li
+              key={recipe._id}
+              className={css.recipeItemPopularRecipe}
+              onClick={() => handleRecipeClick(recipe._id)}
+            >
               <Link
                 to={`/recipe/${recipe._id}`}
                 className={css.recipeLinkPopularRecipe}

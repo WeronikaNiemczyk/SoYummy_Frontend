@@ -1,9 +1,9 @@
 // src\components\MainPage\ChooseYourBreakfast.jsx
 import { useNavigate } from "react-router-dom";
+import arrow from "../../images/mainArrow.png";
+import mainPlate from "../../images/mainPlate.png";
 import symbolDefs from "../../images/symbol-defs.svg";
 import "../../styles/MainPage.css";
-import mainPlate from "../../images/mainPlate.png";
-import arrow from "../../images/mainArrow.png";
 
 export const ChooseYourBreakfast = () => {
   const navigate = useNavigate();
