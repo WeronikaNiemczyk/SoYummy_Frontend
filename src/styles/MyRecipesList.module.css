@@ -1,0 +1,31 @@
+.mainDiv{
+    display: flex;
+}
+
+.titleDiv{
+    display: flex;
+    justify-content: space-between;
+}
+
+.timeDiv{
+    display: flex;
+}
+
+.img{
+    padding-left: 40px;
+    min-width: 318px ;
+    min-height: 324px;
+}
+
+.mainContainer{
+    padding-top: 80px;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.textContainer{
+    min-width: 868px;
+    margin-left: 14px;
+    padding-left: 40px;
+    padding-right:22px;
+}
