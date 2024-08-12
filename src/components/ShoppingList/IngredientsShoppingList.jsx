@@ -15,7 +15,7 @@ const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
   return (
     <div className={css.SchoppingListMainContainer}>
       <header className={css.SchoppingListHeader}>
-        <h1>Shopping List</h1>
+        <h1 className={css.title}>Shopping List</h1>
       </header>
       <table className={css.SchoppingListTable}>
         <thead>
