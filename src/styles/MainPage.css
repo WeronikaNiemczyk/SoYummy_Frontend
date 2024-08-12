@@ -11,26 +11,6 @@
   box-sizing: border-box;
 }
 
-body.home {
-  background: url("../images/mainLeavesRight.png") right top no-repeat,
-    url("../images/mainShapeMobile.png") right top no-repeat,
-    url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
-  background-size: contain contain contain cover;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  overflow-x: hidden;
-  margin: 0 auto;
-}
-
-.MainBackground {
-  background: url("../images/mainLeavesDown.png") left bottom no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
 .MainContainer {
   display: flex;
   flex-direction: column;
@@ -67,6 +47,9 @@ body.home {
   grid-template-rows: auto;
   place-items: center;
   width: 100%;
+  height: calc(100vh - 80px);
+  position: relative;
+  place-items: center;
   height: calc(100vh - 150px);
 }
 
@@ -288,6 +271,9 @@ ul.MainRecipeList {
 
 .MainRecipeItem {
   position: relative;
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -304,6 +290,7 @@ ul.MainRecipeList {
 
 .MainRecipeItem p {
   position: absolute;
+  width: calc(100% - 72px);
   bottom: 0;
   background-color: var(--cream);
   text-align: left;
@@ -326,18 +313,6 @@ ul.MainRecipeList {
 }
 
 @media (min-width: 768px) {
-  body.home {
-    background: url("../images/mainLeavesRight.png") right top no-repeat,
-      url("../images/mainShapeMobile.png") right top no-repeat,
-      url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
-    background-size: contain contain contain cover;
-  }
-
-  .MainBackground {
-    background: url("../images/mainLeavesDown.png") left bottom no-repeat;
-    background-size: 70%;
-  }
-
   .MainContainer {
     margin: 0 auto;
     max-width: 704px;
@@ -435,19 +410,7 @@ ul.MainRecipeList {
   }
 }
 
-@media (min-width: 1240px) {
-  body.home {
-    background: url("../images/mainLeavesRight.png") right top no-repeat,
-      url("../images/mainShapeComp.png") right top no-repeat,
-      url("../images/mainLeavesLeft.png") left top no-repeat, var(--cream);
-    background-size: contain contain contain cover;
-  }
-
-  .MainBackground {
-    background: url("../images/mainLeavesDown.png") left bottom no-repeat;
-    background-size: 40%;
-  }
-
+@media (min-width: 1024px) {
   .MainContainer {
     margin: 0 auto;
     max-width: 1240px;
@@ -498,6 +461,7 @@ ul.MainRecipeList {
 
   .MainRecipeItem {
     width: calc((100% - 42px) / 4);
+    gap: 14px;
   }
 
   .MainRecipeList li:nth-child(3),

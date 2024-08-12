@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import css from "../../styles/SchoppingList.module.css";
 
 const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
@@ -51,6 +51,7 @@ const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
                 </td>
                 <td className={css.remove}>
                   <button onClick={() => onRemove(item.ingredientId)}>X</button>
+
                 </td>
               </tr>
             ))
