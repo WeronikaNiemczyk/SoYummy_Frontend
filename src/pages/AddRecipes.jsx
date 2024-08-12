@@ -9,11 +9,11 @@ import css from "../styles/AddRecipes.module.css";
 const AddRecipe = () => {
   return (
     <div className={css.mainWrapper}>
-      <MainPageTitle text="Add Recipe" />
+      <MainPageTitle title="Add Recipe" />
       <AddRecipeForm />
-      <div>
+      <div className={css.followUsAndPopular}>
         <div className={css.followUsWrapper}>
-          <h4 className={css.followUsTitle}>Follow Us</h4>
+          {/* <h4 className={css.followUsTitle}>Follow Us</h4> */}
           <FollowUs />
         </div>
         <PopularRecipe />

@@ -3,9 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
 .containerFollowUs {
-  padding: 20px;
-  background-color: var(--cream);
+  /* padding: 20px; */
+  /* background-color: var(--cream); */
   border-radius: 8px;
+  padding-top: 200px;
   text-align: left;
 }
 
@@ -16,6 +17,7 @@
   line-height: 24px;
   letter-spacing: -0.24px;
   margin-bottom: 40px;
+  color: #3e4462;
 }
 
 .socialLinksFollowUs {

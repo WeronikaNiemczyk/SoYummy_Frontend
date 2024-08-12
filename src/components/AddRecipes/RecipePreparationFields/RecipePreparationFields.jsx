@@ -22,13 +22,13 @@ const RecipePreparationFields = ({ onPreparationChange }) => {
 
   return (
     <div className={css.containerRecipePreparationFields}>
-      <h3 className={css.titleRecipePreparationFields}>Preparation</h3>
+      <h3 className={css.titleRecipePreparationFields}>Recipe Preparation</h3>
       <textarea
         className={css.textareaRecipePreparationFields}
         value={preparationText}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder="Enter the preparation steps here..."
+        placeholder="Enter recipe."
         rows="5"
       />
     </div>

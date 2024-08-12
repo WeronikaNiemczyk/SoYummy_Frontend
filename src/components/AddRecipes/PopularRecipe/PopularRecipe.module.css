@@ -9,13 +9,13 @@
 
 .titlePopularRecipe {
   font-family: Poppins, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
   line-height: 20px;
   letter-spacing: -0.24px;
   text-align: left;
   color: #3e4462;
-  margin-bottom: 40px; /* Odległość od tytułu do pierwszej karty przepisu */
+  /* margin-bottom: 40px; Odległość od tytułu do pierwszej karty przepisu */
 }
 
 .errorMessagePopularRecipe {
@@ -29,6 +29,8 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  font-weight: 500;
+  font-size: 16px;
   gap: 0; /* Karty przepisów stykają się ze sobą */
 }
 
