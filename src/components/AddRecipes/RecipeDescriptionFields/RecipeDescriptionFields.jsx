@@ -62,7 +62,7 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
   return (
     <div className={css.fieldsContainerRecipeDescriptionFields}>
       <div className={css.inputGroupRecipeDescriptionFields}>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Enter item title</label>
         <input
           type="text"
           id="title"
@@ -73,7 +73,7 @@ const RecipeDescriptionFields = ({ onChange, recipeData }) => {
         />
       </div>
       <div className={css.inputGroupRecipeDescriptionFields}>
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Enter about recipe</label>
         <textarea
           id="description"
           name="description"
