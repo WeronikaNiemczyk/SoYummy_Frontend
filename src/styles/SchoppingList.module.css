@@ -1,91 +1,111 @@
 :root {
-    --cream: #fafafa;
-    --light-green: #ebf3d4;
-    --green: #8baa36;
-    --dark-blue: #22252a;
-    --light-grey: #d9d9d9;
-    --dark-grey: #c4c4c4;
+  --cream: #fafafa;
+  --light-green: #ebf3d4;
+  --green: #8baa36;
+  --dark-blue: #22252a;
+  --light-grey: #d9d9d9;
+  --dark-grey: #c4c4c4;
+}
+
+/* Stylizacja głównego kontenera */
+.SchoppingListMainContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+.title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 28px;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .title {
+    font-size: 32px;
+    margin-top: 72px;
+    margin-bottom: 40px;
   }
-  
-  /* Stylizacja głównego kontenera */
-  .SchoppingListMainContainer {
-    width: 100%;
-    margin: 0 auto;
+}
+@media (min-width: 1280px) {
+  .title {
+    font-size: 44px;
+    margin-top: 104px;
+    margin-bottom: 50px;
   }
-  
-  /* Stylizacja nagłówka */
-  .SchoppingListHeader {
-    background-color: transparent; /* Przezroczyste tło */
-    color: #001833; /* Kolor tekstu */
-    padding: 15px;
-    text-align: left; /* Wyrównanie tekstu do lewej */
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  /* Stylizacja tabeli */
-  .SchoppingListTable {
-    width: 100%;
-    border-collapse: collapse; /* Linie poziome są ciągłe */
-    margin: 0 auto;
-  }
-  
-  /* Stylizacja nagłówków tabeli */
-  .productHeader,
-  .numberHeader,
-  .removeHeader {
-    background-color: var(--green); /* Zielone tło dla nagłówków tabeli */
-    color: #fff;
-    padding: 10px;
-    border-bottom: 2px solid #001833; /* Ciemniejsza linia pod nagłówkiem */
-  }
-  
-  /* Stylizacja komórek tabeli */
-  .product,
-  .number,
-  .remove {
-    padding: 10px;
-    border-bottom: 1px solid #ddd; /* Linie poziome między wierszami */
-  }
-  
-  /* Stylizacja kolumny Product */
-  .product {
-    text-align: left; /* Wyrównanie tekstu do lewej */
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    color: #001833; /* Kolor tekstu */
-  }
-  
-  /* Stylizacja kolumny Number */
-  .number {
-    text-align: center; /* Wyśrodkowanie tekstu w komórce */
-  }
-  
-  /* Kontener dla tekstu w kolumnie Number z zielonym tłem */
-  .numberContent {
-    display: inline-block; /* Sprawia, że tło jest tylko za napisem */
-    background-color: var(--light-green); /* Zielone tło */
-    border-radius: 5px; /* Zaokrąglone rogi */
-    padding: 2px 6px; /* Margines wewnętrzny dla efektu większego tła */
-    color: #001833; /* Kolor tekstu */
-    font-family: 'Poppins', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    line-height: 15px;
-  }
-  
-  /* Stylizacja kolumny Remove */
-  .remove {
-    text-align: center; /* Wyśrodkowanie tekstu */
-  }
-  
-  /* Stylizacja przycisków w kolumnie Remove */
-  .remove button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    color: #001833; /* Kolor przycisku */
-  }
-  
+}
+/* Stylizacja nagłówka */
+.SchoppingListHeader {
+  background-color: transparent; /* Przezroczyste tło */
+  color: #001833; /* Kolor tekstu */
+  padding: 15px;
+  text-align: left; /* Wyrównanie tekstu do lewej */
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Stylizacja tabeli */
+.SchoppingListTable {
+  width: 100%;
+  border-collapse: collapse; /* Linie poziome są ciągłe */
+  margin: 0 auto;
+}
+
+/* Stylizacja nagłówków tabeli */
+.productHeader,
+.numberHeader,
+.removeHeader {
+  background-color: var(--green); /* Zielone tło dla nagłówków tabeli */
+  color: #fff;
+  padding: 10px;
+  border-bottom: 2px solid #001833; /* Ciemniejsza linia pod nagłówkiem */
+}
+
+/* Stylizacja komórek tabeli */
+.product,
+.number,
+.remove {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Linie poziome między wierszami */
+}
+
+/* Stylizacja kolumny Product */
+.product {
+  text-align: left; /* Wyrównanie tekstu do lewej */
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #001833; /* Kolor tekstu */
+}
+
+/* Stylizacja kolumny Number */
+.number {
+  text-align: center; /* Wyśrodkowanie tekstu w komórce */
+}
+
+/* Kontener dla tekstu w kolumnie Number z zielonym tłem */
+.numberContent {
+  display: inline-block; /* Sprawia, że tło jest tylko za napisem */
+  background-color: var(--light-green); /* Zielone tło */
+  border-radius: 5px; /* Zaokrąglone rogi */
+  padding: 2px 6px; /* Margines wewnętrzny dla efektu większego tła */
+  color: #001833; /* Kolor tekstu */
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+}
+
+/* Stylizacja kolumny Remove */
+.remove {
+  text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+/* Stylizacja przycisków w kolumnie Remove */
+.remove button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #001833; /* Kolor przycisku */
+}
