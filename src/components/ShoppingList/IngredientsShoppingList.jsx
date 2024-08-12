@@ -1,10 +1,15 @@
 import React from "react";
 import css from "../../styles/SchoppingList.module.css";
 
-const IngredientsShoppingList = ({ ingredients, onRemove }) => {
-  if (!Array.isArray(ingredients)) {
+const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
+  if (!Array.isArray(shoppingList)) {
     return <p>Brak składników.</p>;
   }
+
+  const ingredientImageMap = ingredients.reduce((acc, ingredient) => {
+    acc[ingredient._id] = ingredient.thb;
+    return acc;
+  }, {});
 
   return (
     <div className={css.SchoppingListMainContainer}>
@@ -25,22 +30,26 @@ const IngredientsShoppingList = ({ ingredients, onRemove }) => {
               <td colSpan="3">Brak składników na liście.</td>
             </tr>
           ) : (
-            ingredients.map((ingredient) => (
-              <tr key={ingredient._id}>
+            shoppingList.map((item) => (
+              <tr key={item._id}>
                 <td className={css.product}>
                   <img
-                    src={ingredient.image || "domyślny-obrazek-url"}
-                    alt={ingredient.name}
+                    src={
+                      ingredientImageMap[item.ingredientId] ||
+                      "default-image.png"
+                    }
+                    alt={item.name}
+                    className={css.ingredientImage}
                   />
-                  {ingredient.name}
+                  {item.name}
                 </td>
                 <td className={css.number}>
                   <span className={css.numberContent}>
-                    {ingredient.quantity} {ingredient.unit}
+                    {item.quantity} {item.unit}
                   </span>
                 </td>
                 <td className={css.remove}>
-                  <button onClick={() => onRemove(ingredient._id)}>X</button>
+                  <button onClick={() => onRemove(item._id)}>X</button>
                 </td>
               </tr>
             ))

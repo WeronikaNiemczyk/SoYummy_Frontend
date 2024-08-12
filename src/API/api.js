@@ -239,12 +239,12 @@ export const addProductToShoppingList = (recipeId, ingredientId, measure) => {
 };
 
 // Usunięcie produktu z listy zakupów
-export const removeProductFromShoppingList = (data) => {
+export const removeProductFromShoppingList = (ingredientId) => {
   const token = cookies.readCookie();
   console.log("token1", token);
   return recipesApi.delete(
     "/shopping-list/remove",
-    { data },
+    { data: ingredientId },
     {
       headers: {
         Authorization: `Bearer ${token}`,

@@ -5,7 +5,7 @@ import {
   removeProductFromShoppingList,
 } from "../../API/api";
 
-const ManageShoppingList = ({ ingredients }) => {
+const ManageShoppingList = ({ ingredients, shoppingList }) => {
   const handleAdd = async (recipeId, ingredientId, measure) => {
     try {
       await addProductToShoppingList(recipeId, ingredientId, measure);
@@ -17,7 +17,9 @@ const ManageShoppingList = ({ ingredients }) => {
 
   const handleRemove = async (id) => {
     try {
-      await removeProductFromShoppingList({ id });
+      const result = await removeProductFromShoppingList(id);
+      const updatedShoppingList = result.shoppingList;
+      console.log("updatedShoppingList", updatedShoppingList);
       // Opcjonalnie zaktualizuj lokalny stan lub pobierz listę na nowo
     } catch (error) {
       console.error("Error removing product from shopping list:", error);
@@ -28,6 +30,7 @@ const ManageShoppingList = ({ ingredients }) => {
     <div>
       <IngredientsShoppingList
         ingredients={ingredients}
+        shoppingList={shoppingList}
         onRemove={handleRemove}
         onAdd={handleAdd} // Dodaj funkcję handleAdd jako prop
       />
