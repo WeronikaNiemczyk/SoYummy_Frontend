@@ -11,10 +11,11 @@ const RecipeHero = ({element})=>{
     const onClick = (e) => {
         e.preventDefault()
         const id = (element.downloadedRecipe.newdata2._id)
-        const data={"recipeId": "640cd5ac2d9fecf12e889856"}
+        const data = { "recipeId": id }
+        
         addFavoriteRecipe(data)
         .then((response) => {
-    console.log("info", response);
+    console.log("Add to favorites", response);
   })
   .catch((error) => {
     console.error("Błąd dodania przepisu:", error);

@@ -1,107 +1,73 @@
-import { useEffect, useState } from "react";
-// import { Footer } from "../components/Footer/Footer"; // nie jest zrobiony i nie jest potrzebny
-// import { Header } from "../components/Header/Header"; // nie jest potrzebny
+import { useState, useEffect } from "react";
+import { getFavoriteRecipes, removeFavoriteRecipe } from "../API/api";
+import { useNavigate } from "react-router-dom";
 import css from "../styles/Favorites.module.css";
 
-const Favorite = () => {
+const FavoriteRecipes = () => {
   const [recipes, setRecipes] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const recipesPerPage = 4;
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchRecipes = async () => {
-      const data = [
-        {
-          id: 1,
-          image: "image1.png",
-          title: "Salmon Eggs Benedict",
-          description: "Salmon eggs are rich...",
-          time: "20 min",
-        },
-        {
-          id: 2,
-          image: "image2.png",
-          title: "Chicken Alfredo",
-          description: "Chicken Alfredo is...",
-          time: "30 min",
-        },
-        {
-          id: 3,
-          image: "image3.png",
-          title: "Sugar Pie",
-          description: "Sugar pie is a dessert...",
-          time: "1 hour",
-        },
-        {
-          id: 4,
-          image: "image4.png",
-          title: "Beef Wellington",
-          description: "Beef Wellington is...",
-          time: "2 hours",
-        },
-      ];
-      setRecipes(data);
+    const fetchFavorites = async () => {
+      try {
+        const response = await getFavoriteRecipes();
+        setRecipes(response.data);
+      } catch (error) {
+        console.error("Błąd pobierania ulubionych przepisów:", error);
+      }
     };
 
-    fetchRecipes();
+    fetchFavorites();
   }, []);
 
-  const handleDelete = (id) => {
-    // Tutaj usuń przepis z backendu
-    setRecipes(recipes.filter((recipe) => recipe.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      await removeFavoriteRecipe(id);
+      setRecipes(recipes.filter((recipe) => recipe._id !== id));
+    } catch (error) {
+      console.error("Błąd usuwania przepisu:", error);
+    }
   };
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
-  const indexOfLastRecipe = currentPage * recipesPerPage;
-  const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   return (
     <div className={css.favoriteContainer}>
-      {/* <Header /> */}
-      <h1 className={css.favoriteTitle}>Favorites</h1>
-      <div className={css.recipeList}>
-        {currentRecipes.map((recipe) => (
-          <div key={recipe.id} className={css.recipeCard}>
-            <img
-              src={recipe.image}
-              alt={recipe.title}
-              className={css.recipeImage}
-            />
-            <h2 className={css.recipeTitle}>{recipe.title}</h2>
-            <p className={css.recipeDescription}>{recipe.description}</p>
-            <p className={css.recipeTime}>{recipe.time}</p>
-            <button
-              className={css.seeRecipeBtn}
-              onClick={() => (window.location.href = `/recipe/${recipe.id}`)}
-            >
-              See recipe
-            </button>
-            <button
-              className={css.deleteRecipeBtn}
-              onClick={() => handleDelete(recipe.id)}
-            >
-              Delete
-            </button>
+      <h1 className={css.favoriteTitle}> Favorites</h1>
+      <div className={css.favoriteRecipesContainer}>
+        {recipes.map((recipe) => (
+          <div key={recipe._id} className={css.favoriteRecipeCard}>
+            <img className={css.favImg} src={recipe.thumb} alt={recipe.title} />
+            <div>
+              <h2 className={css.favRecipeTitle}>{recipe.title}</h2>
+              <p className={css.favDescription}>{recipe.description}</p>
+              <p className={css.favTime}>{recipe.time} min</p>
+            </div>
+            <div className={css.favButtons}>
+              <div
+                className={css.trashButton}
+                onClick={() => handleDelete(recipe._id)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                  <path
+                    fill="currentColor"
+                    d="M21.333 8v-1.067c0-1.493 0-2.24-0.291-2.811-0.256-0.502-0.664-0.91-1.165-1.165-0.57-0.291-1.317-0.291-2.811-0.291h-2.133c-1.493 0-2.24 0-2.811 0.291-0.502 0.256-0.91 0.664-1.165 1.165-0.291 0.57-0.291 1.317-0.291 2.811v1.067M13.333 15.333v6.667M18.667 15.333v6.667M4 8h24M25.333 8v14.933c0 2.24 0 3.36-0.436 4.216-0.383 0.753-0.995 1.365-1.748 1.748-0.856 0.436-1.976 0.436-4.216 0.436h-5.867c-2.24 0-3.36 0-4.216-0.436-0.753-0.383-1.365-0.995-1.748-1.748-0.436-0.856-0.436-1.976-0.436-4.216v-14.933"
+                  ></path>
+                </svg>
+              </div>
+              <div
+                key={recipe._id}
+                className={css.seeRecipeBtn}
+                onClick={() =>
+                  navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipe._id}`)
+                }
+              >
+                See recipe
+              </div>
+            </div>
           </div>
         ))}
       </div>
-      <div className={css.pagination}>
-        {Array.from(
-          { length: Math.min(10, Math.ceil(recipes.length / recipesPerPage)) },
-          (_, i) => (
-            <button key={i} onClick={() => handlePageChange(i + 1)}>
-              {i + 1}
-            </button>
-          )
-        )}
-      </div>
-      {/* <Footer mode="light" /> */}
     </div>
   );
 };
 
-export default Favorite;
+export default FavoriteRecipes;
