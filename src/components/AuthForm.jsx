@@ -1,8 +1,8 @@
 // src/components/AuthForm.jsx
 
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import css from "../styles/AuthForm.module.css";
 
 const AuthForm = ({ isRegister }) => {
