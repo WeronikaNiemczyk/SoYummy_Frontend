@@ -1,4 +1,4 @@
-/* src/components/AuthNav/AuthForm.module.css */
+/* src/components/AuthNav/AuthForm.module.css
 .authForm {
   display: flex;
   flex-direction: column;
@@ -79,4 +79,122 @@
 
 .authForm .error {
   color: red;
+} */
+
+/* src/components/AuthNav/AuthFormLogin.module.css */
+:root {
+  --cream: #fafafa;
+  --light-green: #ebf3d4;
+  --green: #8baa36;
+  --dark-blue: #22252a;
+  --light-grey: #d9d9d9;
+  --dark-grey: #c4c4c4;
+}
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background-color: var(--dark-blue);
+  padding: 0 28px 14px 28px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 48px rgba(215, 200, 200, 0.1);
+  max-width: 335px;
+  width: 100%;
+  color: var(--cream);
+  margin: 0 auto;
+  max-height: fit-content;
+}
+.authForm h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left: 0;
+  margin-right: auto;
+}
+.inputGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  position: relative;
+  width: 100%;
+}
+.inputGroup .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}
+.inputGroup input {
+  padding-left: 40px;
+}
+.icon {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  fill: var(--cream);
+  stroke: var(--cream);
+}
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: transparent;
+  color: var(--cream);
+  outline: none;
+  transition: border 0.3s;
+  height: 45px;
+  width: 100%;
+  margin: 0 auto;
+}
+.input::placeholder {
+  color: var(--cream);
+  opacity: 0.8;
+}
+.input:focus,
+.input:hover {
+  border: 1px solid var(--green);
+}
+.submitButton {
+  background-color: var(--green);
+  color: var(--cream);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  height: 49px;
+  font-size: 16px;
+}
+.submitButton:hover {
+  color: var(--dark-blue);
+}
+.submitButton:focus {
+  outline: none;
+}
+.error {
+  color: red;
+  font-size: 0.9em;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .authForm {
+    gap: 8px;
+    padding: 30px 50px;
+    max-width: 500px;
+    width: 100%;
+  }
+}
+@media (min-width: 1240px) {
+  .submitButton {
+    height: 59px;
+  }
+  .authForm {
+    margin-left: auto;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    margin-top: auto;
+  }
 }
