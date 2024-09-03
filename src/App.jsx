@@ -18,10 +18,10 @@ const App = () => {
     <ShoppingListProvider>
       <Routes>
         <Route
-          path="/SoYummy_Frontend/"
+          path="https://weronikaniemczyk.github.io/SoYummy_Frontend/"
           element={
             <CheckRoute
-              redirectTo="/SoYummy_Frontend/welcome"
+              redirectTo="https://weronikaniemczyk.github.io/SoYummy_Frontend/welcome"
               element={<SharedLayout />}
             />
           }
