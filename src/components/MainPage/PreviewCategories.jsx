@@ -22,16 +22,16 @@ export const PreviewCategories = () => {
   }, []);
 
   const handleSeeAll = (categoryName) => {
-    navigate(`/SoYummy_FrontEnd_groupNo_1/categories/${categoryName}`);
+    navigate(`/SoYummy_Frontend/categories/${categoryName}`);
   };
 
   const handleOtherCategories = () => {
-    navigate("/SoYummy_FrontEnd_groupNo_1/categories/:category");
+    navigate("/SoYummy_Frontend/categories/:category");
   };
 
   const handleRecipeClick = (recipeID) => {
     console.log(recipeID);
-    navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipeID}`);
+    navigate(`/SoYummy_Frontend/recipe/${recipeID}`);
   };
 
   const orderedCategories = [

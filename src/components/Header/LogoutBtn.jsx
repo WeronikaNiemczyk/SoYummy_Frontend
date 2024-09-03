@@ -27,7 +27,7 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
   //       cookies.delCookie();
   //       onLogout();
   //       onClose();
-  //       navigate("../SoYummy_FrontEnd_groupNo_1/welcome");
+  //       navigate("../SoYummy_Frontend/welcome");
   //     }
   //     .catch((error) => {
   //       console.error("Error logging out:", error);
@@ -52,7 +52,7 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
       Cookies.delCookie(); // Poprawione wywołanie Cookies
       onLogout();
       onClose();
-      navigate("/SoYummy_FrontEnd_groupNo_1/welcome");
+      navigate("/SoYummy_Frontend/welcome");
     } catch (error) {
       console.error("Error logging out:", error);
       alert("An error occurred while logging out. Please try again.");

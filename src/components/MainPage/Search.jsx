@@ -9,9 +9,7 @@ export const Search = () => {
 
   const handleSearch = () => {
     if (query) {
-      navigate(
-        `/SoYummy_FrontEnd_groupNo_1/search?keyword=${query}&type=query&page=1`
-      );
+      navigate(`/SoYummy_Frontend/search?keyword=${query}&type=query&page=1`);
     } else {
       alert("Please enter a search term.");
     }

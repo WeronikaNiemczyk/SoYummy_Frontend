@@ -68,7 +68,7 @@
 //         </div>
 //       </form>
 //       {submitted && <Signup signupData={{ name, email, password }} />}
-//       <Link to="../SoYummy_FrontEnd_groupNo_1/home">
+//       <Link to="../SoYummy_Frontend/home">
 //         <button className={styles.devSkip}>Dev - Skip ahead</button>
 //       </Link>
 //     </div>
@@ -136,7 +136,7 @@ const Register = () => {
         </div>
       </form>
       {submitted && <Signup signupData={{ name, email, password }} />}
-      <Link to="../SoYummy_FrontEnd_groupNo_1/home">
+      <Link to="../SoYummy_Frontend/home">
         <button className={styles.devSkip}>Dev - Skip ahead</button>
       </Link>
     </div>

@@ -58,7 +58,7 @@ const FavoriteRecipes = () => {
                   key={recipe._id}
                   className={css.seeRecipeBtn}
                   onClick={() =>
-                    navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipe._id}`)
+                    navigate(`/SoYummy_Frontend/recipe/${recipe._id}`)
                   }
                 >
                   See recipe

@@ -3,7 +3,7 @@
   "private": false,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://MarekLempart.github.io/SoYummy_FrontEnd_groupNo_1/",
+  "homepage": "https://WeronikaNiemczyk.github.io/SoYummy_Frontend/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MarekLempart/SoYummy_FrontEnd_groupNo_1.git"
+    "url": "git+https://github.com/WeronikaNiemczyk/SoYummy_Frontend.git"
   },
   "keywords": [],
   "author": "Marek Lempart <kama.zakupy@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MarekLempart/SoYummy_FrontEnd_groupNo_1/issues"
+    "url": "https://github.com/WeronikaNiemczyk/SoYummy_Frontend/issues"
   },
   "dependencies": {
     "@ant-design/icons": "^5.4.0",

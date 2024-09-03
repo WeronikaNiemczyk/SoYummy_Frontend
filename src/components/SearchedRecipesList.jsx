@@ -24,9 +24,7 @@ const SearchedRecipesList = ({ recipes }) => {
             <div
               key={recipe._id}
               className={css.RecipeItem}
-              onClick={() =>
-                navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipe._id}`)
-              }
+              onClick={() => navigate(`/SoYummy_Frontend/recipe/${recipe._id}`)}
             >
               <img src={recipe.thumb} alt={recipe.title} />
               <p>{recipe.title}</p>

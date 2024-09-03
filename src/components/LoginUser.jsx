@@ -29,7 +29,7 @@ const LoginUser = ({ loginUserData }) => {
   }, [email, password]);
 
   if (success) {
-    return <Navigate to="../SoYummy_FrontEnd_groupNo_1/home" replace />;
+    return <Navigate to="../SoYummy_Frontend/home" replace />;
   }
 
   return (

@@ -18,10 +18,10 @@ const App = () => {
     <ShoppingListProvider>
       <Routes>
         <Route
-          path="/SoYummy_FrontEnd_groupNo_1/"
+          path="/SoYummy_Frontend/"
           element={
             <CheckRoute
-              redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+              redirectTo="/SoYummy_Frontend/welcome"
               element={<SharedLayout />}
             />
           }
@@ -30,7 +30,7 @@ const App = () => {
             path="home"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<Home />}
               />
             }
@@ -39,7 +39,7 @@ const App = () => {
             path="categories/:category"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<Categories />}
               />
             }
@@ -48,7 +48,7 @@ const App = () => {
             path="recipe/:recipeID"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<RecipePage />}
               />
             }
@@ -57,7 +57,7 @@ const App = () => {
             path="add"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<AddRecipes />}
               />
             }
@@ -66,7 +66,7 @@ const App = () => {
             path="my"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<MyRecipes />}
               />
             }
@@ -75,7 +75,7 @@ const App = () => {
             path="favorite"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<Favorites />}
               />
             }
@@ -84,7 +84,7 @@ const App = () => {
             path="shopping-list"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<ShoppingList />}
               />
             }
@@ -93,21 +93,15 @@ const App = () => {
             path="search"
             element={
               <CheckRoute
-                redirectTo="/SoYummy_FrontEnd_groupNo_1/welcome"
+                redirectTo="/SoYummy_Frontend/welcome"
                 element={<Search />}
               />
             }
           />
         </Route>
-        <Route
-          path="/SoYummy_FrontEnd_groupNo_1/welcome"
-          element={<WelcomePage />}
-        />
-        <Route
-          path="/SoYummy_FrontEnd_groupNo_1/register"
-          element={<Register />}
-        />
-        <Route path="/SoYummy_FrontEnd_groupNo_1/signin" element={<Login />} />
+        <Route path="/SoYummy_Frontend/welcome" element={<WelcomePage />} />
+        <Route path="/SoYummy_Frontend/register" element={<Register />} />
+        <Route path="/SoYummy_Frontend/signin" element={<Login />} />
       </Routes>
     </ShoppingListProvider>
   );

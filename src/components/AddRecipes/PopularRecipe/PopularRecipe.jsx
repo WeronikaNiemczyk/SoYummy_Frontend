@@ -12,7 +12,7 @@ const PopularRecipe = () => {
 
   const handleRecipeClick = (recipeID) => {
     console.log(recipeID);
-    navigate(`/SoYummy_FrontEnd_groupNo_1/recipe/${recipeID}`);
+    navigate(`/SoYummy_Frontend/recipe/${recipeID}`);
   };
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import "../../styles/Header.css";
 
 export const Logo = () => {
   return (
-    <Link to="/SoYummy_FrontEnd_groupNo_1/home">
+    <Link to="/SoYummy_Frontend/home">
       <div className="HeaderStyledLogo">
         <svg>
           <use xlinkHref={`${symbolDefs}#icon-logo`} />

@@ -18,7 +18,7 @@
 //   const onClick = (e) => {
 //     e.preventDefault();
 //     cookies.setCookie("devToken");
-//     navigate("../SoYummy_FrontEnd_groupNo_1/home");
+//     navigate("../SoYummy_Frontend/home");
 //   };
 
 //   return (
@@ -45,7 +45,7 @@
 //         </div>
 //       </form>
 //       {submitted && <LoginUser loginUserData={{ email, password }} />}
-//       <Link to="../SoYummy_FrontEnd_groupNo_1/home">
+//       <Link to="../SoYummy_Frontend/home">
 //         <button className={styles.devSkip} onClick={onClick}>
 //           Dev - Skip ahead
 //         </button>
@@ -74,7 +74,7 @@ const Login = () => {
   const onClick = (e) => {
     e.preventDefault();
     cookies.setCookie("devToken");
-    navigate("../SoYummy_FrontEnd_groupNo_1/home");
+    navigate("../SoYummy_Frontend/home");
   };
   return (
     <div className={styles.loginPage}>
@@ -111,7 +111,7 @@ const Login = () => {
         </div>
       </form>
       {submitted && <LoginUser loginUserData={{ email, password }} />}
-      <Link to="../SoYummy_FrontEnd_groupNo_1/home">
+      <Link to="../SoYummy_Frontend/home">
         <button className={styles.devSkip} onClick={onClick}>
           Dev - Skip ahead
         </button>

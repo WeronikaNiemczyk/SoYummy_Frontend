@@ -12,7 +12,7 @@ import { persistor, store } from "./store";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
-      {/* <BrowserRouter basename="/SoYummy_FrontEnd_groupNo_1"> */}
+      {/* <BrowserRouter basename="/SoYummy_Frontend"> */}
       <PersistGate loading={null} persistor={persistor}>
         <App />
       </PersistGate>
@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 // ReactDOM.createRoot(document.getElementById("root")).render(
 //   <React.StrictMode>
 //     <Provider store={store}>
-//       <BrowserRouter basename="/SoYummy_FrontEnd_groupNo_1">
+//       <BrowserRouter basename="/SoYummy_Frontend">
 //         <PersistGate loading={null} persistor={persistor}>
 //           <App />
 //         </PersistGate>

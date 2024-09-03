@@ -56,7 +56,7 @@ const CategoriesPage = () => {
 
   const handleCategoryChange = (title) => {
     setSelectedCategory(title);
-    navigate(`/SoYummy_FrontEnd_groupNo_1/categories/${title}`);
+    navigate(`/SoYummy_Frontend/categories/${title}`);
   };
 
   return (
@@ -86,9 +86,7 @@ const CategoriesPage = () => {
               <li
                 key={recipe._id}
                 className={css.categoriesRecipeItem}
-                onClick={() =>
-                  navigate(`../recipe/${recipe._id}`)
-                }
+                onClick={() => navigate(`../recipe/${recipe._id}`)}
               >
                 <img
                   src={recipe.thumb}

@@ -9,43 +9,31 @@ export const Navigation = () => {
     <nav className="HeaderNav">
       <NavLink
         className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/categories/:category"
+        to="../SoYummy_Frontend/categories/:category"
       >
         {/* <NavLink className="HeaderStyledLink" to="/categories/:category"> */}
         Categories
       </NavLink>
-      <NavLink
-        className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/add"
-      >
+      <NavLink className="HeaderStyledLink" to="../SoYummy_Frontend/add">
         {/* <NavLink className="HeaderStyledLink" to="/add"> */}
         Add Recipes
       </NavLink>
-      <NavLink
-        className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/my"
-      >
+      <NavLink className="HeaderStyledLink" to="../SoYummy_Frontend/my">
         {/* <NavLink className="HeaderStyledLink" to="/my"> */}
         My Recipes
       </NavLink>
-      <NavLink
-        className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/favorite"
-      >
+      <NavLink className="HeaderStyledLink" to="../SoYummy_Frontend/favorite">
         {/* <NavLink className="HeaderStyledLink" to="/favorite"> */}
         Favorites
       </NavLink>
       <NavLink
         className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/shopping-list"
+        to="../SoYummy_Frontend/shopping-list"
       >
         {/* <NavLink className="HeaderStyledLink" to="/shopping-list"> */}
         Shopping List
       </NavLink>
-      <NavLink
-        className="HeaderStyledLink"
-        to="../SoYummy_FrontEnd_groupNo_1/search"
-      >
+      <NavLink className="HeaderStyledLink" to="../SoYummy_Frontend/search">
         <svg className="HeaderIconSearch">
           <use xlinkHref={`${symbolDefs}#icon-search`} />
         </svg>
