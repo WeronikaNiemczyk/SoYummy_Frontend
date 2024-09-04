@@ -20,88 +20,57 @@ const App = () => {
         <Route
           path="/"
           element={
-            <CheckRoute
-              redirectTo="/SoYummy_Frontend/welcome"
-              element={<SharedLayout />}
-            />
+            <CheckRoute redirectTo="/welcome" element={<SharedLayout />} />
           }
         >
           <Route
             path="/home"
-            element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<Home />}
-              />
-            }
+            element={<CheckRoute redirectTo="/welcome" element={<Home />} />}
           />
           <Route
             path="/categories/:category"
             element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<Categories />}
-              />
+              <CheckRoute redirectTo="/welcome" element={<Categories />} />
             }
           />
           <Route
             path="/recipe/:recipeID"
             element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<RecipePage />}
-              />
+              <CheckRoute redirectTo="/welcome" element={<RecipePage />} />
             }
           />
           <Route
             path="/add"
             element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<AddRecipes />}
-              />
+              <CheckRoute redirectTo="/welcome" element={<AddRecipes />} />
             }
           />
           <Route
             path="/my"
             element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<MyRecipes />}
-              />
+              <CheckRoute redirectTo="/welcome" element={<MyRecipes />} />
             }
           />
           <Route
             path="/favorite"
             element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<Favorites />}
-              />
+              <CheckRoute redirectTo="/welcome" element={<Favorites />} />
             }
           />
           <Route
             path="/shopping-list"
             element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<ShoppingList />}
-              />
+              <CheckRoute redirectTo="/welcome" element={<ShoppingList />} />
             }
           />
           <Route
             path="/search"
-            element={
-              <CheckRoute
-                redirectTo="/SoYummy_Frontend/welcome"
-                element={<Search />}
-              />
-            }
+            element={<CheckRoute redirectTo="/welcome" element={<Search />} />}
           />
         </Route>
-        <Route path="/SoYummy_Frontend/welcome" element={<WelcomePage />} />
-        <Route path="/SoYummy_Frontend/register" element={<Register />} />
-        <Route path="/SoYummy_Frontend/signin" element={<Login />} />
+        <Route path="/welcome" element={<WelcomePage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/signin" element={<Login />} />
       </Routes>
     </ShoppingListProvider>
   );
