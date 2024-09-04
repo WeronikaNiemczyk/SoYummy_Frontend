@@ -7,11 +7,7 @@ import envCompatible from "vite-plugin-env-compatible";
 export default defineConfig({
   base: "/SoYummy_Frontend/",
   plugins: [react(), envCompatible()],
-  build: {
-    rollupOptions: {
-      input: "./src/main.jsx", // Upewnij się, że ścieżka jest poprawna
-    },
-  },
+  build: {},
 });
 
 // import react from "@vitejs/plugin-react-swc";
