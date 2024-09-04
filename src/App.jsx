@@ -27,7 +27,7 @@ const App = () => {
           }
         >
           <Route
-            path="home"
+            path="/SoYummy_Frontend/home"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -36,7 +36,7 @@ const App = () => {
             }
           />
           <Route
-            path="categories/:category"
+            path="/SoYummy_Frontend/categories/:category"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -45,7 +45,7 @@ const App = () => {
             }
           />
           <Route
-            path="recipe/:recipeID"
+            path="/SoYummy_Frontend/recipe/:recipeID"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -54,7 +54,7 @@ const App = () => {
             }
           />
           <Route
-            path="add"
+            path="/SoYummy_Frontend/add"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -63,7 +63,7 @@ const App = () => {
             }
           />
           <Route
-            path="my"
+            path="/SoYummy_Frontend/my"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -72,7 +72,7 @@ const App = () => {
             }
           />
           <Route
-            path="favorite"
+            path="/SoYummy_Frontend/favorite"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -81,7 +81,7 @@ const App = () => {
             }
           />
           <Route
-            path="shopping-list"
+            path="/SoYummy_Frontend/shopping-list"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -90,7 +90,7 @@ const App = () => {
             }
           />
           <Route
-            path="search"
+            path="/SoYummy_Frontend/search"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
