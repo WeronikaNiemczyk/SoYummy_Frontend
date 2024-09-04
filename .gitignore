@@ -26,3 +26,6 @@ Thumbs.db
 
 # Ignorowanie plików środowiskowych
 .env
+
+# Local Netlify folder
+.netlify
