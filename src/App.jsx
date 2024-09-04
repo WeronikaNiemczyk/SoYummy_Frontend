@@ -18,7 +18,7 @@ const App = () => {
     <ShoppingListProvider>
       <Routes>
         <Route
-          path="/"
+          path="/SoYummy_Frontend/"
           element={
             <CheckRoute
               redirectTo="/SoYummy_Frontend/welcome"
