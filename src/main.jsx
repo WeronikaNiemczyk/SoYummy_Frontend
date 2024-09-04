@@ -11,8 +11,8 @@ import { persistor, store } from "./store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    {/* <BrowserRouter> */}
-      <BrowserRouter basename="/SoYummy_Frontend">
+    <BrowserRouter>
+      {/* <BrowserRouter basename="/SoYummy_Frontend"> */}
       <PersistGate loading={null} persistor={persistor}>
         <App />
       </PersistGate>
