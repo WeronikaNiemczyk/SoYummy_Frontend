@@ -5,7 +5,7 @@ import envCompatible from "vite-plugin-env-compatible";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/",
+  base: "/SoYummy_Frontend",
   plugins: [react(), envCompatible()],
   build: {},
 });
