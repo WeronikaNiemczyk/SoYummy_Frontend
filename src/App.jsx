@@ -18,16 +18,16 @@ const App = () => {
     <ShoppingListProvider>
       <Routes>
         <Route
-          path="https://weronikaniemczyk.github.io/SoYummy_Frontend/"
+          path="/"
           element={
             <CheckRoute
-              redirectTo="https://weronikaniemczyk.github.io/SoYummy_Frontend/welcome"
+              redirectTo="/SoYummy_Frontend/welcome"
               element={<SharedLayout />}
             />
           }
         >
           <Route
-            path="home"
+            path="/home"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -36,7 +36,7 @@ const App = () => {
             }
           />
           <Route
-            path="categories/:category"
+            path="/categories/:category"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -45,7 +45,7 @@ const App = () => {
             }
           />
           <Route
-            path="recipe/:recipeID"
+            path="/recipe/:recipeID"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -54,7 +54,7 @@ const App = () => {
             }
           />
           <Route
-            path="add"
+            path="/add"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -63,7 +63,7 @@ const App = () => {
             }
           />
           <Route
-            path="my"
+            path="/my"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -72,7 +72,7 @@ const App = () => {
             }
           />
           <Route
-            path="favorite"
+            path="/favorite"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -81,7 +81,7 @@ const App = () => {
             }
           />
           <Route
-            path="shopping-list"
+            path="/shopping-list"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
@@ -90,7 +90,7 @@ const App = () => {
             }
           />
           <Route
-            path="search"
+            path="/search"
             element={
               <CheckRoute
                 redirectTo="/SoYummy_Frontend/welcome"
