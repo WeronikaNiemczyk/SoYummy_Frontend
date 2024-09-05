@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import spinach from "../../images/spinach/footer.png";
 import { mediaSizes } from "../constants/media";
 
 export const StyledForm = styled.form`
@@ -20,7 +19,7 @@ export const StyledForm = styled.form`
 `;
 
 export const FooterWrapper = styled.div`
-  background: ${(props) => props.theme.darkButtonBackground};
+  background-color: #22252a;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -64,7 +63,7 @@ export const TextName = styled.p`
   font-size: 18px;
   line-height: 1;
   letter-spacing: 0.015em;
-  color: ${(props) => props.theme.constWhiteColor};
+  color: white;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     font-size: 28px;
@@ -77,12 +76,12 @@ export const TextName = styled.p`
 `;
 
 export const Text = styled.p`
+  color: white;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.02em;
 
-  color: ${(props) => props.theme.constWhiteColor};
   @media screen and (min-width: ${mediaSizes.tablet}) {
     line-height: 1.3;
   }
@@ -101,17 +100,12 @@ export const FooterMain = styled.footer`
     justify-content: center;
     gap: 14px;
 
-    background-image: url(${spinach});
-    background-repeat: no-repeat;
-    background-position: right bottom;
-    background-size: auto 300%;
-
     padding-block: 28px;
 
     font-size: 10px;
     line-height: 10px;
     letter-spacing: -0.01em;
-    color: ${(props) => props.theme.logoNameText};
+    color: white;
     opacity: 0.5;
 
     @media screen and (min-width: ${mediaSizes.tablet}) {
@@ -140,7 +134,7 @@ export const ListTextInf = styled.ul`
   display: none;
   width: 418px;
   list-style-type: disc;
-  color: ${(props) => props.theme.constWhiteColor};
+  color: white;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     display: flex;
@@ -189,40 +183,40 @@ export const TextRous = styled(NavLink)`
 
   letter-spacing: -0.02em;
 
-  color: ${(props) => props.theme.constWhiteColor};
+  color: white;
 `;
 
 export const SocialMediaFace = styled(BsFacebook)`
-  fill: ${(props) => props.theme.socialIconBackground};
+  fill: #8baa36;
   width: "20px";
   height: "20px";
   &:hover {
-    fill: ${(props) => props.theme.bodyBackground};
+    fill: white;
   }
 `;
 export const SocialMediaInst = styled(BsInstagram)`
-  fill: ${(props) => props.theme.socialIconBackground};
+  fill: #8baa36;
   width: "20px";
   height: "20px";
   &:hover {
-    fill: ${(props) => props.theme.bodyBackground};
+    fill: white;
   }
 `;
 export const SocialMediaYout = styled(BsYoutube)`
-  fill: ${(props) => props.theme.socialIconBackground};
+  fill: #8baa36;
   width: "20px";
   height: "20px";
   &:hover {
-    fill: ${(props) => props.theme.bodyBackground};
+    fill: white;
   }
 `;
 
 export const SocialMediaTwit = styled(BsTwitter)`
-  fill: ${(props) => props.theme.socialIconBackground};
+  fill: #8baa36;
   width: "20px";
   height: "20px";
   &:hover {
-    fill: ${(props) => props.theme.bodyBackground};
+    fill: white;
   }
 `;
 
@@ -277,7 +271,7 @@ export const TextSubSlet = styled.p`
   line-height: 1.5;
   /* identical to box height */
 
-  color: ${(props) => props.theme.constWhiteColor};
+  color: white;
   display: none;
   margin-bottom: 14px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -293,7 +287,7 @@ export const TextOffers = styled.p`
 
   letter-spacing: -0.02em;
 
-  color: ${(props) => props.theme.constWhiteColor};
+  color: white;
   width: 310px;
   margin-bottom: 28px;
   @media screen and (min-width: ${mediaSizes.desktop}) {
@@ -301,7 +295,7 @@ export const TextOffers = styled.p`
   }
 `;
 export const TextBtn = styled.p`
-  color: ${(props) => props.theme.constWhiteColor};
+  color: white;
   display: flex;
   align-items: center;
   text-align: center;
@@ -324,8 +318,8 @@ export const BtnLogOut = styled.button`
   justify-content: center;
   align-items: center;
 
-  background: ${(props) => props.theme.greenButtonBackground};
-  color: ${(props) => props.theme.constWhiteColor};
+  background: #8baa36;
+  color: white;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -344,7 +338,7 @@ export const BtnLogOut = styled.button`
     height: 60px;
   }
   &:hover {
-    color: ${(props) => props.theme.darkButtonBackground};
+    color: #22252a;
   }
 `;
 
@@ -354,7 +348,7 @@ export const MailInp = styled(AiOutlineMail)`
   position: absolute;
   left: 18px;
   top: 15px;
-  fill: ${(props) => props.theme.constWhiteColor};
+  fill: white;
 
   @media screen and (min-width: ${mediaSizes.tablet}) {
     top: 16px;
@@ -394,6 +388,7 @@ export const InputMod = styled.input`
   }
   &:focus {
     outline: none;
+    color: white;
   }
   &::placeholder {
     font-style: normal;
@@ -403,9 +398,9 @@ export const InputMod = styled.input`
 
     letter-spacing: -0.02em;
 
-    color: ${(props) => props.theme.constWhiteColor};
+    color: white;
     @media screen and (min-width: ${mediaSizes.tablet}) {
-      font-size: 18px;
+      font-size: 14px;
     }
     @media screen and (min-width: ${mediaSizes.desktop}) {
       font-size: 18px;
