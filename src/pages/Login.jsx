@@ -20,45 +20,49 @@ const Login = () => {
     navigate("../SoYummy_Frontend/home");
   };
   return (
-    <div className={styles.loginPage}>
-      <form className={styles.authForm} onSubmit={submit}>
-        <h1>Login</h1>
-        <div className={styles.inputGroup}>
-          <svg className={styles.icon}>
-            <use href={`${symbolDefs}#icon-mail`} />
-          </svg>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.inputGroup}>
-          <svg className={styles.icon}>
-            <use href={`${symbolDefs}#icon-password`} />
-          </svg>
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className={styles.input}
-          />
-        </div>
-        <div className={styles.buttons}>
-          <button type="submit" className={styles.submitButton}>
-            Login
+    <div>
+      <div className={styles.loginPage}>
+        <form className={styles.authForm} onSubmit={submit}>
+          <h1>Login</h1>
+          <div className={styles.inputGroup}>
+            <svg className={styles.icon}>
+              <use href={`${symbolDefs}#icon-mail`} />
+            </svg>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.inputGroup}>
+            <svg className={styles.icon}>
+              <use href={`${symbolDefs}#icon-password`} />
+            </svg>
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className={styles.input}
+            />
+          </div>
+          <div className={styles.buttons}>
+            <button type="submit" className={styles.submitButton}>
+              Login
+            </button>
+          </div>
+        </form>
+        {submitted && <LoginUser loginUserData={{ email, password }} />}
+      </div>
+      <div>
+        <Link to="../SoYummy_Frontend/home">
+          <button className={styles.devSkip} onClick={onClick}>
+            Dev - Skip ahead
           </button>
-        </div>
-      </form>
-      {submitted && <LoginUser loginUserData={{ email, password }} />}
-      <Link to="../SoYummy_Frontend/home">
-        <button className={styles.devSkip} onClick={onClick}>
-          Dev - Skip ahead
-        </button>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };
