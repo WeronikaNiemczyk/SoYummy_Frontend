@@ -1,12 +1,13 @@
 // src/pages/Categories.jsx
 
 import CategoriesPage from "../components/CategoriesPage";
-import css from "../styles/Categories.module.css";
+
+import style from "../styles/Container.style.module.css";
 
 const Categories = () => {
   return (
-    <div className={css.categoriesContainer}>
-      <h1 className={css.categoriesTexts}>Categories</h1>
+    <div className={style.categoriesContainer}>
+      <h1 className={style.categoriesTilte}>Categories</h1>
       <CategoriesPage />
     </div>
   );

@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import css from '../../styles/MyRecipesList.module.css';
-import {useNavigate} from "react-router-dom";
+import css from "../../styles/MyRecipesList.module.css";
+import { useNavigate } from "react-router-dom";
+import style from "../../styles/Container.style.module.css";
 
 const MyRecipesList = ({ recipes }) => {
   const navigate = useNavigate();
   const [markup, setMarkup] = useState([]);
 
-  const onClick = (e)=>{
-    console.log(e.target)
-    navigate(`../recipe/${e.target.id}`)
-  }
+  const onClick = (e) => {
+    console.log(e.target);
+    navigate(`../recipe/${e.target.id}`);
+  };
 
   useEffect(() => {
     if (recipes && recipes.recipes) {
-      
       console.log("Updated recipes:", recipes.recipes);
 
       const generatedMarkup = recipes.recipes.map((res) => {
@@ -30,7 +30,9 @@ const MyRecipesList = ({ recipes }) => {
               <p>{res.description}</p>
               <div className={css.timeDiv}>
                 <p>{res.time} min</p>
-                <button id={res._id} onClick={onClick}>seeRecipe</button>
+                <button id={res._id} onClick={onClick}>
+                  seeRecipe
+                </button>
               </div>
             </div>
           </div>
@@ -51,8 +53,8 @@ const MyRecipesList = ({ recipes }) => {
   };
 
   return (
-    <div className={css.mainContainer}>
-      <h2>My Recipes</h2>
+    <div className={style.categoriesContainer}>
+      <h2 className={style.categoriesTilte}>My Recipes</h2>
       <div>{markup}</div>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getFavoriteRecipes, removeFavoriteRecipe } from "../API/api";
 import { useNavigate } from "react-router-dom";
 import css from "../styles/Favorites.module.css";
+import style from "../styles/Container.style.module.css";
 
 const FavoriteRecipes = () => {
   const [recipes, setRecipes] = useState([]);
@@ -30,8 +31,8 @@ const FavoriteRecipes = () => {
   };
 
   return (
-    <div className={css.favoriteContainer}>
-      <h1 className={css.favoriteTitle}> Favorites</h1>
+    <div className={style.categoriesContainer}>
+      <h1 className={style.categoriesTilte}> Favorites</h1>
       <div className={css.favoriteRecipesContainer}>
         {recipes.map((recipe) => (
           <div key={recipe._id} className={css.favoriteRecipeCard}>

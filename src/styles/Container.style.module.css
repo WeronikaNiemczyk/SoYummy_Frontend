@@ -1,6 +1,10 @@
-/* src/components/MainPageTitle/MainPageTitle.module.css */
+.categoriesContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
 
-.categoriesTexts {
+.categoriesTilte {
   margin-top: 50px;
   margin-bottom: 50px;
   font-family: "Poppins", sans-serif;
@@ -9,14 +13,14 @@
   font-size: 28px;
 }
 @media (min-width: 768px) and (max-width: 1280px) {
-  .categoriesTexts {
+  .categoriesTilte {
     font-size: 32px;
     margin-top: 72px;
     margin-bottom: 40px;
   }
 }
 @media (min-width: 1280px) {
-  .categoriesTexts {
+  .categoriesTilte {
     font-size: 44px;
     margin-top: 104px;
     margin-bottom: 50px;

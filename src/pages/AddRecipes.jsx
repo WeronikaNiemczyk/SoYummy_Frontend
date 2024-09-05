@@ -5,10 +5,11 @@ import FollowUs from "../components/AddRecipes/FollowUs/FollowUs";
 import PopularRecipe from "../components/AddRecipes/PopularRecipe/PopularRecipe";
 import MainPageTitle from "../components/MainPageTitle/MainPageTitle";
 import css from "../styles/AddRecipes.module.css";
+import style from "../styles/Container.style.module.css";
 
 const AddRecipe = () => {
   return (
-    <div className={css.mainWrapper}>
+    <div className={style.categoriesContainer}>
       <MainPageTitle title="Add Recipe" />
       <AddRecipeForm />
       <div className={css.followUsAndPopular}>

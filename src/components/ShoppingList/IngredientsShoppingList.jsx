@@ -1,5 +1,6 @@
 // import React from "react";
 import css from "../../styles/SchoppingList.module.css";
+import style from "../../styles/Container.style.module.css";
 
 const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
   if (!Array.isArray(shoppingList)) {
@@ -13,10 +14,9 @@ const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
   }, {});
 
   return (
-    <div className={css.SchoppingListMainContainer}>
-      <header className={css.SchoppingListHeader}>
-        <h1 className={css.title}>Shopping List</h1>
-      </header>
+    <div className={style.categoriesContainer}>
+      <h1 className={style.categoriesTilte}>Shopping List</h1>
+
       <table className={css.SchoppingListTable}>
         <thead>
           <tr>
@@ -51,7 +51,6 @@ const IngredientsShoppingList = ({ ingredients, shoppingList, onRemove }) => {
                 </td>
                 <td className={css.remove}>
                   <button onClick={() => onRemove(item.ingredientId)}>X</button>
-
                 </td>
               </tr>
             ))

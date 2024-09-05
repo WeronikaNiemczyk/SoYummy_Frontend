@@ -1,11 +1,12 @@
 /* src/styles/AddRecipePage.module.css */
 
 .mainWrapper {
-  margin-top: 72px;
-  margin: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .mainWrapper {
     margin-top: 100px;
     margin-bottom: 200px;
@@ -17,7 +18,7 @@
     display: flex;
     justify-content: space-between;
   }
-}
+} */
 
 /* .css.followUsAndPopular {
   margin-right: 100px;
