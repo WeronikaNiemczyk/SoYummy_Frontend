@@ -36,7 +36,7 @@ export const Header = () => {
     >
       <Logo />
       <nav className="HeaderNavigation">
-        <Navigation />
+        <Navigation closeMenu={toggleMobileMenu} />
       </nav>
       <div className="HeaderRightContainer">
         {user ? (
@@ -66,7 +66,7 @@ export const Header = () => {
               </svg>
             </button>
           </div>
-          <Navigation />
+          <Navigation closeMenu={toggleMobileMenu} />
           <div className="HeaderMobileMenuBottom">
             <ThemeToggler />
           </div>
