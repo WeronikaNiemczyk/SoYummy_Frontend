@@ -11,7 +11,7 @@ export const Logo = () => {
     });
   };
   return (
-    <Link to="/main" onClick={uppPageHandler}>
+    <Link to="/SoYummy_Frontend/home" onClick={uppPageHandler}>
       <ImgLog src={LogoFooter} alt="Logo" />
     </Link>
   );

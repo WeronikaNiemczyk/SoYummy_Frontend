@@ -55,7 +55,6 @@ const Footer = () => {
   };
   return (
     <>
-      <ToastContainer />
       <FooterMain>
         <FooterWrapper>
           <WrapperFirstList>
@@ -83,12 +82,15 @@ const Footer = () => {
           <WrapperRouters>
             <ListRouts>
               <li>
-                <TextRous to="/categories" onClick={uppPageHandler}>
+                <TextRous
+                  to="/SoYummy_Frontend/categories/:category"
+                  onClick={uppPageHandler}
+                >
                   Categories
                 </TextRous>
               </li>
               <li>
-                <TextRous to="/add" onClick={uppPageHandler}>
+                <TextRous to="/SoYummy_Frontend/add" onClick={uppPageHandler}>
                   Add recipes
                 </TextRous>
               </li>
@@ -98,12 +100,18 @@ const Footer = () => {
                 </TextRous>
               </li>
               <li>
-                <TextRous to="/favorite" onClick={uppPageHandler}>
+                <TextRous
+                  to="/SoYummy_Frontend/favorite"
+                  onClick={uppPageHandler}
+                >
                   Favorite
                 </TextRous>
               </li>
               <li>
-                <TextRous to="/shopping-list" onClick={uppPageHandler}>
+                <TextRous
+                  to="/SoYummy_Frontend/shopping-list"
+                  onClick={uppPageHandler}
+                >
                   Shopping list
                 </TextRous>
               </li>

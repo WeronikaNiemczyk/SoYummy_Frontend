@@ -27,6 +27,15 @@ const App = () => {
           }
         >
           <Route
+            index
+            element={
+              <CheckRoute
+                redirectTo="/SoYummy_Frontend/welcome"
+                element={<WelcomePage />}
+              />
+            }
+          />
+          <Route
             path="/SoYummy_Frontend/home"
             element={
               <CheckRoute
