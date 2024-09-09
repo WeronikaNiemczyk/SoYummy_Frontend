@@ -11,7 +11,7 @@ export const PreviewCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       const response = await axios.get(
-        "https://deploy-marek-b05855e6af89.herokuapp.com/recipes/main-page"
+        "https://soyummy-28cc50238591.herokuapp.com/recipes/main-page"
       );
       const data = response.data;
       console.log(data);

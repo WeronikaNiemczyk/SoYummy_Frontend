@@ -3,8 +3,7 @@
 import axios from "axios";
 import Cookies from "./cookies";
 
-axios.defaults.baseURL =
-  "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1";
+axios.defaults.baseURL = "https://soyummy-28cc50238591.herokuapp.com/api/v1";
 
 const register = async (data) => {
   try {

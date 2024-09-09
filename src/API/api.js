@@ -8,19 +8,19 @@ import cookies from "../features/cookies";
 
 // Konfiguracja dla Użytkowników i obsługi maili
 const userApi = axios.create({
-  baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/api/v1/users",
+  baseURL: "https://soyummy-28cc50238591.herokuapp.com/api/v1/users",
   withCredentials: true, // Dodano opcję, aby wysyłać ciasteczka
 });
 
 // Konfiguracja dla Przepisów
 export const recipesApi = axios.create({
-  baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/recipes",
+  baseURL: "https://soyummy-28cc50238591.herokuapp.com/recipes",
   withCredentials: true, // Dodano opcję, aby wysyłać ciasteczka
 });
 
 // Konfiguracja dla Składników
 export const ingredientsApi = axios.create({
-  baseURL: "https://deploy-marek-b05855e6af89.herokuapp.com/ingredients",
+  baseURL: "https://soyummy-28cc50238591.herokuapp.com/ingredients",
   withCredentials: true, // Dodano opcję, aby wysyłać ciasteczka
 });
 

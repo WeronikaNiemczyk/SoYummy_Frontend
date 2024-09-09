@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://deploy-marek-b05855e6af89.herokuapp.com/recipes";
+const BASE_URL = "https://soyummy-28cc50238591.herokuapp.com/recipes";
 
 export const getCategoryListAPI = async () => {
   const response = await axios.get(`${BASE_URL}/category-list`);
