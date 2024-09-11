@@ -8,7 +8,7 @@ export const fetchUserData = async () => {
   }
 
   const response = await fetch(
-    "https://soyummy-28cc50238591.herokuapp.com/api/v1/users/current",
+    "https://soyummy-526e125f64e8.herokuapp.com/api/v1/users/current",
     {
       method: "GET",
       headers: {

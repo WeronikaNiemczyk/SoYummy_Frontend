@@ -36,7 +36,7 @@ export const UserInfoModal = ({ onClose }) => {
 
     try {
       const nameResponse = await fetch(
-        "https://soyummy-28cc50238591.herokuapp.com/api/v1/users/update-name",
+        "https://soyummy-526e125f64e8.herokuapp.com/api/v1/users/update-name",
         {
           method: "PATCH",
           headers: {
@@ -57,7 +57,7 @@ export const UserInfoModal = ({ onClose }) => {
         formData.append("avatar", avatarFile);
 
         const avatarResponse = await fetch(
-          "https://soyummy-28cc50238591.herokuapp.com/api/v1/users/avatars",
+          "https://soyummy-526e125f64e8.herokuapp.com/api/v1/users/avatars",
           {
             method: "PATCH",
             headers: {

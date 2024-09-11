@@ -14,7 +14,7 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
   //   const token = Cookies.readCookie();
   //   try {
   //     const response = await fetch(
-  //       "https://soyummy-28cc50238591.herokuapp.com/api/v1/users/logout",
+  //       "https://soyummy-526e125f64e8.herokuapp.com/api/v1/users/logout",
   //       {
   //         method: "GET",
   //         headers: {
@@ -39,7 +39,7 @@ export const LogoutBtn = ({ onLogout, onClose }) => {
     const token = Cookies.readCookie();
     try {
       await fetch(
-        "https://soyummy-28cc50238591.herokuapp.com/api/v1/users/logout",
+        "https://soyummy-526e125f64e8.herokuapp.com/api/v1/users/logout",
         {
           method: "GET",
           headers: {
