@@ -23,6 +23,10 @@ export const PreviewCategories = () => {
 
   const handleSeeAll = (categoryName) => {
     navigate(`/SoYummy_Frontend/categories/${categoryName}`);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const handleOtherCategories = () => {
@@ -32,6 +36,12 @@ export const PreviewCategories = () => {
   const handleRecipeClick = (recipeID) => {
     console.log(recipeID);
     navigate(`/SoYummy_Frontend/recipe/${recipeID}`);
+  };
+  const uppPageHandler = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const orderedCategories = [
@@ -58,7 +68,7 @@ export const PreviewCategories = () => {
               <li
                 key={recipe._id}
                 className={`MainRecipeItem MainRecipeItem-${index}`}
-                onClick={() => handleRecipeClick(recipe._id)}
+                onClick={uppPageHandler(() => handleRecipeClick(recipe._id))}
               >
                 <img src={recipe.thumb} alt={recipe.title} />
                 <p>{recipe.title}</p>
@@ -67,7 +77,7 @@ export const PreviewCategories = () => {
           </ul>
           <button
             className="MainSeeAllButton"
-            onClick={() => handleSeeAll(category.category)}
+            onClick={uppPageHandler(() => handleSeeAll(category.category))}
           >
             See all
           </button>

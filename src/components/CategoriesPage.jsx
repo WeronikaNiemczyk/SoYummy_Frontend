@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCategoryList, getRecipesByCategory } from "../API/api.js";
-import css from "../styles/CategoriesPage.module.css";
+import css from "../styles/Search.module.css";
+import style from "../styles/CategoriesPage.module.css";
 
 const CategoriesPage = () => {
   const { category } = useParams();
@@ -23,7 +24,8 @@ const CategoriesPage = () => {
         setCategories(data);
 
         if (!category || !data.some((cat) => cat.title === category)) {
-          setSelectedCategory("Beef");
+          navigate(`/SoYummy_Frontend/categories/Beef`, { replace: true });
+          // setSelectedCategory("Beef");
         } else {
           setSelectedCategory(category);
         }
@@ -34,15 +36,18 @@ const CategoriesPage = () => {
     };
 
     fetchCategories();
-  }, [category]);
+  }, [category, navigate]);
+
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        console.log(`Fetching recipes for category: ${selectedCategory}`);
-        const response = await getRecipesByCategory(selectedCategory);
-        const data = response.data || [];
-        console.log("Fetched recipes:", data);
-        setRecipes(data);
+        if (selectedCategory) {
+          console.log(`Fetching recipes for category: ${selectedCategory}`);
+          const response = await getRecipesByCategory(selectedCategory);
+          const data = response.data || [];
+          console.log("Fetched recipes:", data);
+          setRecipes(data);
+        }
       } catch (error) {
         console.error("Error fetching recipes:", error);
         setError("Failed to fetch recipes.");
@@ -54,19 +59,21 @@ const CategoriesPage = () => {
     }
   }, [selectedCategory]);
 
-  const handleCategoryChange = (title) => {
-    setSelectedCategory(title);
-    navigate(`/SoYummy_Frontend/categories/${title}`);
+  const handleCategoryChange = (newCategory) => {
+    if (newCategory !== selectedCategory) {
+      navigate(`/SoYummy_Frontend/categories/${newCategory}`); // Zmiana URL
+      setSelectedCategory(newCategory); // Ustawienie nowej kategorii
+    }
   };
 
   return (
-    <div className={css.categoriesPage}>
-      <div className={css.categoryMenu}>
+    <div>
+      <div>
         {categories.length > 0 ? (
           categories.map((cat, index) => (
             <button
               key={index}
-              className={`${css.categoryButton} ${
+              className={`${style.categoryButton} ${
                 cat === selectedCategory ? css.active : ""
               }`}
               onClick={() => handleCategoryChange(cat)}
@@ -78,27 +85,28 @@ const CategoriesPage = () => {
           <p>No categories available.</p>
         )}
       </div>
-      <div className={css.categoriesRecipeList}>
-        {error && <p className={css.categoriesErrorMessage}>{error}</p>}
-        {recipes.length > 0 ? (
-          <ul className={css.categoriesRecipeItems}>
-            {recipes.map((recipe) => (
-              <li
-                key={recipe._id}
-                className={css.categoriesRecipeItem}
-                onClick={() => navigate(`../recipe/${recipe._id}`)}
-              >
-                <img
-                  src={recipe.thumb}
-                  alt={recipe.title}
-                  className={css.categoriesRecipeImage}
-                />
-                <p className={css.categoriesRecipeTitle}>{recipe.title}</p>
-              </li>
-            ))}
-          </ul>
+      <div>
+        {error && <p className={style.categoriesErrorMessage}>{error}</p>}
+
+        {recipes.length === 0 ? (
+          <div>
+            <p>No recipes available for this category.</p>
+          </div>
         ) : (
-          <p>No recipes available for this category.</p>
+          <div className={css.recipeContainer}>
+            {recipes.map((recipe) => (
+              <div
+                key={recipe._id}
+                className={css.RecipeItem}
+                onClick={() =>
+                  navigate(`/SoYummy_Frontend/recipe/${recipe._id}`)
+                }
+              >
+                <img src={recipe.thumb} alt={recipe.title} />
+                <p>{recipe.title}</p>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </div>

@@ -8,7 +8,7 @@ import SearchBar from "../components/SearchBar";
 import SearchedRecipesList from "../components/SearchedRecipesList";
 import Stack from "@mui/material/Stack";
 import CustomPagination from "../components/Pagination";
-import css from "../styles/Search.module.css";
+// import css from "../styles/Search.module.css";
 import style from "../styles/Container.style.module.css";
 
 const Search = () => {
