@@ -89,7 +89,7 @@ const Footer = () => {
                   Categories
                 </TextRous>
               </li>
-              <li>
+              {/* <li>
                 <TextRous to="/SoYummy_Frontend/add" onClick={uppPageHandler}>
                   Add recipes
                 </TextRous>
@@ -98,7 +98,7 @@ const Footer = () => {
                 <TextRous to="own-recipes" onClick={uppPageHandler}>
                   My recipes
                 </TextRous>
-              </li>
+              </li> */}
               <li>
                 <TextRous
                   to="/SoYummy_Frontend/favorite"

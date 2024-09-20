@@ -21,22 +21,22 @@ export const Navigation = ({ closeMenu }) => {
         {/* <NavLink className="HeaderStyledLink" to="/categories/:category"> */}
         Categories
       </NavLink>
-      <NavLink
+      {/* <NavLink
         onClick={handleMenuClick}
         className="HeaderStyledLink"
         to="../SoYummy_Frontend/add"
-      >
+      > */}
         {/* <NavLink className="HeaderStyledLink" to="/add"> */}
-        Add Recipes
+        {/* Add Recipes
       </NavLink>
       <NavLink
         onClick={handleMenuClick}
         className="HeaderStyledLink"
         to="../SoYummy_Frontend/my"
-      >
+      > */}
         {/* <NavLink className="HeaderStyledLink" to="/my"> */}
-        My Recipes
-      </NavLink>
+        {/* My Recipes */}
+      {/* </NavLink> */}
       <NavLink
         onClick={handleMenuClick}
         className="HeaderStyledLink"
