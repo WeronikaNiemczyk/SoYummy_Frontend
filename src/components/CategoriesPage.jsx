@@ -82,8 +82,6 @@ const CategoriesPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const defaultCategory = "Beef";
-
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -92,6 +90,9 @@ const CategoriesPage = () => {
         const data = response.data.categories;
         console.log("Fetched categories:", data);
         setCategories(data);
+        if (!category || !data.some((cat) => cat === category)) {
+          navigate(`/SoYummy_Frontend/categories/Beef`, { replace: true });
+        }
       } catch (error) {
         console.error("Error fetching categories:", error);
         setError("Failed to fetch categories.");
@@ -100,20 +101,21 @@ const CategoriesPage = () => {
     console.log("Category passed to API:", category);
 
     fetchCategories();
-  }, []);
+  }, [category, navigate]);
 
-  useEffect(() => {
-    if (!category) {
-      navigate(`/SoYummy_Frontend/categories/${defaultCategory}`, {
-        replace: true,
-      });
-    }
-  }, [category, navigate, defaultCategory]);
+  // useEffect(() => {
+  //   if (!category === category) {
+  //     navigate(`/SoYummy_Frontend/categories/${category}`, {
+  //       replace: true,
+  //     });
+  //   }
+  // }, [category, navigate, category]);
 
   useEffect(() => {
     const fetchRecipes = async () => {
       if (category) {
         setLoading(true);
+        setError(null);
         try {
           console.log(`Fetching recipes for category: ${category}`);
           const response = await getRecipesByCategory(category);
